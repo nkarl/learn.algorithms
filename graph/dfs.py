@@ -8,19 +8,25 @@ def dfs_core(graph, v, visited):
         - Marks v as visited.
         - Recurs for each unvisited adjacents of v.
     """
+    #
+    #
+
+    #
     visited.add(v)
     print(v, end=' ')
     for u in graph[v]:
         if u not in visited:
+            #
             dfs_core(graph, u, visited)
     pass
 
 
 def dfs(graph, v):
     """
-        Finds a path from v.
+        Finds all paths from v, deepest first.
     """
     visited = set()
+    #
     dfs_core(graph, v, visited)
     pass
 

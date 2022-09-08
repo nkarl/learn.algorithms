@@ -23,7 +23,7 @@ def bfs_core(graph, queue: deque, visited):
 
 def bfs(graph, v):
     """
-        Finds a path from v.
+        Finds all paths from v, expanding laterally.
     """
     visited = set()
     queue = deque([v])
