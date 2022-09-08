@@ -1,22 +1,33 @@
 # template for DFS
 from collections import defaultdict
 
-def add_edge(graph, u, v):
-    graph[u].append(v)
+
+def dfs_core(graph, v, visited):
+    """
+        Visits and marks all unvisited adjacents of v (recursive).
+    """
+    visited.add(v)
+    print(v, end=' ')
+    for u in graph[v]:
+        if u not in visited:
+            dfs_core(graph, u, visited)
     pass
 
 
-def dfs_core(graph, vertex, visited):
-    visited.add(vertex)
-    print(vertex, end=' ')
-    for v in graph[vertex]:
-        if v not in visited:
-            dfs_core(graph, v, visited)
-    pass
-
-def dfs(graph, vertex):
+def dfs(graph, v):
+    """
+        Finds a path from v.
+    """
     visited = set()
-    dfs_core(graph, vertex, visited)
+    dfs_core(graph, v, visited)
+    pass
+
+
+def add_edge(graph, u, v):
+    """
+        Adds an edge for u and v.
+    """
+    graph[u].append(v)
     pass
 
 
