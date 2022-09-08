@@ -1,11 +1,12 @@
-# template for DFS
+# template for BFS
 from collections import defaultdict, deque
+import graphutils
 
 
 def bfs_core(graph, queue: deque, visited):
     """
         - Marks v as visited.
-        - Visits and marks all unvisited adjacents of v.
+        - Queues up all unvisited adjacents of v.
     """
     if queue.count == 0:
         return
@@ -30,27 +31,19 @@ def bfs(graph, v):
     pass
 
 
-def add_edge(graph, u, v):
-    """
-        Adds an edge for u and v.
-    """
-    graph[u].append(v)
-    pass
-
-
 # creates empty graph
 g1 = defaultdict(list)
 
 # init the graph with vertices
-add_edge(g1, 0, 1)
-add_edge(g1, 0, 2)
-add_edge(g1, 1, 0)
-add_edge(g1, 1, 3)
-add_edge(g1, 1, 4)
-add_edge(g1, 2, 0)
-add_edge(g1, 3, 1)
-add_edge(g1, 4, 2)
-add_edge(g1, 4, 3)
+graphutils.add_edge(g1, 0, 1)
+graphutils.add_edge(g1, 0, 2)
+graphutils.add_edge(g1, 1, 0)
+graphutils.add_edge(g1, 1, 3)
+graphutils.add_edge(g1, 1, 4)
+graphutils.add_edge(g1, 2, 0)
+graphutils.add_edge(g1, 3, 1)
+graphutils.add_edge(g1, 4, 2)
+graphutils.add_edge(g1, 4, 3)
 
 
 print("Graph:")

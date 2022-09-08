@@ -1,5 +1,6 @@
 # template for DFS
 from collections import defaultdict
+import graphutils
 
 
 def dfs_core(graph, v, visited):
@@ -24,27 +25,19 @@ def dfs(graph, v):
     pass
 
 
-def add_edge(graph, u, v):
-    """
-        Adds an edge for u and v.
-    """
-    graph[u].append(v)
-    pass
-
-
 # creates empty graph
 g1 = defaultdict(list)
 
 # init the graph with vertices
-add_edge(g1, 0, 1)
-add_edge(g1, 0, 2)
-add_edge(g1, 1, 0)
-add_edge(g1, 1, 3)
-add_edge(g1, 1, 4)
-add_edge(g1, 2, 0)
-add_edge(g1, 3, 1)
-add_edge(g1, 4, 2)
-add_edge(g1, 4, 3)
+graphutils.add_edge(g1, 0, 1)
+graphutils.add_edge(g1, 0, 2)
+graphutils.add_edge(g1, 1, 0)
+graphutils.add_edge(g1, 1, 3)
+graphutils.add_edge(g1, 1, 4)
+graphutils.add_edge(g1, 2, 0)
+graphutils.add_edge(g1, 3, 1)
+graphutils.add_edge(g1, 4, 2)
+graphutils.add_edge(g1, 4, 3)
 
 
 print("Graph:")
