@@ -1,26 +1,32 @@
 # template for DFS
-from collections import defaultdict
+from collections import defaultdict, deque
 
 
-def dfs_core(graph, v, visited):
+def bfs_core(graph, queue: deque, visited):
     """
         - Marks v as visited.
-        - Recurs for each unvisited adjacents of v.
+        - Visits and marks all unvisited adjacents of v.
     """
+    if queue.count == 0:
+        return
+
+    v = queue.popleft()
     visited.add(v)
     print(v, end=' ')
     for u in graph[v]:
         if u not in visited:
-            dfs_core(graph, u, visited)
+            queue.append(u)
+            bfs_core(graph, queue, visited)
     pass
 
 
-def dfs(graph, v):
+def bfs(graph, v):
     """
         Finds a path from v.
     """
     visited = set()
-    dfs_core(graph, v, visited)
+    queue = deque([v])
+    bfs_core(graph, queue, visited)
     pass
 
 
@@ -53,4 +59,4 @@ for k, v in g1.items():
 
 # run dfs on the graph
 print("Path from 2:", end='\n\t')
-dfs(g1, 2)
+bfs(g1, 2)
