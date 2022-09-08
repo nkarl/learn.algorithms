@@ -4,7 +4,8 @@ from collections import defaultdict
 
 def dfs_core(graph, v, visited):
     """
-        Visits and marks all unvisited adjacents of v (recursive).
+        - Marks v as visited.
+        - Visits and marks all unvisited adjacents of v (recursive).
     """
     visited.add(v)
     print(v, end=' ')
