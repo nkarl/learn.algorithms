@@ -38,10 +38,13 @@ g1 = defaultdict(list)
 # init the graph with vertices
 add_edge(g1, 0, 1)
 add_edge(g1, 0, 2)
-add_edge(g1, 1, 2)
+add_edge(g1, 1, 0)
+add_edge(g1, 1, 3)
+add_edge(g1, 1, 4)
 add_edge(g1, 2, 0)
-add_edge(g1, 2, 3)
-add_edge(g1, 3, 3)
+add_edge(g1, 3, 1)
+add_edge(g1, 4, 2)
+add_edge(g1, 4, 3)
 
 
 print("Graph:")
