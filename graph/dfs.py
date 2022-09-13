@@ -25,14 +25,14 @@ def dfs(graph, v):
     """
         Finds all paths from v, deepest first.
     """
-    visited = set()
+    visited: set = set()
     #
     dfs_core(graph, v, visited)
     pass
 
 
 # creates empty graph
-g1 = defaultdict(list)
+g1: defaultdict = defaultdict(list)
 
 # init the graph with vertices
 ps = [

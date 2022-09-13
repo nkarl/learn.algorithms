@@ -11,7 +11,7 @@ def bfs_core(graph, queue: deque, visited):
     if queue.count == 0:
         return
 
-    v = queue.popleft()
+    v: str = queue.popleft()
     visited.add(v)
     print(v, end=' ')
     for w in graph[v]:
@@ -25,14 +25,14 @@ def bfs(graph, v):
     """
         Finds all paths from v, expanding laterally.
     """
-    visited = set()
-    queue = deque([v])
+    visited: set = set()
+    queue: deque = deque([v])
     bfs_core(graph, queue, visited)
     pass
 
 
 # creates empty graph
-g1 = defaultdict(list)
+g1: defaultdict = defaultdict(list)
 
 # init the graph with vertices
 ps = [
