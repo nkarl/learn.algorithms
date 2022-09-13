@@ -35,15 +35,10 @@ def bfs(graph, v):
 g1 = defaultdict(list)
 
 # init the graph with vertices
-graphutils.add_edge(g1, 0, 1)
-graphutils.add_edge(g1, 0, 2)
-graphutils.add_edge(g1, 1, 0)
-graphutils.add_edge(g1, 1, 3)
-graphutils.add_edge(g1, 1, 4)
-graphutils.add_edge(g1, 2, 0)
-graphutils.add_edge(g1, 3, 1)
-graphutils.add_edge(g1, 4, 2)
-graphutils.add_edge(g1, 4, 3)
+ps = [
+    [0,1], [0,2], [1,0], [1,3], [1,4], [2,0], [3,1], [4,2], [4,3]
+]
+graphutils.makegraph(g1, ps)
 
 
 print("Graph:")
