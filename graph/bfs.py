@@ -14,9 +14,9 @@ def bfs_core(graph, queue: deque, visited):
     v = queue.popleft()
     visited.add(v)
     print(v, end=' ')
-    for u in graph[v]:
-        if u not in visited:
-            queue.append(u)
+    for w in graph[v]:
+        if w not in visited:
+            queue.append(w)
             bfs_core(graph, queue, visited)
     pass
 

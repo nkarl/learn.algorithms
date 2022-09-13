@@ -14,10 +14,10 @@ def dfs_core(graph, v, visited):
     #
     visited.add(v)
     print(v, end=' ')
-    for u in graph[v]:
-        if u not in visited:
+    for w in graph[v]:
+        if w not in visited:
             #
-            dfs_core(graph, u, visited)
+            dfs_core(graph, w, visited)
     pass
 
 
