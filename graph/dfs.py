@@ -9,11 +9,11 @@ def dfs_core(graph, v, visited):
         - Marks v as visited.
         - Recurs for each unvisited adjacents of v.
     """
+    if len(visited) == len(graph):
+        return
     #
     visited.add(v)
     print(v, end=' ')
-    if len(graph[v]) == 0:
-        return
     for w in graph[v]:
         if w not in visited:
             #

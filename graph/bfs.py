@@ -9,11 +9,11 @@ def bfs_core(graph, queue: deque, visited):
         - Marks v as visited.
         - Queues up and recurs for each unvisited adjacents of v.
     """
+    if queue.count == 0:
+        return
     v = queue.popleft()
     visited.add(v)
     print(v, end=' ')
-    if queue.count == 0:
-        return
     for w in graph[v]:
         if w not in visited:
             queue.append(w)
