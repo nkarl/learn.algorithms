@@ -1,6 +1,7 @@
 # template for BFS
 from collections import defaultdict, deque
 import graphutils
+import sys
 
 
 def bfs_core(graph, queue: deque, visited):
@@ -8,11 +9,11 @@ def bfs_core(graph, queue: deque, visited):
         - Marks v as visited.
         - Queues up and recurs for each unvisited adjacents of v.
     """
-    if queue.count == 0:
-        return
     v = queue.popleft()
     visited.add(v)
     print(v, end=' ')
+    if queue.count == 0:
+        return
     for w in graph[v]:
         if w not in visited:
             queue.append(w)
@@ -44,6 +45,7 @@ print("Graph:")
 for k, v in g1.items():
     print(f"\tnode: {k}, adj: {v}")
 
-# run dfs on the graph
-print("Path from 2:", end='\n\t')
-bfs(g1, 2)
+# run bfs on the graph
+start = int(sys.argv[1])
+print(f"Path from {start}:", end='\n\t')
+bfs(g1, start)

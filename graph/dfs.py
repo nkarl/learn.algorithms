@@ -1,6 +1,7 @@
 # template for DFS
 from collections import defaultdict
 import graphutils
+import sys
 
 
 def dfs_core(graph, v, visited):
@@ -9,10 +10,10 @@ def dfs_core(graph, v, visited):
         - Recurs for each unvisited adjacents of v.
     """
     #
-    #
-    #
     visited.add(v)
     print(v, end=' ')
+    if len(graph[v]) == 0:
+        return
     for w in graph[v]:
         if w not in visited:
             #
@@ -45,5 +46,6 @@ for k, v in g1.items():
     print(f"\tnode: {k}, adj: {v}")
 
 # run dfs on the graph
-print("Path from 2:", end='\n\t')
-dfs(g1, 2)
+start = int(sys.argv[1])
+print(f"Path from {start}:", end='\n\t')
+dfs(g1, start)
