@@ -10,7 +10,6 @@ def dfs_core(graph, v, visited):
     """
     #
     #
-
     #
     visited.add(v)
     print(v, end=' ')
