@@ -5,14 +5,19 @@ using std::swap;
 void moveZeroes(vector<int> &nums) {
   for (int last = 0, curr = 0; curr < nums.size(); ++curr) {
     cout << "for=" << curr << "; last=" << last << endl;
+    cout << "nums[" << curr << "]==" << nums[curr] << "; "
+         << "nums[" << last << "]==" << nums[last];
     if (nums[curr] != 0) {
-      cout << "nums[" << last << "]=" << nums[last]
-         << "; "
-         << "nums[" << curr << "]=" << nums[curr] << endl;
+      cout << "\tswapping" << endl;
       swap(nums[last], nums[curr]);
+      cout << "\t\t";
+      myPrint(nums);
       ++last;
+    } else {
+      cout << endl << "\t\t";
+      myPrint(nums);
     }
-    myPrint(nums);
+    cout << endl;
   }
 }
 
