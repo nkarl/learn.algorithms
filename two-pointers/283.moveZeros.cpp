@@ -3,16 +3,16 @@
 using std::swap;
 
 void moveZeroes(vector<int> &nums) {
-  for (int last = 0, curr = 0; curr < nums.size(); ++curr) {
-    cout << "for=" << curr << "; last=" << last << endl;
-    cout << "nums[" << curr << "]==" << nums[curr] << "; "
-         << "nums[" << last << "]==" << nums[last];
-    if (nums[curr] != 0) {
+  for (int l = 0, c = 0; c < nums.size(); ++c) {
+    cout << "for="  << c << ";l=" << l << endl;
+    cout << "nums[" << c << "]==" << nums[c] << "; "
+         << "nums[" << l << "]==" << nums[l];
+    if (nums[c] != 0) {
       cout << "\tswapping" << endl;
-      swap(nums[last], nums[curr]);
+      swap(nums[l], nums[c]);
       cout << "\t\t";
       myPrint(nums);
-      ++last;
+      ++l;
     } else {
       cout << endl << "\t\t";
       myPrint(nums);
