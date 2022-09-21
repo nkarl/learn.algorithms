@@ -5,29 +5,24 @@ using std::map;
 
 vector<int> twoSum(vector<int> &nums, int target) {
 
-  map<int, int> dict = {}; // Creates a new dictionary.
+  map<int, int> seen = {}; // Creates a new dictionary.
 
   for (int i = 0; i < nums.size(); i++) {
-    /*
-     * Let candidate be element at i.
-     */
-    int candidate = nums[i];
+    auto candidate = nums[i];
+    auto diff = target - candidate;
 
-    /*
-     * Binary check if the candidate is already in <dict>.
-     */
-    if (dict.find(candidate) == dict.end()) {
-      /*
-       * If true, memorizes the difference (target - candidate) into
-       * the dictionary with i as value.
-       */
-      dict[target - candidate] = i;
-    } else {
-      /*
-       * Otherwise, returns a 2-vector of the candiate and i right away. (the
-       * two elements summing up to target)
-       */
-      return {dict[candidate], i};
+    // Find diff.
+    //  if not found, add candidate and its index to dictionary.
+    if (seen.find(diff) == seen.end()) {
+      seen[candidate] = i;
+      cout << "NOT FOUND:" << endl;
+      for (auto i : seen) {
+        cout << "\t\tkey: diff=" << i.first << "\tval: i=" << i.second << endl;
+      }
+    }
+    //  if found, return indices of both diff and candidate.
+    else {
+      return {seen[diff], i};
     }
   }
   // In case there is no solution, we'll just return empty vector.
@@ -38,7 +33,7 @@ vector<int> twoSum(vector<int> &nums, int target) {
  * MAIN ENTRY.
  */
 int main(int argc, char *argv[]) {
-  vector<int> nums = {1, 2, 3, 4, 5, 6};
+  vector<int> nums = {1, 2, 0, 0, 5, 6};
   myPrint(nums); // before
   auto c = twoSum(nums, 7);
   myPrint(nums); // after
