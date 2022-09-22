@@ -4,20 +4,33 @@
 using std::map;
 
 vector<int> twoSum(vector<int> &nums, int target) {
-  // create a new dictionary to store unique parts.
+  /*
+   * Input : vector nums; a target integer.
+   * Output: the pair of indices of the elements summing up to target.
+   *
+   * Reasoning:
+   * - The vector may contain exactly two elements that compose the target.
+   * - Every element is a possible part of an unordered solution pair.
+   * - If there exists a solution set, then the target is composed of exactly
+   *   two parts in {a_x, b_i} at some unique indices x and i:
+   *
+   *        target = a_x + b_i
+   *
+   * - Thus, for every b=nums[i], go find its other part a.
+   *    - If a is NOT FOUND, then we know that b is part of a new solution set.
+   *      Thus, we immediately insert b and i as a new key-value pair into dict
+   *      for future lookup.
+   *    - Otherwise a FOUND, then we have both x and i. The solution is the
+   *      index x saved at dict[a] and i. Thus we return immediately a new
+   *      2-vector {dict[a], i}.
+   *
+   * - If no solution set is found, return an empty vector.
+   */
+
+  // create a new dictionary to memoize possible parts.
   map<int, int> dict = {};
 
-  /*
-   * Reasoning:
-   * - Every element is a possible part of the target, where
-   *   the target is composed by exactly two parts at some
-   *   index i and j:
-   *      target = a + b
-   *
-   * - Thus, for every p_i=nums[i], go find its other part p_j.
-   *    - If p_j not found, insert p_i and i as key-value pair into dict.
-   *    - If p_j found, return i and j, where j is and the index saved at dict[p_j].
-   */
+  // start looking for parts a and b.
   for (int i = 0; i < nums.size(); ++i) {
     int a = target - nums[i];
     int b = nums[i];
