@@ -1,15 +1,17 @@
 #include "../utils.hpp"
 
+bool isBadVersion(int v) {
+    return true;
+}
+
 int search(vector<int>& nums, int target) {
     int head = 0, tail = nums.size() - 1;
 
     while (head <= tail) {
       int mid = head + (tail - head) / 2;
-      bool bad = isBadVersion(mid);
-      if (bad)
-        tail = mid - 1;
-      else
-        head = mid + 1;
+
+      if (isBadVersion(mid)) tail = mid - 1;
+      else                   head = mid + 1;
     }
 
     return head;

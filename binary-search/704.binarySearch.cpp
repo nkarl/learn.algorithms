@@ -15,12 +15,10 @@ int search(vector<int> &nums, int target) {
 
   while (lo <= hi) {
     int m = lo + (hi - lo) / 2;
-    if (key < nums[m])
-      hi = m - 1;
-    else if (key > nums[m])
-      lo = m + 1;
-    else
-      return m;
+
+    if      (key < nums[m]) hi = m - 1;
+    else if (key > nums[m]) lo = m + 1;
+    else                    return m;
   }
   return -1;
 }
@@ -28,18 +26,13 @@ int search(vector<int> &nums, int target) {
 /*
  * Recursive implementation of search.
  */
-int recurSearch(vector<int> &nums, int lo, int hi, int key) {
-  if (lo > hi) {
-    return -1;
-  }
+int recurSearch(vector<int> &nums, int target, int lo, int hi) {
+  if (lo > hi) return -1;
 
   int m = lo + (hi - lo) / 2;
-  if (key < nums[m])
-    return recurSearch(nums, lo, m - 1, key);
-  else if (key > nums[m])
-    return recurSearch(nums, m + 1, hi, key);
-  else
-    return m;
+  if      (target < nums[m]) return recurSearch(nums, target, lo, m - 1);
+  else if (target > nums[m]) return recurSearch(nums, target, m + 1, hi);
+  else                       return m;
 }
 
 int main(int argc, char *argv[]) {
@@ -56,8 +49,6 @@ int main(int argc, char *argv[]) {
   int res_re = recurSearch(nums, 0, nums.size() - 1, key);
   cout << endl << "key index:" << res << endl;
   cout << endl << "key index:" << res_re << endl;
-  // cout << endl;
-  // cout << typeid(nums).name() << endl;
 
   return 0;
 }
