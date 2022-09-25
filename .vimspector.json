@@ -5,8 +5,9 @@
       "filetypes": ["cpp", "c", "objc", "rust"],
       "configuration": {
         "request": "launch",
-        "program": "./a",
+        "program": "a",
         "MIMode": "gdb",
+        "stopAtEntry": true,
         "setupCommands": [
           {
             "description": "Enable pretty-printing for gdb",
