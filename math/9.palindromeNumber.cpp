@@ -6,13 +6,14 @@ bool isPalindrome(int x) {
         return false;
     }
 
-    int reverted = 0;
-    while (x > reverted) {
-        reverted = reverted * 10 + x % 10;
-        x /= 10;
+    int head = x; int tail = 0;
+    while (head > tail) {
+        tail = tail * 10 + head % 10;
+        head /= 10;
     }
+    cout << "\thead=\t" << head << "\ttail=\t" << tail << "\t";
 
-    return reverted == x || x == reverted / 10;
+    return head == tail || head == tail / 10;
 }
 
 /**
@@ -20,11 +21,8 @@ bool isPalindrome(int x) {
  */
 int main(int argc, char *argv[]) {
   vector<int> input = {1, 121, 123, 124421, 15, 36063};
-  /*
-   * Add solution function(s) here.
-   */
   for (auto x: input) {
-      cout << x << "\t isPalindrome()==" << isPalindrome(x) << endl;
+      cout << x << "\t isPalindrome() -->" << (isPalindrome(x) ? "True" : "False") << endl;
   }
   return 0;
 }
