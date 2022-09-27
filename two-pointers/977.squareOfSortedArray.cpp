@@ -15,10 +15,8 @@ vector<int> sortedSquares(vector<int> &nums) {
     vector<int> res(nums.size());
     int N = nums.size();
 
-    int l=0; int r=N-1;
-
-    for (int i=0; i < N; ++i) {
-        int sq;
+    int l=0; int r=N-1; int sq;
+    for (int i=0; i<N; ++i) {
         if (abs(nums[l]) < abs(nums[r])) sq = nums[r--];
         else                             sq = nums[l++];
         res[N-1-i] = sq * sq;
