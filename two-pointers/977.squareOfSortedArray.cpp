@@ -12,19 +12,16 @@
  *      O(N) space
  */
 vector<int> sortedSquares(vector<int> &nums) {
-    int         N = nums.size();
-    vector<int> res(N);
+    vector<int> res(nums.size());
+    int N = nums.size();
 
-    int l = 0;
-    int r = N - 1;
+    int l=0; int r=N-1;
 
-    for (int i = N - 1; i >= 0; --i) {
+    for (int i=0; i < N; ++i) {
         int sq;
-        if (abs(nums[l]) < abs(nums[r]))
-            sq = nums[r--];
-        else
-            sq = nums[l--];
-        res[i] = sq * sq;
+        if (abs(nums[l]) < abs(nums[r])) sq = nums[r--];
+        else                             sq = nums[l++];
+        res[N-1-i] = sq * sq;
     }
     return res;
 }
