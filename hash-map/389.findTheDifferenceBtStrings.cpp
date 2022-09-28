@@ -5,24 +5,15 @@ using std::map;
 using std::string;
 
 char findTheDifference(string s, string t) {
-    map<char, int> chars = {};
-    for (char c : s) {
-        ++chars[c];
-    }
-
-    for (auto e : chars) {
-        cout << "K=" << e.first << " V=" << e.second << "; ";
-    }
-    cout << endl;
-
-    char ex = '\0';
-    for (char c : t) {
-        if ((chars.find(c) == chars.end()) || chars[c] == 0)
+    map<char, int> seen;
+    for (auto c: s) ++seen[c];
+    for (auto c: t) {
+        if (seen.find(c) == seen.end() || seen[c] == 0)
             return c;
         else
-            --chars[c];
+            --seen[c];
     }
-    return ex;
+    return '\0';
 }
 
 /**
@@ -31,6 +22,8 @@ char findTheDifference(string s, string t) {
 int main(int argc, char *argv[]) {
     string s = "abcd";
     string t = "abcde";
+    cout << s << endl;
+    cout << t << endl;
 
     cout << findTheDifference(s, t) << endl;
     return 0;
