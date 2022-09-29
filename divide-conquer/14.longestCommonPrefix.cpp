@@ -10,8 +10,10 @@ using std::min; using std::string;
  */
 string commonPrefix(string left, string right) {
     int shortest = min(left.size(), right.size());
+    // Confirms the substr(i, shortest) is in both left and right.
     for (int i=0; i < shortest; i++) {
-        if (left[i] != right[i]) return left.substr(0, i);
+        if (left[i] != right[i])
+            return left.substr(0, i);
     }
     return left.substr(0, shortest);
 }
@@ -22,9 +24,9 @@ string commonPrefix(string left, string right) {
 string dfs(vector<string> &strs, int l, int r) {
     if (l == r) return strs[l];     // base case.
     else {
-        int    m        = (l + r) / 2;
-        string lcpLeft  = dfs(strs, l, m);
-        string lcpRight = dfs(strs, m + 1, r);
+        int    m        = (l+r)/2;
+        string lcpLeft  = dfs(strs, l  , m);
+        string lcpRight = dfs(strs, m+1, r);
         return commonPrefix(lcpLeft, lcpRight);
     }
 }
@@ -34,7 +36,7 @@ string dfs(vector<string> &strs, int l, int r) {
  */
 string longestCommonPrefix(vector<string> &strs) {
     if (strs.size() == 0) return "";
-    return dfs(strs, 0, strs.size() - 1);
+    return dfs(strs, 0, strs.size()-1);
 }
 
 /**

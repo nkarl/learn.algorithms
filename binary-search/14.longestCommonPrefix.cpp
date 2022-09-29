@@ -9,12 +9,11 @@ using std::min; using std::string;
  * Check if there is a common prefix at a given length.
  */
 bool isCommonPrefix(vector<string> &strs, int len) {
-    string prefix = strs[0].substr(0, len);  // get the prefix.
-
+    string prefix = strs[0].substr(0, len); // get the prefix.
     // Confirms that every string in the vector has the prefix at given length.
     for (int i=1; i < strs.size(); ++i) {
-        // if the prefix doesn't start at index 0.
-        if (!(strs[i].find(prefix) == 0)) return false;
+        if (!(strs[i].find(prefix) == 0)) // can't be prefix if not starts at 0.
+            return false;
     }
     return true;
 }
@@ -38,7 +37,7 @@ string longestCommonPrefix(vector<string> &strs) {
         if (isCommonPrefix(strs, m)) lo = m+1;
         else                         hi = m-1;
     }
-    return strs[0].substr(0, (hi + lo) / 2);
+    return strs[0].substr(0, (hi+lo)/2);
 }
 
 /**
