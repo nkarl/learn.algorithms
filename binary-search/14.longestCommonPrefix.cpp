@@ -23,7 +23,6 @@ bool isCommonPrefix(vector<string> &strs, int len) {
  */
 string longestCommonPrefix(vector<string> &strs) {
     if (strs.size() == 0) return "";    // base case.
-
     // Find the shortest in the vector to use as the limit of prefix.
     int shortest = strs[0].size();
     for (auto str : strs) {
