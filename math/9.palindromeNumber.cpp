@@ -1,7 +1,7 @@
 #include "../utils.hpp"
 
 bool isPalindrome(int x) {
-    //edge case
+    //edge case: x < 0 or x is modulus of base 10.
     if (x < 0 || (x % 10 == 0 && x != 0)) {
         return false;
     }
