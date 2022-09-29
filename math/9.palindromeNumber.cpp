@@ -13,7 +13,7 @@ bool isPalindrome(int x) {
     }
     cout << "\thead=\t" << head << "\ttail=\t" << tail << "\t";
 
-    return head == tail || head == tail / 10;
+    return head == tail || head == tail/10;
 }
 
 /**

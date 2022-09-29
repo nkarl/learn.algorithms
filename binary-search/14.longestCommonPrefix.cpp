@@ -10,10 +10,10 @@ using std::min; using std::string;
  */
 bool isCommonPrefix(vector<string> &strs, int len) {
     string prefix = strs[0].substr(0, len); // get the prefix.
-    // Confirms that every string in the vector has the prefix at given length.
+    // Confirms that every string in the vector has the prefix of size len.
     for (int i=1; i < strs.size(); ++i) {
-        if (!(strs[i].find(prefix) == 0)) // can't be prefix if not starts at 0.
-            return false;
+        if (!(strs[i].find(prefix) == 0))
+            return false; // can't be prefix if not starts at index 0.
     }
     return true;
 }
