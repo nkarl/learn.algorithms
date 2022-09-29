@@ -1,16 +1,17 @@
 #include "../utils.hpp"
+using std::min; using std::string;
 
-using std::min;
-using std::string;
+/*
+ * Complexity: O(N) Time, O(N) Space.
+ */
 
 /**
  * Finds the common prefix (substring) of two strings.
  */
 string commonPrefix(string left, string right) {
     int shortest = min(left.size(), right.size());
-    for (int i = 0; i < shortest; i++) {
-        if (left[i] != right[i])
-            return left.substr(0, i);
+    for (int i=0; i < shortest; i++) {
+        if (left[i] != right[i]) return left.substr(0, i);
     }
     return left.substr(0, shortest);
 }
@@ -19,9 +20,7 @@ string commonPrefix(string left, string right) {
  * Find the longest common prefix from a vector of strings.
  */
 string dfs(vector<string> &strs, int l, int r) {
-    if (l == r) {
-        return strs[l];
-    }
+    if (l == r) return strs[l];     // base case.
     else {
         int    m        = (l + r) / 2;
         string lcpLeft  = dfs(strs, l, m);
