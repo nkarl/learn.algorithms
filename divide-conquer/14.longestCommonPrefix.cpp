@@ -3,6 +3,9 @@
 using std::min;
 using std::string;
 
+/**
+ * Finds the common prefix (substring) of two strings.
+ */
 string commonPrefix(string left, string right) {
     int shortest = min(left.size(), right.size());
     for (int i = 0; i < shortest; i++) {
@@ -12,21 +15,27 @@ string commonPrefix(string left, string right) {
     return left.substr(0, shortest);
 }
 
-string longestCommonPrefix(vector<string> &strs, int l, int r) {
+/**
+ * Find the longest common prefix from a vector of strings.
+ */
+string dfs(vector<string> &strs, int l, int r) {
     if (l == r) {
         return strs[l];
     }
     else {
         int    m        = (l + r) / 2;
-        string lcpLeft  = longestCommonPrefix(strs, l, m);
-        string lcpRight = longestCommonPrefix(strs, m + 1, r);
+        string lcpLeft  = dfs(strs, l, m);
+        string lcpRight = dfs(strs, m + 1, r);
         return commonPrefix(lcpLeft, lcpRight);
     }
 }
 
+/**
+ * Public interface that takes a vector of strings.
+ */
 string longestCommonPrefix(vector<string> &strs) {
     if (strs.size() == 0) return "";
-    return longestCommonPrefix(strs, 0, strs.size() - 1);
+    return dfs(strs, 0, strs.size() - 1);
 }
 
 /**

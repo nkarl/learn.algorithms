@@ -29,8 +29,7 @@ string longestCommonPrefix(vector<string> &strs) {
     /*
      * we apply binary search for the end index of the common prefix (if exists).
      */
-    int lo = 1;
-    int hi = shortest;
+    int lo = 1; int hi = shortest;
     while (lo <= hi) {
         int m = lo + (hi - lo) / 2;
         if (isCommonPrefix(strs, m))
@@ -45,8 +44,8 @@ string longestCommonPrefix(vector<string> &strs) {
  * MAIN ENTRY.
  */
 int main(int argc, char *argv[]) {
-    vector<string> strs = {"flow", "flower", "flight"};
-    string prefix = longestCommonPrefix(strs);
+    vector<string> strs   = {"flow", "flower", "flight"};
+    string         prefix = longestCommonPrefix(strs);
     cout << prefix << endl;
     return 0;
 }
