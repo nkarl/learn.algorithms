@@ -2,7 +2,7 @@
 using std::min; using std::string;
 
 /*
- * Complexity: O(logN) Time, O(N) Space.
+ * Complexity: O(NlogN) Time, O(1) Space.
  */
 
 /**
