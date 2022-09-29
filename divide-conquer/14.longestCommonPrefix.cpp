@@ -4,7 +4,7 @@ using std::min;
 using std::string;
 
 string commonPrefix(string left, string right) {
-    int shortest = min(left.length(), right.length());
+    int shortest = min(left.size(), right.size());
     for (int i = 0; i < shortest; i++) {
         if (left[i] != right[i])
             return left.substr(0, i);
