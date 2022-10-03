@@ -7,7 +7,7 @@ using std::min; using std::string;
 
 /** Check that every string in the vector contains a prefix of length m.
  */
-bool isCommonPrefix(vector<string> strs, int m) {
+bool isCommonPrefix(vector<string> &strs, int m) {
     string prefix = strs[0].substr(0, m);
     for (auto s: strs) {
         if (s.find(prefix) != 0) return false;
@@ -18,7 +18,7 @@ bool isCommonPrefix(vector<string> strs, int m) {
 /*
  * Longest Common Prefix.
  */
-string longestCommonPrefix(vector<string> strs) {
+string longestCommonPrefix(vector<string> &strs) {
     /*
      * First, find the shortest string in vector.
      */
