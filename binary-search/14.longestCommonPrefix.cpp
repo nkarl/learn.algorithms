@@ -5,38 +5,41 @@ using std::min; using std::string;
  * Complexity: O(NlogN) Time, O(1) Space.
  */
 
-/**
- * Check if there is a common prefix at a given length.
+/** Check that every string in the vector contains a prefix of length m.
  */
-bool isCommonPrefix(vector<string> &strs, int len) {
-    string prefix = strs[0].substr(0, len); // get the prefix.
-    // Confirms that every string in the vector has the prefix of size len.
-    for (int i=1; i < strs.size(); ++i) {
-        if (!(strs[i].find(prefix) == 0))
-            return false; // can't be prefix if not starts at index 0.
+bool isCommonPrefix(vector<string> strs, int m) {
+    string prefix = strs[0].substr(0, m);
+    for (auto s: strs) {
+        if (s.find(prefix) != 0) return false;
     }
     return true;
 }
 
-/**
- * Public interface that takes a vector of strings.
+/*
+ * Longest Common Prefix.
  */
-string longestCommonPrefix(vector<string> &strs) {
-    if (strs.size() == 0) return "";    // base case.
-    // Find the shortest in the vector to use as the limit of prefix.
+string longestCommonPrefix(vector<string> strs) {
+    /*
+     * First, find the shortest string in vector.
+     */
     int shortest = strs[0].size();
-    for (auto str : strs) {
-        shortest = min(shortest, (int)str.size());
+    for (auto s: strs) {
+        shortest = min(shortest, (int)s.size());
     }
 
-    // Find the terminating index of common prefix.
-    int lo = 1; int hi = shortest;
+    /*
+     * Given the size of the shortest string, we use binary search to find the
+     * longest common prefix on the length of the shortest.
+     * If the common prefix is shorter than mid, we can eliminate the right half
+     * of the shortest.
+     */
+    int lo = 0; int hi = shortest; int m;
     while (lo <= hi) {
-        int m = lo+(hi-lo)/2;
-        if (isCommonPrefix(strs, m)) lo = m+1;
-        else                         hi = m-1;
+        m = lo+(hi-lo)/2;
+        if (isCommonPrefix(strs, m)) lo=m+1;
+        else                         hi=m-1;
     }
-    return strs[0].substr(0, (hi+lo)/2);
+    return strs[0].substr(0, lo-1);
 }
 
 /**
