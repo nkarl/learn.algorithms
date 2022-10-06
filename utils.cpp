@@ -12,17 +12,19 @@ void myPrint(vector<int> &nums) {
 /* linked list */
 void addNode(ListNode *head, int x) {
     ListNode *node = head;
-    while (node->next != nullptr) node = node->next;
+    while (node->next) {
+        node = node->next;
+    }
     node->next = new ListNode(x);
 }
 
 std::string isEmptyNode(ListNode *node) {
-    return (node != nullptr) ? "NotEmpty" : "Empty";
+    return (node) ? "NotEmpty" : "Empty";
 }
 
 void printList(ListNode *head) {
     ListNode *node = head;
-    for (; node->next != nullptr;) {
+    while (node) {
         cout << node->val << " ";
         node = node->next;
     }
