@@ -10,10 +10,6 @@ ListNode *deleteDuplicates(ListNode *head) {
         child = (child->val == parent->val)
                     ? parent->next = child->next
                     : parent       = parent->next;
-        // if (child->val == parent->val)
-        // child = parent->next = child->next;
-        // else
-        // child = parent = parent->next;
     }
     return head;
 }
