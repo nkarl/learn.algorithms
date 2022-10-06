@@ -7,7 +7,7 @@ ListNode *deleteDuplicates(ListNode *head) {
 
     ListNode *parent = head, *child = parent->next;
     while (child) {
-        child = (child->val == parent->val)
+        child = (parent->val == child->val)
                     ? parent->next = child->next
                     : parent       = parent->next;
     }
