@@ -18,6 +18,16 @@ void addNode(ListNode *head, int x) {
     node->next = new ListNode(x);
 }
 
+void addNodesFromList(ListNode *head, vector<int> list) {
+    ListNode *node = head;
+    while (node->next) {
+        node = node->next;
+    }
+    for (auto x: list) {
+        node = node->next = new ListNode(x);
+    }
+}
+
 std::string isEmptyNode(ListNode *node) {
     return (node) ? "NotEmpty" : "Empty";
 }
