@@ -5,20 +5,18 @@ using std::string;
 ListNode *deleteDuplicates(ListNode *head) {
     if (!head) return head;
 
-    int sentinel = head->val;
-    // If head is found duplicated
-    if (head->next->val == sentinel) {
-        while (head->next && head->next->val == sentinel) {
+    int duplicate = head->val;
+    if (head->next->val == duplicate) {
+        // traverse the list and link to the next node
+        while (head->next && head->next->val == duplicate) {
             head = head->next;
         }
-        // Since head node is still the one which was duplicated calling
-        // recursion on next Node and updating current head
+        // since the head is still the one which was duplicated, call
+        // recursively on the next node and update current head
         head = deleteDuplicates(head->next);
     }
-    // If head isn't duplicated
     else {
-        // Leaving current head preserved and calling recursion from the next
-        // Node of list
+        // keep the current head and call recursion from the next node
         head->next = deleteDuplicates(head->next);
     }
     return head;
