@@ -7,16 +7,18 @@ ListNode *deleteDuplicates(ListNode *head) {
 
     int duplicate = head->val;
     if (head->next->val == duplicate) {
-        // traverse the list and link to the next node
+        // traverse the list and link to the next node until the value no
+        // longer repeats.
         while (head->next && head->next->val == duplicate) {
             head = head->next;
         }
-        // since the head is still the one which was duplicated, call
-        // recursively on the next node and update current head
+        // since the head is the original duplicate (we have to remove all
+        // repeating nodes), recur on the next node and update the current
+        // head.
         head = deleteDuplicates(head->next);
     }
     else {
-        // keep the current head and call recursion from the next node
+        // keep the current head and recur on the next node.
         head->next = deleteDuplicates(head->next);
     }
     return head;
