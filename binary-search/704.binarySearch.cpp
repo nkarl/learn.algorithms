@@ -22,7 +22,7 @@ int search(vector<int> &nums, int target) {
  * Time: O(NlogN)
  * Space: O(NlogN)
  */
-int searchRecur(vector<int> &nums, int target, int lo, int hi) {
+int searchRecur(vector<int> &nums, int lo, int hi, int target) {
     if (lo > hi) return -1;
 
     int m = lo+(hi-lo)/2;
@@ -42,9 +42,9 @@ int main(int argc, char *argv[]) {
     myPrint(nums);
 
     int res    = search(nums, key);
-    int res_re = searchRecur(nums, 0, nums.size()-1, key);
-    cout << endl << "key index:" << res    << endl;
-    cout << endl << "key index:" << res_re << endl;
+    int res_re = searchRecur(nums, 0, nums.size(), key);
+    cout << endl << "key's index, regular search: " << res    << endl;
+    cout << endl << "key's index, recur   search: " << res_re << endl;
 
     return 0;
 }
