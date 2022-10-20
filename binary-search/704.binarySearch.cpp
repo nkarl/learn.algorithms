@@ -1,8 +1,7 @@
 #include "../utils.hpp"
 
 /*
- * NOTE: Search in logarithmic time, assuming that the
- *  vector is already sorted.
+ * NOTE: Search an already sorted vector.
  *  Time: O(NlogN)
  */
 int search(vector<int> &nums, int target) {
@@ -19,7 +18,7 @@ int search(vector<int> &nums, int target) {
 }
 
 /*
- * NOTE: Recursive implementation of search.
+ * NOTE: Recursive search.
  * Time: O(NlogN)
  * Space: O(NlogN)
  */
