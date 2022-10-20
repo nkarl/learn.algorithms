@@ -25,7 +25,7 @@ int searchRecur(vector<int> &nums, int lo, int hi, int target) {
     if (lo > hi) return -1;
 
     int m = lo+(hi-lo)/2;
-    if (target < nums[m])
+    if      (target < nums[m])
         return searchRecur(nums, target, lo, m-1);
     else if (target > nums[m])
         return searchRecur(nums, target, m+1, hi);
