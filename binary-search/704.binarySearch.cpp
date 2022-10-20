@@ -39,10 +39,7 @@ int main(int argc, char *argv[]) {
     vector<int> nums = {-1, 0, 2, 5, 9, 11};
     // vector<int> nums = { -1, 0, 3, 5, 9, 12 };
     int key = 5;
-
-    for (auto i : nums) {
-        cout << i << ' ';
-    }
+    myPrint(nums);
 
     int res    = search(nums, key);
     int res_re = searchRecur(nums, 0, nums.size()-1, key);

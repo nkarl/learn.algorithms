@@ -22,7 +22,6 @@ int main(int argc, char* argv[]) {
     vector<int> nums = { -1, 0, 2, 5, 9, 11 };
     //vector<int> nums = { -1, 0, 3, 5, 9, 12 };
     int key = 5;
-
     myPrint(nums); // before
 
     int res = search(nums, key);
