@@ -28,13 +28,13 @@ int search(ArrayReader &reader, int target) {
     // establish the bounds
     while (reader.get(hi) < target) {
         lo = hi;
-        hi <<= 1;
+        hi *= 2;
     }
     cout << lo << " " << hi << endl;
 
     // binary search core
     while (lo <= hi) {
-        int m = lo + ((hi - lo) >> 1);
+        int m = lo + ((hi - lo) / 2);
         int num = reader.get(m);
         if      (target < num) hi = m-1;
         else if (target > num) lo = m+1;
