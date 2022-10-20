@@ -5,27 +5,27 @@ bool isBadVersion(int v) {
 }
 
 int search(vector<int>& nums, int target) {
-    int head = 0, tail = nums.size() - 1;
+    int lo=0, hi=nums.size()-1;
 
-    while (head <= tail) {
-      int mid = head + (tail - head) / 2;
+    while (lo <= hi) {
+      int m = lo+(hi-lo)/2;
 
-      if (isBadVersion(mid)) tail = mid - 1;
-      else                   head = mid + 1;
+      if (isBadVersion(m)) hi=m-1;
+      else                 lo=m+1;
     }
 
-    return head;
+    return lo;
 }
 
 int main(int argc, char* argv[]) {
 
     vector<int> nums = { -1, 0, 2, 5, 9, 11 };
     //vector<int> nums = { -1, 0, 3, 5, 9, 12 };
-    int key = 5;
+    int target = 5;
     myPrint(nums); // before
 
-    int res = search(nums, key);
-    cout << "key index:" << res << endl;
+    int res = search(nums, target);
+    cout << "target's index:" << res << endl;
     //cout << endl;
     //cout << typeid(nums).name() << endl;
 
