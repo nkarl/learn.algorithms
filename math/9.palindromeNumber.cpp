@@ -6,14 +6,14 @@ bool isPalindrome(int x) {
         return false;
     }
 
-    int head = x; int tail = 0;
-    while (head > tail) {
-        tail = tail * 10 + head % 10;
-        head /= 10;
+    int lo = x; int hi = 0;
+    while (lo > hi) {
+        hi = hi * 10 + lo % 10;
+        lo /= 10;
     }
-    cout << "\thead=\t" << head << "\ttail=\t" << tail << "\t";
+    cout << "\tlo=\t" << lo << "\thi=\t" << hi << "\t";
 
-    return head == tail || head == tail/10;
+    return lo == hi || lo == hi/10;
 }
 
 /**
