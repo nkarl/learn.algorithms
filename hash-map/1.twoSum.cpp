@@ -10,21 +10,18 @@ vector<int> twoSum(vector<int> &nums, int target) {
    *
    * Reasoning:
    * - The vector may contain exactly two elements that compose the target.
-   * - Every element is a possible part of an unordered solution pair.
+   * - Every element is a possible part of a 2-set.
    * - If there exists a solution set, then the target is composed of exactly
-   *   two parts in {a_x, b_i} at some unique indices x and i:
+   *   two parts in [a, x] where:
    *
-   *        target = a_x + b_i
+   *        target = a + x
    *
-   * - Thus, for every b=nums[i], go find its other part a.
-   *    - If a is NOT FOUND, then we know that b is part of a new solution set.
-   *      Thus, we immediately insert b and i as a new key-value pair into dict
-   *      for future lookup.
-   *    - Otherwise a FOUND, then we have both x and i. The solution is the
-   *      index x saved at dict[a] and i. Thus we return immediately a new
-   *      2-vector {dict[a], i}.
-   *
-   * - If no solution set is found, return an empty vector.
+   * - Thus, for every a=nums[i], go find its other part x.
+   *    - If x is NOT FOUND, then we know that a is part of a new solution set,
+   *      and thus, we save a and its index i for future lookup.
+   *    - Otherwise x FOUND, then we simply return the index of the saved part
+   *      and the index at i.
+   *    - If no solution set is found, return an empty vector.
    */
 
   // create a new dictionary to memoize possible parts.
@@ -32,12 +29,12 @@ vector<int> twoSum(vector<int> &nums, int target) {
 
   // start looking for parts a and b.
   for (int i = 0; i < nums.size(); ++i) {
-    int a = target - nums[i];
-    int b = nums[i];
-    if (dict.find(a) == dict.end()) {
-      dict[b] = i;
+    int a = nums[i];
+    int x = target - a;
+    if (dict.find(x) == dict.end()) {
+      dict[a] = i;
     } else {
-      return {dict[a], i};
+      return {i, dict[x]};
     }
   }
   return {};
