@@ -6,7 +6,7 @@ using std::string;
 
 char findTheDifference(string s, string t) {
     map<char, int> seen;
-    for (auto c: s) ++seen[c];
+    for (auto c: s) seen[c] += 1;
     for (auto c: t) {
         if (seen.find(c) == seen.end() || seen[c] == 0)
             return c;

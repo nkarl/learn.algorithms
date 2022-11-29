@@ -8,12 +8,12 @@ bool isPalindrome(int x) {
 
     int lo = x; int hi = 0;
     while (lo > hi) {
-        hi = hi * 10 + lo % 10;
+        hi = hi*10 + lo%10;
         lo /= 10;
     }
     cout << "\tlo=\t" << lo << "\thi=\t" << hi << "\t";
 
-    return lo == hi || lo == hi/10;
+    return lo==hi || lo==hi/10;
 }
 
 /**
