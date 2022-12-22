@@ -5,7 +5,8 @@ using std::min; using std::string;
  * Complexity: O(NlogN) Time, O(1) Space.
  */
 
-/** Check that every string in the vector contains a prefix of length m.
+/**
+ * Check that every string in the vector contains a prefix of length m.
  */
 bool isCommonPrefix(vector<string> &strs, int m) {
     string prefix = strs[0].substr(0, m);
@@ -46,7 +47,9 @@ string longestCommonPrefix(vector<string> &strs) {
  * MAIN ENTRY.
  */
 int main(int argc, char *argv[]) {
-    vector<string> strs   = {"flow", "flower", "flight"};
+    vector<string> vec1 = {"flow", "flower", "flight"};
+    vector<string> vec2 = {"aaaa", "aaab", "aaac", "aabc"};
+    vector<string> strs = vec2;
     string         prefix = longestCommonPrefix(strs);
     cout << prefix << endl;
     return 0;

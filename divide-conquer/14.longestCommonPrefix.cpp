@@ -1,7 +1,13 @@
 #include "../utils.hpp"
 using std::min; using std::string;
 
+/*
+ * Complexity: O(NlogN) TIme, O(NlogN) Space.
+ */
 
+/*
+ * Longest Common Prefix.
+ */
 string getCommonPrefixOf(string s1, string s2) {
     /*
      * There are two cases we need to look at:
@@ -27,20 +33,24 @@ string dfs(vector<string> strs, int lo, int hi) {
      * directly.
      *
      * Now what do we do when the size of vector > 2?
-     * We can use divide and conquer to break the vector down into chunks
-     * small enough that we can use the function above. Notice that the rank
-     * of the vector is just an array of indices. We can use something similar
-     * to binary search to get push elements pairwise on the stack and
-     * then apply the function above to solve recursively. We can use DFS
-     * since it uses an implicit stack via recursion and we don't need to
-     * worry about keeping a stack ourselves.
+     *
+     * We use divide and conquer to break the vector down into chunks
+     * small enough for the above method.
+     *
+     * Notice that the rank of the vector is just an array of indices.
+     * We can use something similar to binary search to push pairwise
+     * elements onto the stack and then apply the function above to
+     * solve recursively.
+     *
+     * We can use DFS since it uses an implicit stack via recursion,
+     * meaning we don't need to worry about keeping a stack ourselves.
      *
      * We also need a base case to terminate the recursive calls.
      */
     if (lo == hi) return strs[lo];
-    int m = lo+(hi-lo)/2;
-    string s1= dfs(strs, lo, m);
-    string s2= dfs(strs, m+1, hi);
+    int    m  = lo+(hi-lo)/2;
+    string s1 = dfs(strs, lo, m);
+    string s2 = dfs(strs, m+1, hi);
     return getCommonPrefixOf(s1, s2);
 }
 
