@@ -86,7 +86,7 @@
               "type": "backlink",
               "state": {
                 "file": "TO-DO.md",
-                "collapseAll": false,
+                "collapseAll": true,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
                 "showSearch": false,
@@ -137,12 +137,12 @@
               "state": {}
             }
           }
-        ]
+        ],
+        "currentTab": 3
       }
     ],
     "direction": "horizontal",
-    "width": 300,
-    "collapsed": true
+    "width": 300
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -155,7 +155,7 @@
       "table-editor-obsidian:Advanced Tables Toolbar": false
     }
   },
-  "active": "a1e01e5e36c5e782",
+  "active": "a5f033171a545a73",
   "lastOpenFiles": [
     "README.md",
     "TO-DO.md"
