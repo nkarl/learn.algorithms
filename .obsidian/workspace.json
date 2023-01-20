@@ -137,8 +137,7 @@
               "state": {}
             }
           }
-        ],
-        "currentTab": 3
+        ]
       }
     ],
     "direction": "horizontal",
@@ -155,7 +154,7 @@
       "table-editor-obsidian:Advanced Tables Toolbar": false
     }
   },
-  "active": "a5f033171a545a73",
+  "active": "a2e22a88d5a47005",
   "lastOpenFiles": [
     "README.md",
     "TO-DO.md"
