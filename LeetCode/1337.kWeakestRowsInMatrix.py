@@ -15,17 +15,25 @@ def binListToDecimal(l: list[int]) -> int:
     return res
 
 
-def kWeakestRows(mat: list[list[int]]):
+def sortByTrue(mat: list[list[int]]):
     M = len(mat)
     N = len(mat[0])
     res = []
 
-    maxV = 2**N
+    maxDec = 2**N
     for i in range(M):
-        k = i
-        print(mat[i])
-        tmp = binListToDecimal(mat[i]) 
-        v = N - int(math.log2(maxV - tmp))
-        print(k, tmp, v)
-        res += [[v, k]]
-    return [x[1] for x in sorted(res)]
+        dec = binListToDecimal(mat[i])
+        k = N - int(math.log2(maxDec - dec))
+        res += [[k, i]]
+    return sorted(res)
+
+
+def kWeakestRows(mat: list[list[int]], k: int) -> list[int]:
+    res = [x[1] for x in sortByTrue(mat)]
+    return res[:k]
+
+
+mat2 = [[1, 0], [1, 0], [1, 0], [1, 1]]
+
+print(kWeakestRows(mat, len(mat)))
+print(kWeakestRows(mat2, len(mat2)))
