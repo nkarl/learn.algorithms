@@ -1,5 +1,6 @@
 #include "../utils.hpp"
-using std::min; using std::string;
+using std::min;
+using std::string;
 
 /*
  * Complexity: O(NlogN) TIme, O(NlogN) Space.
@@ -21,7 +22,7 @@ string getCommonPrefixOf(string s1, string s2) {
      *      can return the prefix immediately.
      */
     int shorter = min(s1.length(), s2.length());
-    for (int i=0; i < shorter; ++i) {
+    for (int i = 0; i < shorter; ++i) {
         if (s1[i] != s2[i]) return s1.substr(0, i);
     }
     return s1.substr(0, shorter);
@@ -47,25 +48,27 @@ string dfs(vector<string> strs, int lo, int hi) {
      *
      * We also need a base case to terminate the recursive calls.
      */
-    if (lo == hi) return strs[lo];
-    int    m  = lo+(hi-lo)/2;
+    if (lo == hi)
+        return strs[lo];
+
+    int    m  = lo + (hi - lo) / 2;
     string s1 = dfs(strs, lo, m);
-    string s2 = dfs(strs, m+1, hi);
+    string s2 = dfs(strs, m + 1, hi);
+
     return getCommonPrefixOf(s1, s2);
 }
 
-
 string longestCommonPrefix(vector<string> strs) {
-    return dfs(strs, 0, strs.size()-1);
+    return dfs(strs, 0, strs.size() - 1);
 }
 
 /**
  * MAIN ENTRY.
  */
 int main(int argc, char *argv[]) {
-    vector<string> vec1 = {"flow", "flower", "flight"};
-    vector<string> vec2 = {"aaaa", "aaab", "aaac", "aabc"};
-    vector<string> strs = vec2;
+    vector<string> vec1   = {"flow", "flower", "flight"};
+    vector<string> vec2   = {"aaaa", "aaab", "aaac", "aabc"};
+    vector<string> strs   = vec2;
     string         prefix = longestCommonPrefix(strs);
     cout << prefix << endl;
     return 0;
