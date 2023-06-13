@@ -1,3 +1,6 @@
+/*
+ * This is actually advanced stuff. It combines a few different algorithm techniques together.
+ */
 #include "../utils.hpp"
 using std::min;
 using std::string;
@@ -7,7 +10,7 @@ using std::string;
  */
 
 /*
- * Longest Common Prefix.
+ * Longest Common Prefix. Compares two strings and find the LCP of them.
  */
 string getCommonPrefixOf(string s1, string s2) {
     /*
@@ -28,11 +31,14 @@ string getCommonPrefixOf(string s1, string s2) {
     return s1.substr(0, shorter);
 }
 
+/*
+ * Recursive Form of two pointers by DnC. Recurs through two halves of the
+ * list of strings and compare element from one half with the other half.
+ * */
 string dfs(vector<string> strs, int lo, int hi) {
     /*
      * Assuming the vector contains only two strings. We compare them
      * directly.
-     *
      * Now what do we do when the size of vector > 2?
      *
      * We use divide and conquer to break the vector down into chunks
@@ -43,10 +49,8 @@ string dfs(vector<string> strs, int lo, int hi) {
      * elements onto the stack and then apply the function above to
      * solve recursively.
      *
-     * We can use DFS since it uses an implicit stack via recursion,
-     * meaning we don't need to worry about keeping a stack ourselves.
-     *
-     * We also need a base case to terminate the recursive calls.
+     * We also need a base case to terminate the recursive calls. The
+     * base case is when both the 
      */
     if (lo == hi)
         return strs[lo];
@@ -59,6 +63,15 @@ string dfs(vector<string> strs, int lo, int hi) {
 }
 
 string longestCommonPrefix(vector<string> strs) {
+    /*
+     * We can use DFS to recur and check each char in both strings.
+     *
+     * This is a two-step process:
+     *  First, how do we compare two strings?
+     *      GetCommonPrefix
+     *  Second, how do we recur?
+     *      DFS or Loop
+     */
     return dfs(strs, 0, strs.size() - 1);
 }
 
