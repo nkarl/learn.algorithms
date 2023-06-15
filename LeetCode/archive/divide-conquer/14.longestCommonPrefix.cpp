@@ -55,6 +55,12 @@ string getCommonPrefixOf(string s1, string s2) {
  * We also need a base case to terminate the recursive calls. The
  * base case is when both the
  *
+ *
+ * T(N) = 2T(N/2) + N
+ *  a := 2 recursive calls
+ *  b := 2 number of subproblems per recurrence
+ *  d := 1 extra linear work (getCommonPrefixOf two strings)
+ *  a == b^d --> 2 == 2^1 --> case 1 --> O(NlogN)
  * */
 string dfs(vector<string> strs, int lo, int hi, string space, int depth) {
     cout << "Enters dfs, depth=" << depth;
