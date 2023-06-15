@@ -37,30 +37,22 @@ string getCommonPrefixOf(string s1, string s2) {
 /*
  * Recursive Form of two pointers using Divide and Conquer.
  *
- * Recurs through two halves of the
- * list of strings and compare element from one half with the other half.
- *
- * Assuming the vector contains only two strings. We compare them
- * directly.
- * Now what do we do when the size of vector > 2?
+ * Recurs through two halves of the list of strings and
+ * compare element pairwise.
  *
  * We use divide and conquer to break the vector down into chunks
- * small enough for the above method.
+ * of size b==2 small enough for the above method.
  *
- * Notice that the rank of the vector is just an array of indices.
- * We can use something similar to binary search to push pairwise
- * elements onto the stack and then apply the function above to
- * solve recursively.
- *
- * We also need a base case to terminate the recursive calls. The
- * base case is when both the
- *
+ * The algorithm recurs until it hits the base case where the two
+ * index pointers are equal, i.e. both pointing to the same string element
+ * in the list.
  *
  * T(N) = 2T(N/2) + N
  *  a := 2 recursive calls
  *  b := 2 number of subproblems per recurrence
  *  d := 1 extra linear work (getCommonPrefixOf two strings)
  *  a == b^d --> 2 == 2^1 --> case 1 --> O(NlogN)
+ *
  * */
 string dfs(vector<string> strs, int lo, int hi, string space, int depth) {
     cout << "Enters dfs, depth=" << depth;
