@@ -1,4 +1,4 @@
-#include "../utils.hpp"
+#include "../utils.cpp"
 
 int removeDuplicates(vector<int> &nums) {
     int k = 1;

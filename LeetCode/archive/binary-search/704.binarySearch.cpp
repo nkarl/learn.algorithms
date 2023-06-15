@@ -1,4 +1,5 @@
-#include "../utils.hpp"
+#include <stdint.h>
+#include "../utils.cpp"
 
 /*
  * NOTE: Search an already sorted vector.
@@ -13,7 +14,7 @@ int search(vector<int> &nums, int target) {
         else if (target > nums[m]) lo=m+1;
         else    return m;
     }
-    return -1;
+    return INT32_MIN;
 }
 
 /*
@@ -22,15 +23,12 @@ int search(vector<int> &nums, int target) {
  * Space: O(NlogN)
  */
 int searchRecur(vector<int> &nums, int lo, int hi, int target) {
-    if (lo > hi) return -1;
+    if (lo > hi) return INT32_MIN;
 
     int m = lo+(hi-lo)/2;
-    if      (target < nums[m])
-        return searchRecur(nums, target, lo, m-1);
-    else if (target > nums[m])
-        return searchRecur(nums, target, m+1, hi);
-    else
-        return m;
+    if      (target < nums[m])  return searchRecur(nums, target, lo, m-1);
+    else if (target > nums[m])  return searchRecur(nums, target, m+1, hi);
+    else                        return m;
 }
 
 int main(int argc, char *argv[]) {

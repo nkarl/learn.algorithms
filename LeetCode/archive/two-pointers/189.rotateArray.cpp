@@ -1,4 +1,4 @@
-#include "../utils.hpp"
+#include "../utils.cpp"
 
 /*
  * Rotates k elements at the tail to the front of an array.

@@ -1,4 +1,4 @@
-#include "../utils.hpp"
+#include "../utils.cpp"
 
 bool isPalindrome(int x) {
     //edge case: x < 0 or x is modulus of base 10.

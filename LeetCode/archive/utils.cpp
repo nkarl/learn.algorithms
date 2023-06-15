@@ -2,12 +2,11 @@
 
 /* array/vector */
 void myPrint(vector<int> &nums) {
-  for (auto x : nums) {
-    cout << x << " ";
-  }
-  cout << endl;
+    for (auto x : nums) {
+        cout << x << " ";
+    }
+    cout << endl;
 }
-
 
 /* linked list */
 void addNode(ListNode *head, int x) {
@@ -23,12 +22,12 @@ void addNodesFromList(ListNode *head, vector<int> list) {
     while (node->next) {
         node = node->next;
     }
-    for (auto x: list) {
+    for (auto x : list) {
         node = node->next = new ListNode(x);
     }
 }
 
-std::string isEmptyNode(ListNode *node) {
+string isEmptyNode(ListNode *node) {
     return (node) ? "NotEmpty" : "Empty";
 }
 

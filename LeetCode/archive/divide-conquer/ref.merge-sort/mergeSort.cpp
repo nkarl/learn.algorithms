@@ -1,4 +1,4 @@
-#include "../../utils.hpp"
+#include "../../utils.cpp"
 
 vector<int> merge(vector<int> &left, vector<int> &right) {
     int         l   = 0;
