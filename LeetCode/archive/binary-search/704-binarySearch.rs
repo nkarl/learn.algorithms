@@ -1,6 +1,6 @@
 fn my_print(vec: &[i32]) {
     for x in vec {
-        print!("{} ", { x });
+        print!("{} ", x);
     }
 }
 
@@ -41,6 +41,6 @@ fn main() {
     my_print(&nums);
     let res = search(&nums, 5);
     let res_re = search_re(&nums, 0 as usize, nums.capacity(), 5);
-    println!("\n{}", { res });
-    println!("\n{}", { res_re });
+    println!("\n{}", res);
+    println!("\n{}", res_re);
 }
