@@ -5,6 +5,7 @@
  * NOTE: Search an already sorted vector.
  *  Time : O(NlogN)
  *  Space: O(1)
+ *
  */
 int search(vector<int> &nums, int target) {
     int lo= 0, hi= nums.size() -1;
@@ -22,22 +23,22 @@ int search(vector<int> &nums, int target) {
  * NOTE: Recursive search.
  * Time : O(NlogN)
  * Space: O(NlogN)
+ *
  */
 int searchRecur(vector<int> &nums, int lo, int hi, int target) {
     if (lo > hi)
         return INT32_MIN;
 
     int m= lo + (hi - lo) / 2;
-    if      (target < nums[m])  return searchRecur(nums, target, lo, m -1);
-    else if (target > nums[m])  return searchRecur(nums, target, m +1, hi);
+    if      (target < nums[m])  return searchRecur(nums, lo, m -1, target);
+    else if (target > nums[m])  return searchRecur(nums, m +1, hi, target);
     else                        return m;
 }
 
 int main(int argc, char *argv[]) {
 
-    vector<int> nums= {-1, 0, 2, 5, 9, 11};
-    // vector<int> nums = { -1, 0, 3, 5, 9, 12 };
-    int target= 5;
+    vector<int> nums  = {-1, 0, 2, 5, 9, 11};
+    int         target= 5;
     myPrint(nums);
 
     int res   = search(nums, target);
