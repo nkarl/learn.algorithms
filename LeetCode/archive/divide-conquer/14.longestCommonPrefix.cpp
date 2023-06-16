@@ -64,8 +64,8 @@ string dfs(vector<string> strs, int lo, int hi, string space, int depth) {
     for (auto i=0; i < depth; ++i)
         indent += "\t";
     printf("%s-----------\n", indent.c_str());
-    printf("%s > dfs()\n%s   depth=%d", indent.c_str(), indent.c_str(), depth);
-    printf(", lo=%d m=%d hi=%d", lo, lo + (hi-lo)/2, hi);
+    printf("%s > dfs() depth=%d", indent.c_str(), depth);
+    printf(" lo=%d m=%d hi=%d", lo, lo + (hi-lo)/2, hi);
     if (lo == hi) {
         printf(", base case --> strs[%d]=%s\n", lo, strs[lo].c_str());
         return strs[lo];
