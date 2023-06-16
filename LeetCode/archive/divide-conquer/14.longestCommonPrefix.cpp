@@ -19,19 +19,23 @@ using std::string;
  *      Iterate and check every character of the shorter string. If
  *      there is a different char at i, return immediately the prefix.
  *
+ * Complexity:
+ *  Time : O(N)
+ *  Space: O(1)
  */
-string getCommonPrefixOf(string s1, string s2) {
-    printf("Enters getCommonPrefixOf(%s, %s)", s1.c_str(), s2.c_str());
+string getCommonPrefixOf(string s1, string s2, string indent) {
+    printf("%s...........\n", indent.c_str());
+    printf("%s > getCommonPrefixOf(%s, %s)", indent.c_str(), s1.c_str(), s2.c_str());
 
     int shorter= min(s1.length(), s2.length());
 
     for (int i= 0; i < shorter; ++i) {
         if (s1[i] != s2[i]) {
-            printf(" \t-> %s\n\n", s1.substr(0, i).c_str());
+            printf(" --> %s\n\n", s1.substr(0, i).c_str());
             return s1.substr(0, i);
         }
     }
-    printf(" \t-> %s\n\n", s1.substr(0, shorter).c_str());
+    printf(" --> %s\n", s1.substr(0, shorter).c_str());
     return s1.substr(0, shorter);
 }
 
@@ -56,19 +60,28 @@ string getCommonPrefixOf(string s1, string s2) {
  *
  * */
 string dfs(vector<string> strs, int lo, int hi, string space, int depth) {
-    printf("Enters dfs, depth=%d", depth);
+    string indent = "\t";
+    for (auto i=0; i < depth; ++i)
+        indent += "\t";
+    printf("%s-----------\n", indent.c_str());
+    printf("%s > dfs()\n%s   depth=%d", indent.c_str(), indent.c_str(), depth);
+    printf(", lo=%d m=%d hi=%d", lo, lo + (hi-lo)/2, hi);
     if (lo == hi) {
-        printf(", base case \t\t-> strs[lo]=%s\n", strs[lo].c_str());
+        printf(", base case --> strs[%d]=%s\n", lo, strs[lo].c_str());
         return strs[lo];
     }
 
-    printf("\n");
+    //printf("\n");
     int    m = lo + (hi - lo) / 2;
+    //printf(" m=%d\n", m);
+    printf("\n");
     string s1= dfs(strs, lo, m, space, depth + 1);
+    printf("%s   s1=%s\n", indent.c_str(), s1.c_str());
     string s2= dfs(strs, m + 1, hi, space, depth + 1);
-    printf("\t\t%s%d\t%s\tm=%d lo=%d hi=%d\n", space.c_str(), depth, s1.c_str(), m, lo, hi);
-    printf("\t\t%s%d\t%s\n", space.c_str(), depth, s2.c_str());
-    return getCommonPrefixOf(s1, s2);
+    printf("%s   s2=%s\n", indent.c_str(), s2.c_str());
+    //printf("%s%s%d\t%s\tm=%d lo=%d hi=%d\n", indent.c_str(), space.c_str(), depth, s1.c_str(), m, lo, hi);
+    //printf("%s%s%d\t%s\n", indent.c_str(), space.c_str(), depth, s2.c_str());
+    return getCommonPrefixOf(s1, s2, indent);
 }
 
 /*
@@ -82,6 +95,7 @@ string dfs(vector<string> strs, int lo, int hi, string space, int depth) {
  *
  * */
 string longestCommonPrefix(vector<string> strs) {
+    printf("\n > LCP()\n");
     return dfs(strs, 0, strs.size() - 1, "depth=", 0);
 }
 
@@ -91,8 +105,11 @@ string longestCommonPrefix(vector<string> strs) {
 int main(int argc, char *argv[]) {
     vector<string> vec1  = {"flow", "flower", "flight"};
     vector<string> vec2  = {"aaaa", "aaab", "aaac", "aabc"};
+    vector<string> vec3  = {"aaaa", "aaab", "aaac", "aabc", "aaaaaabc", "aaaaacdb", };
+    vector<string> vec4  = {"aaaa", "aaab", "aaac", "aabc", "aaaaaabc", "aaaaacdb", "aaaaabcde", "aaaaecdg" };
     vector<string> strs  = vec2;
+    myPrint(strs);
     string         prefix= longestCommonPrefix(strs);
-    printf("prefix = %s\n", prefix.c_str());
+    printf("\n > prefix = %s\n", prefix.c_str());
     return 0;
 }
