@@ -20,6 +20,6 @@ string longestCommonPrefix(vector<string> &strs) {
 int main(int argc, char *argv[]) {
     vector<string> strs = {"flow", "flower", "flight"};
     string prefix = longestCommonPrefix(strs);
-    cout << prefix << endl;
+    printf("refix = %s\n", prefix.c_str());
     return 0;
 }

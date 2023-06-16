@@ -22,9 +22,9 @@ char findTheDifference(string s, string t) {
 int main(int argc, char *argv[]) {
     string s = "abcd";
     string t = "abcde";
-    cout << s << endl;
-    cout << t << endl;
+    printf("%s\n", s.c_str());
+    printf("%s\n", t.c_str());
 
-    cout << findTheDifference(s, t) << endl;
+    printf("%c\n", findTheDifference(s, t));
     return 0;
 }

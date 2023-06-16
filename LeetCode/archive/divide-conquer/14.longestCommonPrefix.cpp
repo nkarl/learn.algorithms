@@ -21,16 +21,17 @@ using std::string;
  *
  */
 string getCommonPrefixOf(string s1, string s2) {
-    cout << "Enters getCommonPrefixOf(" << s1 << ", " << s2 << ")";
-    int shorter = min(s1.length(), s2.length());
-    string ret;
-    for (int i = 0; i < shorter; ++i) {
+    printf("Enters getCommonPrefixOf(%s, %s)", s1.c_str(), s2.c_str());
+
+    int shorter= min(s1.length(), s2.length());
+
+    for (int i= 0; i < shorter; ++i) {
         if (s1[i] != s2[i]) {
-            cout << " \t-> " << s1.substr(0, i) << endl << endl;
+            printf(" \t-> %s\n\n", s1.substr(0, i).c_str());
             return s1.substr(0, i);
         }
     }
-    cout << " \t-> " << s1.substr(0, shorter) << endl << endl;
+    printf(" \t-> %s\n\n", s1.substr(0, shorter).c_str());
     return s1.substr(0, shorter);
 }
 
@@ -55,18 +56,18 @@ string getCommonPrefixOf(string s1, string s2) {
  *
  * */
 string dfs(vector<string> strs, int lo, int hi, string space, int depth) {
-    cout << "Enters dfs, depth=" << depth;
+    printf("Enters dfs, depth=%d", depth);
     if (lo == hi) {
-         cout << ", base case \t\t-> strs[lo]=" << strs[lo] << endl;
+        printf(", base case \t\t-> strs[lo]=%s\n", strs[lo].c_str());
         return strs[lo];
     }
 
-    cout << endl;
-    int    m  = lo + (hi - lo) / 2;
-    string s1 = dfs(strs, lo, m, space , depth + 1);
-    string s2 = dfs(strs, m + 1, hi, space , depth + 1);
-    cout << "\t\t" << space << depth << "\t" << s1 << "\tm=" << m << " lo=" << lo << " hi=" << hi << endl;
-    cout << "\t\t" << space << depth << "\t" << s2 << endl;
+    printf("\n");
+    int    m = lo + (hi - lo) / 2;
+    string s1= dfs(strs, lo, m, space, depth + 1);
+    string s2= dfs(strs, m + 1, hi, space, depth + 1);
+    printf("\t\t%s%d\t%s\tm=%d lo=%d hi=%d\n", space.c_str(), depth, s1.c_str(), m, lo, hi);
+    printf("\t\t%s%d\t%s\n", space.c_str(), depth, s2.c_str());
     return getCommonPrefixOf(s1, s2);
 }
 
@@ -88,10 +89,10 @@ string longestCommonPrefix(vector<string> strs) {
  * MAIN ENTRY.
  */
 int main(int argc, char *argv[]) {
-    vector<string> vec1   = {"flow", "flower", "flight"};
-    vector<string> vec2   = {"aaaa", "aaab", "aaac", "aabc"};
-    vector<string> strs   = vec2;
-    string         prefix = longestCommonPrefix(strs);
-    cout << prefix << endl;
+    vector<string> vec1  = {"flow", "flower", "flight"};
+    vector<string> vec2  = {"aaaa", "aaab", "aaac", "aabc"};
+    vector<string> strs  = vec2;
+    string         prefix= longestCommonPrefix(strs);
+    printf("prefix = %s\n", prefix.c_str());
     return 0;
 }

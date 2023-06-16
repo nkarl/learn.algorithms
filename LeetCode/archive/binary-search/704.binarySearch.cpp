@@ -43,8 +43,8 @@ int main(int argc, char *argv[]) {
 
     int res   = search(nums, target);
     int res_re= searchRecur(nums, 0, nums.size(), target);
-    cout << endl << "key's index, regular search: " << res << endl;
-    cout << endl << "key's index, recur   search: " << res_re << endl;
+    printf("\nkey's index, regular search: %d\n", res);
+    printf("\nkey's index, recur   search: %d\n", res_re);
 
     return 0;
 }

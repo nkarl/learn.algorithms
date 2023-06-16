@@ -25,9 +25,7 @@ int main(int argc, char* argv[]) {
     myPrint(nums); // before
 
     int res = search(nums, target);
-    cout << "target's index:" << res << endl;
-    //cout << endl;
-    //cout << typeid(nums).name() << endl;
+    printf("\nindex of target: %d\n", res);
 
     myPrint(nums); // after
     return 0;

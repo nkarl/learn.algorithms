@@ -1,24 +1,22 @@
 #include "../utils.cpp"
 
 int removeDuplicates(vector<int> &nums) {
-    int k = 1;
-    for (int c = 1; c < nums.size(); ++c) {
-        cout << "for=" << c << "; k=" << k << endl;
-        cout << "nums[" << c << "]==" << nums[c] << "; "
-             << "nums[" << k << "]==" << nums[k];
+    int k= 1;
+    for (int c= 1; c < nums.size(); ++c) {
+        printf("for=%d; k=%d\n", c, k);
+        printf("nums[%d]==%d; nums[%d]==%d", c, nums[c], k, nums[k]);
         if (nums[c - 1] != nums[c]) {
-            cout << "\tswapping" << endl;
-            nums[k] = nums[c];
-            cout << "\t\t";
+            printf("\tswapping\n");
+            nums[k]= nums[c];
+            printf("\t\t");
             myPrint(nums);
             ++k;
         }
         else {
-            cout << endl
-                 << "\t\t";
+            printf("\n\t\t");
             myPrint(nums);
         }
-        cout << endl;
+        printf("\n");
     }
     return k;
 }
@@ -27,14 +25,14 @@ int removeDuplicates(vector<int> &nums) {
  * MAIN ENTRY.
  */
 int main(int argc, char *argv[]) {
-    vector<int> nums = {0, 0, 1, 1, 1, 2, 2, 3, 3, 4};
-    int         val  = 3;
+    vector<int> nums= {0, 0, 1, 1, 1, 2, 2, 3, 3, 4};
+    int         val = 3;
     myPrint(nums);  // before
-    int c = removeDuplicates(nums);
+    int c= removeDuplicates(nums);
     myPrint(nums);  // after
-    for (int i = 0; i < c; ++i) {
-        cout << nums[i] << ' ';
+    for (int i= 0; i < c; ++i) {
+        printf("%d ", nums[i]);
     }
-    cout << endl;
+    printf("\n");
     return 0;
 }

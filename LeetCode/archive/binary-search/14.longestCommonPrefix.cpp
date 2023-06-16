@@ -51,6 +51,6 @@ int main(int argc, char *argv[]) {
     vector<string> vec2 = {"aaaa", "aaab", "aaac", "aabc"};
     vector<string> strs = vec2;
     string         prefix = longestCommonPrefix(strs);
-    cout << prefix << endl;
+    printf("prefix = %s\n", prefix.c_str());
     return 0;
 }

@@ -23,7 +23,7 @@ int search(ArrayReader &reader, int target) {
     while (reader.get(hi) < target) {
         lo = hi; hi *= 2;
     }
-    cout << lo << " " << hi << endl;
+    printf("%d %d\n", lo, hi);
 
     // binary search core
     while (lo <= hi) {
@@ -44,7 +44,6 @@ int main(int argc, char *argv[]) {
 
     int res = search(reader, target);
     // int res_re = recurSearch(nums, 0, nums.size()-1, target);
-    cout << endl << "index of target: " << res << endl;
-    // cout << endl << "target index:" << res_re << endl;
+    printf("\nindex of target: %d\n", res);
     return 0;
 }
