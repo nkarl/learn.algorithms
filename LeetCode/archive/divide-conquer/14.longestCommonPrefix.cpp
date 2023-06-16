@@ -19,6 +19,9 @@ using std::string;
  *      Iterate and check every character of the shorter string. If
  *      there is a different char at i, return immediately the prefix.
  *
+ * Complexity:
+ *  Time : O(N)
+ *  Space: O(1)
  */
 string getCommonPrefixOf(string s1, string s2) {
     printf("Enters getCommonPrefixOf(%s, %s)", s1.c_str(), s2.c_str());

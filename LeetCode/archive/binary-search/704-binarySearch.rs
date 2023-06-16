@@ -4,6 +4,11 @@ fn my_print(vec: &[i32]) {
     }
 }
 
+/*
+ * NOTE: Search an already sorted vector.
+ *  Time : O(logN)
+ *  Space: O(1)
+ */
 fn search(nums: &Vec<i32>, target: i32) -> i32 {
     let mut lo = 0;
     let mut hi = nums.capacity() - 1;
@@ -21,6 +26,14 @@ fn search(nums: &Vec<i32>, target: i32) -> i32 {
     return i32::MIN;
 }
 
+/*
+ * NOTE: Recursive search.
+ * Time : O(logN)
+ *      a == 1 recursive calls
+ *      b == 2 sub problems per call
+ *      d == 0 extra work done.
+ * Space: O(logN)
+ */
 fn search_re(nums: &[i32], lo: usize, hi: usize, target: i32) -> i32 {
     if lo > hi {
         return i32::MIN;
