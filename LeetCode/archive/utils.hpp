@@ -4,10 +4,16 @@
 #include <iostream>
 #include <vector>
 
+using std::cout;
+using std::endl;
 using std::string;
 using std::vector;
 
-void myPrint(vector<int> &nums);
+template<typename T>
+void myPrintHelp(T x);
+
+template<typename T>
+void myPrint(vector<T> &vec);
 
 struct ListNode {
     int       val;
