@@ -9,34 +9,32 @@ enum TYPESWITCH
 
 template<typename T>
 void myPrintHelp(T x) {
-    if (*typeid(x).name() == CHAR) {
-        printf("%c, ", x);
-        return;
-    }
-    if (*typeid(x).name() == INTEGER) {
-        printf("%d, ", x);
-        return;
-    }
-    if (*typeid(x).name() == FLOAT) {
-        printf("%f, ", x);
-        return;
-    }
-    else {
-        //if (std::strcmp("NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE", typeid(x).name()))
-            //printf("%s ", x.c_str());
+    //if (*typeid(x).name() == CHAR) {
+        //printf("%c, ", x);
+        //return;
+    //}
+    //if (*typeid(x).name() == INTEGER) {
+        //printf("%d, ", x);
+        //return;
+    //}
+    //if (*typeid(x).name() == FLOAT) {
+        //printf("%f, ", x);
+        //return;
+    //}
+    //else {
         cout << x << ", ";
-    }
+    //}
 }
 
 /* array/vector */
 template<typename T>
 void myPrint(vector<T> &vec) {
-    printf("input vector: [ ");
+    printf("\ninput vector: [ ");
     for (auto x : vec) {
         // printf("%d ", x);
         myPrintHelp(x);
     }
-    printf("]\n\n");
+    printf("]\n");
 }
 
 /* linked list */
