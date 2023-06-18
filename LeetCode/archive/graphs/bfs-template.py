@@ -1,4 +1,5 @@
 class TreeNode:
+    neighbors = []
     pass
 
 def process(node: TreeNode):
