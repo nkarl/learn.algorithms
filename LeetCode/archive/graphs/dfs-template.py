@@ -1,5 +1,7 @@
+# Tree Structure: graph, directed
 class TreeNode:
-    neighbors = []
+    children = []
+    seem = False
     pass
 
 def process(node: TreeNode):
@@ -19,7 +21,7 @@ def dfs(root: TreeNode):
         curr, s = s[0], s[:-1]
         process(curr)
 
-        for node in curr.neighbors:
+        for node in curr.children:
             if node not in v:
                 s += [node]
                 v += [node]
@@ -32,7 +34,7 @@ def dfs_recursive(root: TreeNode, v: list[TreeNode]):
 
     v += [root]     # add root to visited
 
-    for node in root.neighbors:
+    for node in root.children:
         if node not in v:
              dfs_recursive(node, v)
     pass

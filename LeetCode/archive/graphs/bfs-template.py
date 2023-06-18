@@ -1,5 +1,7 @@
+# Tree Structure: graph, directed
 class TreeNode:
-    neighbors = []
+    children = []
+    seen = False
     pass
 
 def process(node: TreeNode):
@@ -19,8 +21,15 @@ def bfs(root: TreeNode):
         curr = q.pop()
         process(curr)
 
-        for node in curr.neighbors:
+        for node in curr.children:
             if node not in v:
                 q += [node]
                 v += [node]
+    pass
+
+
+def bfs_recursive(root: TreeNode, q):
+    if q is [None]:
+        return
+
     pass
