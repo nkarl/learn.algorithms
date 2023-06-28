@@ -4,32 +4,38 @@ class TreeNode:
     seen = False
     pass
 
+
 def process(node: TreeNode):
     """process the node data."""
     pass
 
+
+# Iterative BFS
 def bfs(root: TreeNode):
     if root is None:
         return
 
-    q = []
-    q += [root]     # add root to queue
-    v = []
-    v += [root]     # add root to visited
+    queue = [root]  # add root to queue
+    visited = [root]  # add root to visited
 
-    while q is not None:
-        curr = q.pop()
-        process(curr)
+    while len(queue) > 0:
+        front = queue.pop(0)
+        process(front)
 
-        for node in curr.children:
-            if node not in v:
-                q += [node]
-                v += [node]
+        for node in front.children:
+            if node not in visited:
+                visited += [node]
+                queue += [node]
     pass
 
 
-def bfs_recursive(root: TreeNode, q):
-    if q is [None]:
+# Recursive BFS
+def bfs_recursive(node: TreeNode, visited: list[TreeNode]):
+    if node is [None]:
         return
 
+    if node not in visited:
+        visited += [node]
+        for c in node.children:
+            bfs_recursive(c, visited)
     pass

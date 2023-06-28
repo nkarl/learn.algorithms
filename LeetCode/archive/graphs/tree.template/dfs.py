@@ -4,37 +4,38 @@ class TreeNode:
     seem = False
     pass
 
+
 def process(node: TreeNode):
     """process the node data."""
     pass
 
+
+# Iterative DFS
 def dfs(root: TreeNode):
     if root is None:
         return
 
-    s = []
-    s += [root]     # add root to queue
-    v = []
-    v += [root]     # add root to visited
+    stack = [root]  # add root to stack
+    visited = [root]  # add root to visited 
 
-    while s is not None:
-        curr, s = s[0], s[:-1]
-        process(curr)
+    while len(stack) > 0:
+        top = stack.pop(-1)
+        process(top)
 
-        for node in curr.children:
-            if node not in v:
-                s += [node]
-                v += [node]
+        if top not in visited:
+            visited += [top]
+            for node in top.children:
+                stack += [node]
     pass
 
 
-def dfs_recursive(root: TreeNode, v: list[TreeNode]):
-    if root is None:
+# Recursive DFS
+def dfs_recursive(node: TreeNode, visited: list[TreeNode]):
+    if node is None:
         return
 
-    v += [root]     # add root to visited
-
-    for node in root.children:
-        if node not in v:
-             dfs_recursive(node, v)
+    visited += [node]  # add root to visited
+    for c in node.children:
+        if c not in visited:
+            dfs_recursive(c, visited)
     pass
