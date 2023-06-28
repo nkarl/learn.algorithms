@@ -7,7 +7,7 @@ class TreeNode:
 
 def process(node: TreeNode):
     """process the node data."""
-    pass
+    return node
 
 
 # Iterative DFS
@@ -29,7 +29,7 @@ def dfs(root: TreeNode):
     pass
 
 
-# Recursive DFS
+# Recursive DFS, NOTE: INTUITIVE
 def dfs_recursive(node: TreeNode, visited: list[TreeNode]):
     if node is None:
         return

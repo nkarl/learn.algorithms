@@ -7,10 +7,10 @@ class TreeNode:
 
 def process(node: TreeNode):
     """process the node data."""
-    pass
+    return node
 
 
-# Iterative BFS
+# Iterative BFS, NOTE: INTUITIVE
 def bfs(root: TreeNode):
     if root is None:
         return
@@ -29,7 +29,7 @@ def bfs(root: TreeNode):
     pass
 
 
-# Recursive BFS
+# Recursive BFS: WIP; HIGHLY WRONG!
 def bfs_recursive(node: TreeNode, visited: list[TreeNode]):
     if node is [None]:
         return
