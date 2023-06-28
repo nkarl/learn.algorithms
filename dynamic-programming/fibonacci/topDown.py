@@ -12,8 +12,8 @@ def fibo(n, cache):
         return cache[1]
     cache[n-1] = fibo(n -1, cache)
     cache[n-2] = fibo(n -2, cache)
-    cache[n] = cache[n-1] + cache[n-2]
-    return cache[n]
+    # cache[n] = cache[n-1] + cache[n-2]
+    return cache[n-1] + cache[n-2]
     # if cache[n] > -1:
         # return cache[n]
     # else:
