@@ -1,0 +1,77 @@
+#include <iostream>
+#include <vector>
+
+using std::cout;
+using std::endl;
+using std::vector;
+
+typedef struct Node {
+  int value;
+  struct Node *next;
+
+  Node(int value) {
+    this->value = value;
+    this->next = nullptr;
+  }
+} Node;
+
+Node *makeList(vector<int> nums) {
+  Node *head = new Node(nums[0]);
+  Node *n = head;
+  for (int i = 1; i < nums.size(); ++i) {
+    Node *tmp = new Node(nums[i]);
+    n->next = tmp;
+    n = n->next;
+  }
+  return head;
+}
+
+void printList(Node *head) {
+  if (head->next == nullptr) {
+    cout << head->value << endl;
+    return;
+  }
+  cout << head->value << ' ';
+  printList(head->next);
+}
+
+void postOrder(Node *head) {
+  if (head->next == nullptr) {
+    cout << head->value << ' ';
+    return;
+  }
+  postOrder(head->next);
+  cout << head->value << ' ';
+}
+
+void reverseList(Node *head) {
+  Node *n = head;
+  Node *nprev = nullptr, *nnext = nullptr;
+  while (n) {
+    nnext = n->next;
+    n->next = nprev;
+    nprev = n;
+    n = nnext;
+  }
+  printList(nprev);
+}
+
+Node *rev(Node *head) {
+  if (head->next == nullptr)
+    return head;
+  auto newHead = rev(head->next);
+  head->next->next = head;
+  head->next = nullptr;
+  return newHead;
+}
+
+int main() {
+  vector<int> nums = {0, 1, 2, 3, 4};
+  Node *head = makeList(nums);
+
+  printList(head);
+  // postOrder(head);
+  // reverseList(head);
+  auto revr = rev(head);
+  printList(revr);
+}
