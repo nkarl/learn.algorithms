@@ -31,12 +31,14 @@ def bfs(root: TreeNode):
 
 
 # Recursive BFS: WIP; HIGHLY LIKELY WRONG!
+# NOTE: recursive BFS seems to employ a post-order traversal
 def bfs_recursive(n: TreeNode, explored: set):
     if n is None:
         return
 
-    if n not in explored:
-        explored.add(n)  # add root to explored
-        for c in n.children:
-            bfs_recursive(c, explored)
+
+    for c in n.children:
+        bfs_recursive(c, explored)
+        if n not in explored:
+            explored.add(n)  # add root to explored
     pass

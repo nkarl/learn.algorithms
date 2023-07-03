@@ -31,6 +31,7 @@ def dfs(root: TreeNode):
 
 
 # Recursive DFS, NOTE: INTUITIVE
+# NOTE: definitely pre-order traversal
 def dfs_recursive(n: TreeNode, explored: set):
     if n is None:
         return
