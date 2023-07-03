@@ -10,32 +10,33 @@ def process(node: TreeNode):
     return node
 
 
+# BFS: Check if a vertex has been explored BEFORE queuing it
 # Iterative BFS, NOTE: INTUITIVE
 def bfs(root: TreeNode):
     if root is None:
         return
 
     queue = [root]  # add root to queue
-    visited = [root]  # add root to visited
+    explored = set()  # add root to explored 
 
     while len(queue) > 0:
         front = queue.pop(0)
-        process(front)
-
-        for node in front.children:
-            if node not in visited:
-                visited += [node]
-                queue += [node]
+        # additional condition to process here
+        #   if top match some condition -> break while
+        for child in front.children:
+            if child not in explored:
+                explored.add(child)
+                queue += [child]
     pass
 
 
-# Recursive BFS: WIP; HIGHLY WRONG!
-def bfs_recursive(node: TreeNode, visited: list[TreeNode]):
-    if node is [None]:
+# Recursive BFS: WIP; HIGHLY LIKELY WRONG!
+def bfs_recursive(n: TreeNode, explored: set):
+    if n is None:
         return
 
-    if node not in visited:
-        visited += [node]
-        for c in node.children:
-            bfs_recursive(c, visited)
+    if n not in explored:
+        explored.add(n)  # add root to explored
+        for c in n.children:
+            bfs_recursive(c, explored)
     pass

@@ -1,6 +1,6 @@
 # Tree Structure: graph, directed
 class TreeNode:
-    children = []
+    children = set()
     seem = False
     pass
 
@@ -10,32 +10,34 @@ def process(node: TreeNode):
     return node
 
 
+# DFS: Checks if a vertex has been explored AFTER popping it from stack
 # Iterative DFS
 def dfs(root: TreeNode):
     if root is None:
         return
 
     stack = [root]  # add root to stack
-    visited = [root]  # add root to visited 
+    explored = set()  # add root to explored
 
     while len(stack) > 0:
         top = stack.pop(-1)
-        process(top)
-
-        if top not in visited:
-            visited += [top]
-            for node in top.children:
-                stack += [node]
+        # additional condition to process here
+        #   if top match some condition -> break while
+        if top not in explored:
+            explored.add(top)
+            for child in top.children:
+                stack += [child]
     pass
 
 
 # Recursive DFS, NOTE: INTUITIVE
-def dfs_recursive(node: TreeNode, visited: list[TreeNode]):
-    if node is None:
+def dfs_recursive(n: TreeNode, explored: set):
+    if n is None:
         return
-
-    visited += [node]  # add root to visited
-    for c in node.children:
-        if c not in visited:
-            dfs_recursive(c, visited)
+    # additional condition to process here
+    #   if top match some condition -> break while
+    explored.add(n)  # add root to explored
+    for c in n.children:
+        if c not in explored:
+            dfs_recursive(c, explored)
     pass
