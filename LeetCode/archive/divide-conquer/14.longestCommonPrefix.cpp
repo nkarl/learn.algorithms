@@ -59,7 +59,7 @@ string getCommonPrefixOf(string s1, string s2, string indent) {
  *  a == b^d --> 2 == 2^1 --> case 1 --> O(NlogN)
  *
  * */
-string dfs(vector<string> strs, int lo, int hi, string space, int depth) {
+string divideConquer(vector<string> strs, int lo, int hi, string space, int depth) {
     string indent = "\t";
     for (auto i=0; i < depth; ++i)
         indent += "\t";
@@ -75,9 +75,9 @@ string dfs(vector<string> strs, int lo, int hi, string space, int depth) {
     int    m = lo + (hi - lo) / 2;
     //printf(" m=%d\n", m);
     printf("\n");
-    string s1= dfs(strs, lo, m, space, depth + 1);
+    string s1= divideConquer(strs, lo, m, space, depth + 1);
     printf("%s   s1=%s\n", indent.c_str(), s1.c_str());
-    string s2= dfs(strs, m + 1, hi, space, depth + 1);
+    string s2= divideConquer(strs, m + 1, hi, space, depth + 1);
     printf("%s   s2=%s\n", indent.c_str(), s2.c_str());
     //printf("%s%s%d\t%s\tm=%d lo=%d hi=%d\n", indent.c_str(), space.c_str(), depth, s1.c_str(), m, lo, hi);
     //printf("%s%s%d\t%s\n", indent.c_str(), space.c_str(), depth, s2.c_str());
@@ -85,7 +85,7 @@ string dfs(vector<string> strs, int lo, int hi, string space, int depth) {
 }
 
 /*
- * We can use DFS to recur and check each char in both strings.
+ * We can use divide-and-conquer to recur and check each char in both strings.
  *
  * This is a two-step process:
  *  First, how do we compare two strings?
@@ -96,7 +96,7 @@ string dfs(vector<string> strs, int lo, int hi, string space, int depth) {
  * */
 string longestCommonPrefix(vector<string> strs) {
     printf("\n > LCP()\n");
-    return dfs(strs, 0, strs.size() - 1, "depth=", 0);
+    return divideConquer(strs, 0, strs.size() - 1, "depth=", 0);
 }
 
 /**
