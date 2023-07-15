@@ -21,6 +21,6 @@ def proof(n):
     return factorial(n) > twoPowerN(n)
 
 
-print(factorial(4), twoPowerN(4), proof(4))
-print(factorial(5), twoPowerN(5), proof(5))
-print(factorial(6), twoPowerN(6), proof(6))
+print(f"{factorial(4)} > {twoPowerN(4)}", proof(4))
+print(f"{factorial(5)} > {twoPowerN(5)}", proof(5))
+print(f"{factorial(6)} > {twoPowerN(6)}", proof(6))
