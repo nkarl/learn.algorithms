@@ -1,19 +1,12 @@
 #include <iostream>
 #include <vector>
 
-using std::cout;
-using std::endl;
-using std::vector;
+using std::cout, std::endl, std::vector;
 
-typedef struct Node {
-  int value;
-  struct Node *next;
-
-  Node(int value) {
-    this->value = value;
-    this->next = nullptr;
-  }
-} Node;
+struct Node {
+  int value; struct Node *next = nullptr;
+  Node(int value) : value(value) {}
+};
 
 Node *makeList(vector<int> nums) {
   Node *head = new Node(nums[0]);
@@ -56,10 +49,10 @@ void reverseList(Node *head) {
   printList(nprev);
 }
 
-Node *rev(Node *head) {
+Node *reverse(Node *head) {
   if (head->next == nullptr)
     return head;
-  auto newHead = rev(head->next);
+  auto newHead = reverse(head->next);
   head->next->next = head;
   head->next = nullptr;
   return newHead;
@@ -72,6 +65,6 @@ int main() {
   printList(head);
   // postOrder(head);
   // reverseList(head);
-  auto revr = rev(head);
+  auto revr = reverse(head);
   printList(revr);
 }
