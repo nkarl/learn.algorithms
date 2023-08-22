@@ -11,13 +11,13 @@ def bfs_core(graph, queue: deque, visited):
     """
     if queue.count == 0:
         return
-    v = queue.popleft()
+    v = queue.popleft() # v, queue = v[0], queue[1:]
     visited.add(v)
     print(v, end=' ')
     for w in graph[v]:
         if w not in visited:
-            queue.append(w)
-            bfs_core(graph, queue, visited)
+            queue.append(w) # queue += [w]
+    bfs_core(graph, queue, visited)
     pass
 
 

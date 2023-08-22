@@ -1,3 +1,7 @@
+# regular multiplication
+# a = 4
+# b = 2
+# d = 1
 def recursive_multiply(x: str, y: str, n: int) -> int:
     if n == 1:
         return int(x) * int(y)
