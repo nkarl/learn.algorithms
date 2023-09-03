@@ -1,3 +1,6 @@
+s = [3, 5, 2, 1, 7]
+k = 2
+
 
 def getMaxSum(arr, k):
     maxSum = 0
@@ -15,3 +18,5 @@ def getMaxSum(arr, k):
     return maxSum
 
 
+result = getMaxSum(s, k)
+print(result)
