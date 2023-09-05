@@ -22,9 +22,10 @@ def dfs(root: TreeNode):
     while len(stack) > 0:
         top = stack.pop(-1)
         # additional condition to process here
-        #   if top match some condition -> break while
+        #   if top matches some condition -> break while
         if top not in explored:
             explored.add(top)
+
             for child in top.children:
                 stack += [child]
     pass

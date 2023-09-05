@@ -22,8 +22,9 @@ def bfs(root: TreeNode):
     while len(queue) > 0:
         front = queue.pop(0)
         # additional condition to process here
-        #   if top match some condition -> break while
+        #   if front matches some condition -> break while
         for child in front.children:
+
             if child not in explored:
                 explored.add(child)
                 queue += [child]
