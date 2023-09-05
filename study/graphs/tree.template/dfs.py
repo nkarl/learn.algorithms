@@ -11,7 +11,7 @@ def process(node: TreeNode):
 
 
 # DFS: Checks if a vertex has been explored AFTER popping it from stack
-# Iterative DFS
+# Iterative DFS, NOTE: VERBOSE
 def dfs(root: TreeNode):
     if root is None:
         return

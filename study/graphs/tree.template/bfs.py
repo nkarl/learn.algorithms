@@ -30,7 +30,7 @@ def bfs(root: TreeNode):
     pass
 
 
-# Recursive BFS: WASTE OF TIME.
+# Recursive BFS, NOTE: WASTE OF TIME.
 # NOTE: recursive BFS seems to employ a post-order traversal
 def bfs_recursive(n: TreeNode, explored: set):
     #   if top match some condition -> break recurrence 
