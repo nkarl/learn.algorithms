@@ -17,7 +17,7 @@ def bfs(root: TreeNode):
         return
 
     queue = [root]  # add root to queue
-    explored = set()  # add root to explored 
+    explored = set()  # add root to explored
 
     while len(queue) > 0:
         front = queue.pop(0)
@@ -30,15 +30,15 @@ def bfs(root: TreeNode):
     pass
 
 
-# Recursive BFS: WIP; HIGHLY LIKELY WRONG!
+# Recursive BFS: WASTE OF TIME.
 # NOTE: recursive BFS seems to employ a post-order traversal
 def bfs_recursive(n: TreeNode, explored: set):
     if n is None:
         return
 
-
-    for c in n.children:
-        bfs_recursive(c, explored)
-        if n not in explored:
-            explored.add(n)  # add root to explored
+    # It is a waste of time to try to do this recursively.
+    # This is because we lose information by force fitting a
+    # queue (bidireactional) into a stack (unidirectional).
+    # simply use a queue for BFS and stack for DFS.
+    # End of the story.
     pass
