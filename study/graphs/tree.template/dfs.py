@@ -33,10 +33,11 @@ def dfs(root: TreeNode):
 # Recursive DFS, NOTE: INTUITIVE
 # NOTE: definitely pre-order traversal
 def dfs_recursive(n: TreeNode, explored: set):
+    # if top match some condition -> break recurrence
     if n is None:
         return
+
     # additional condition to process here
-    #   if top match some condition -> break while
     explored.add(n)  # add root to explored
     for c in n.children:
         if c not in explored:
