@@ -11,7 +11,7 @@ def process(node: TreeNode):
 
 
 # DFS: Checks if a vertex has been explored AFTER popping it from stack
-# Iterative DFS, NOTE: VERBOSE
+# Iterative DFS, VERBOSE
 def dfs(root: TreeNode):
     if root is None:
         return
@@ -31,7 +31,6 @@ def dfs(root: TreeNode):
 
 
 # Recursive DFS, NOTE: INTUITIVE
-# NOTE: definitely pre-order traversal
 def dfs_recursive(n: TreeNode, explored: set):
     # if top match some condition -> break recurrence
     if n is None:
