@@ -12,6 +12,7 @@ def process(node: TreeNode):
 
 # DFS: Checks if a vertex has been explored AFTER popping it from stack
 # Iterative DFS, VERBOSE
+# A stack grows very fast if each node has many children (more fanned out).
 def dfs(root: TreeNode):
     if root is None:
         return

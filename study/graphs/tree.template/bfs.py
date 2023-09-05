@@ -12,6 +12,7 @@ def process(node: TreeNode):
 
 # BFS: Check if a vertex has been explored BEFORE queuing it
 # Iterative BFS, NOTE: INTUITIVE
+# A queue grows very fast if the tree has great height.
 def bfs(root: TreeNode):
     if root is None:
         return
