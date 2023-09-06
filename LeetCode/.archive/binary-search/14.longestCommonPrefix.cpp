@@ -16,6 +16,15 @@ bool isCommonPrefix(vector<string> &strs, int m) {
     return true;
 }
 
+string findCommonPrefix(vector<string> &strs, int lo, int hi) {
+    if (lo > hi) {
+        return strs[0].substr(0, lo-1);
+    }
+    int mid = lo +(hi -lo) /2;
+    if (isCommonPrefix(strs, mid))  return findCommonPrefix(strs, mid+1, hi);
+    else                            return findCommonPrefix(strs, lo, mid-1);
+}
+
 /*
  * Longest Common Prefix.
  */
@@ -34,13 +43,14 @@ string longestCommonPrefix(vector<string> &strs) {
      * If the common prefix is shorter than mid, we can eliminate the right half
      * of the shortest.
      */
-    int lo = 0; int hi = shortest; int m;
-    while (lo <= hi) {
-        m = lo+(hi-lo)/2;
-        if (isCommonPrefix(strs, m)) lo=m+1;
-        else                         hi=m-1;
-    }
-    return strs[0].substr(0, lo-1);
+    return findCommonPrefix(strs, 0, shortest);
+    //int lo = 0; int hi = shortest; int m;
+    //while (lo <= hi) {
+        //m = lo+(hi-lo)/2;
+        //if (isCommonPrefix(strs, m)) lo=m+1;
+        //else                         hi=m-1;
+    //}
+    //return strs[0].substr(0, lo-1);
 }
 
 /**
