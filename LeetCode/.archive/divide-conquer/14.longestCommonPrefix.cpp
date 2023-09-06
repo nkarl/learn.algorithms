@@ -107,7 +107,7 @@ int main(int argc, char *argv[]) {
     vector<string> vec2  = {"aaaa", "aaab", "aaac", "aabc"};
     vector<string> vec3  = {"aaaa", "aaab", "aaac", "aabc", "aaaaaabc", "aaaaacdb", };
     vector<string> vec4  = {"aaaa", "aaab", "aaac", "aabc", "aaaaaabc", "aaaaacdb", "aaaaabcde", "aaaaecdg" };
-    vector<string> strs  = vec2;
+    vector<string> strs  = vec4;
     myPrint(strs);
     string         prefix= longestCommonPrefix(strs);
     printf("\n > prefix = %s\n", prefix.c_str());
