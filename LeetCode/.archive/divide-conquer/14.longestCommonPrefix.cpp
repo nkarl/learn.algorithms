@@ -72,16 +72,16 @@ string divideConquer(vector<string> strs, int lo, int hi) { //, int depth, strin
     }
 
     //printf("\n");
-    int   mid= lo +(hi -lo) /2;
+    int  mid= lo +(hi -lo) /2;
     //printf(" m=%d\n", m);
     //printf("\n");
-    string s1= divideConquer(strs, lo    , mid); //, depth +1, space);
-    //printf("%s   s1=%s\n", indent.c_str(), s1.c_str());
-    string s2= divideConquer(strs, mid +1,  hi); //, depth +1, space);
-    //printf("%s   s2=%s\n", indent.c_str(), s2.c_str());
-    //printf("%s%s%d\t%s\tm=%d lo=%d hi=%d\n", indent.c_str(), space.c_str(), depth, s1.c_str(), m, lo, hi);
-    //printf("%s%s%d\t%s\n", indent.c_str(), space.c_str(), depth, s2.c_str());
-    return getCommonPrefixOf(s1, s2); //, indent);
+    string a= divideConquer(strs, lo    , mid); //, depth +1, space);
+    //printf("%s   a=%s\n", indent.c_str(), a.c_str());
+    string b= divideConquer(strs, mid +1,  hi); //, depth +1, space);
+    //printf("%s   b=%s\n", indent.c_str(), b.c_str());
+    //printf("%s%s%d\t%s\tm=%d lo=%d hi=%d\n", indent.c_str(), space.c_str(), depth, a.c_str(), m, lo, hi);
+    //printf("%s%s%d\t%s\n", indent.c_str(), space.c_str(), depth, b.c_str());
+    return getCommonPrefixOf(a, b); //, indent);
 }
 
 /*
