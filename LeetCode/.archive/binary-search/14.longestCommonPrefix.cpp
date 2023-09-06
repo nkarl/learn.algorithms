@@ -1,10 +1,6 @@
 #include "../utils.cpp"
 using std::min; using std::string;
 
-/*
- * Complexity: O(NlogN) Time, O(1) Space.
- */
-
 /**
  * Check that every string in the vector contains a prefix of length m.
  */
@@ -18,7 +14,7 @@ bool isCommonPrefix(vector<string> &strs, int m) {
 
 string findCommonPrefix(vector<string> &strs, int lo, int hi) {
     if (lo > hi) {
-        return strs[0].substr(0, lo-1);
+        return strs[0].substr(0, hi);
     }
     int mid = lo +(hi -lo) /2;
     if (isCommonPrefix(strs, mid))  return findCommonPrefix(strs, mid+1, hi);
@@ -27,6 +23,7 @@ string findCommonPrefix(vector<string> &strs, int lo, int hi) {
 
 /*
  * Longest Common Prefix.
+ * Complexity: O(NlogN) Time. O(1) Space on loop, O(NlogN) Space on recursion.
  */
 string longestCommonPrefix(vector<string> &strs) {
     /*
@@ -50,7 +47,7 @@ string longestCommonPrefix(vector<string> &strs) {
         //if (isCommonPrefix(strs, m)) lo=m+1;
         //else                         hi=m-1;
     //}
-    //return strs[0].substr(0, lo-1);
+    //return strs[0].substr(0, hi);
 }
 
 /**
