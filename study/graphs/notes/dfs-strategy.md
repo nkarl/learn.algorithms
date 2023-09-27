@@ -1,5 +1,5 @@
 - Given:
-  - a tree $T$ (not necessarily binary), and
+  - a tree $T$ (*not necessarily binary*), and
   - some node $n_i$ within the tree
 
 - Do:
