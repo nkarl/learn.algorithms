@@ -70,21 +70,21 @@ old -.->|<p style='padding:1em'>after deletion</p>| new
 # recursive
 def deleteRecur(node, id):
     if not node.children:
-        return None
+        return
     for n in node.children:
         if n.id == id:
             node.remove(n)
             node.insert(n.children)
-            return n
-        return deleteRecur(n, id)
+            return
+        deleteRecur(n, id)
 
 # delete interface
 def delete(root, id):
     if root is None or root.children is None:
-        return None
+        return
     if root.id == id:
-        return None
-    return deleteRecur(root, id)
+        return
+    deleteRecur(root, id)
 ```
 
 #### Final thoughts
