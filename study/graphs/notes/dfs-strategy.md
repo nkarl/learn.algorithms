@@ -5,22 +5,22 @@
   - some node id `id_num`
 
 - Do:
-  - delete the node $n_i$ whose id matches `id_num` by sending all of its children to its parent.
+  - delete the node $n_i$ whose id matches `id_num` by sending all of its children to its parent. $i$ is the tree's depth.
 
-At a glance, we see that we have two scopes to work with: the parent and the child. We never need to enter the scopes of the grandchildren. In order to relocate them to their new parent/guardian, we only need their references/ids, which can be retrieved from their previous parent.
+At a glance, we see that we have two scopes to work with: some parent node and its child. We never need to enter the scopes of the grandchildren. In order to relocate them to their new parent/guardian, we only need their references/ids, which can be retrieved from the previous parent.
 
 ```mermaid
 flowchart LR
 
-subgraph old
-op1[parent] --- oc1[n]
-oc1 --- ogc1[c1]
-oc1 --- ogc2[c2]
-oc1 --- ogc3[c3]
+subgraph old[old tree]
+op1[n<sub>i</sub>] -.- oc1[n<sub>i+1</sub>]
+oc1 --- oc11[c1]
+oc1 --- oc12[c2]
+oc1 --- oc13[c3]
 end
 
-subgraph new
-np1[parent] -.-|reaped by GC| ncd[n]
+subgraph new[new tree]
+np1[n<sub>i</sub>] -.-|reaped by GC| ncd[n<sub>i+1</sub>]
 np1 --- nc1[c1]
 np1 --- nc2[c2]
 np1 --- nc3[c3]
