@@ -31,11 +31,11 @@ old -.->|<p style='padding:1em'>after n is deleted</p>| new
 
 Now we describe the operation in detail.
 
-In the tree $T$, <u>there exists one node whose id matches</u> `id_num`. Because a tree might have many layers (many generations of descendants), we recognize that a recurrence/iteration must exist for such a tree and as long as the break condition is not met.
+Our hypothesis is that there exists some node $n_i$, and among its children is some node $n_{i+1}$ that matches `id_num` in the tree $T$. Because a tree might have many layers (many generations of descendants), we recognize that a recurrence/iteration must exist for such a tree and as long as the break condition is not met.
 
 Now, two cases might happen for each recurrence/iteration. Either the node matches `id_num` or it doesn't.
 
-- Matched: we immediate break the recurrence/iteration and <u>move to the next operation</u>:
+- Matched: we immediately break the recurrence/iteration and <u>move to the next operation</u>:
     - return the child's id to the parent's scope, and
     - iterate and bind each of its chidren to the new parent.
 - Matched **NOT**: we iterate (or *recur depth-first*) through the remainder of the tree.
@@ -45,14 +45,22 @@ Finally, we have the code.
 
 ```py
 # recursive
-def delete(node, id):
-    if (node.id == id):
-        return True
-    for n in node.child:
-        deletable = delete(n, id)
-        if deletable:
-            node.children.append(found.children)
-            return True
-    return False
+def deleteRe(node, id):
+    if node.children is None:
+        return
+    for n in node.children:
+        if n.id == id:
+            node.remove(n)
+            node.insert(n.children)
+            return
+        deleteIt(n, id)
+    return
+
+def delete(root, id):
+    if root is None or root.children is None:
+        return
+    if root.id == id:
+        return
+    deleteIt(root, id)
 ```
 
