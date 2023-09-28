@@ -89,5 +89,5 @@ def delete(root, id):
 
 #### Final thoughts
 
-It is useful to notice that the delete operation is a side effect of the recurence in which we find the matching id.
+It is useful to notice that the delete operation is a side effect of the recurence of id matching.
 
