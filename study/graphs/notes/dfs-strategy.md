@@ -40,3 +40,19 @@ Now, two cases might happen for each recurrence/iteration. Either the node match
     - iterate and bind each of its chidren to the new parent.
 - Matched **NOT**: we iterate (or *recur depth-first*) through the remainder of the tree.
 
+
+Finally, we have the code.
+
+```py
+# recursive
+def delete(node, id):
+    if (node.id == id):
+        return True
+    for n in node.child:
+        deletable = delete(n, id)
+        if deletable:
+            node.children.append(found.children)
+            return True
+    return False
+```
+
