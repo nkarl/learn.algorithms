@@ -38,7 +38,7 @@ Now, two cases might happen for each recurrence/iteration. Either the node match
 - Matched: we immediately break the recurrence/iteration and <u>move to the next operation</u>:
     - return the child's id to the parent's scope, and
     - iterate and bind each of its chidren to the new parent.
-- Matched **NOT**: we iterate (or *recur depth-first*) through the remainder of the tree.
+- Matched **NOT**: we iterate (or *recur depth-first*) through the remainder of the tree until hiting leaf nodes.
 
 
 Finally, we have the code.
