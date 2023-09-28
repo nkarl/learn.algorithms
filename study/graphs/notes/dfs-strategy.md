@@ -5,19 +5,38 @@
   - some node id `id`
 
 - Do:
-  - delete the node $n_i$ whose id matches `id` and send all of its children to its parent.
-    -  In other words, the orphan children will be sent to the grandparent.
+  - delete the node $n_i$ whose id matches `id` by sending all of its children to its parent.
 
-At a glance, we see that we have two scopes to work with: the parent and the child. We never need to enter the scopes of the grandchildren; we only need their references/ids in order to relocate them to their new parent/guardian.
+At a glance, we see that we have two scopes to work with: the parent and the child. We never need to enter the scopes of the grandchildren. In order to relocate them to their new parent/guardian, we only need their references/ids, which can be retrieved from their previous parent.
+
+```mermaid
+flowchart LR
+
+subgraph old
+op1[parent] --- oc1[n]
+oc1 --- ogc1[c1]
+oc1 --- ogc2[c2]
+oc1 --- ogc3[c3]
+end
+
+subgraph new
+np1[parent] -.-|reaped by GC| ncd[n]
+np1 --- nc1[c1]
+np1 --- nc2[c2]
+np1 --- nc3[c3]
+end
+
+old -.->|<p style='padding:1em'>after n is deleted</p>| new
+```
 
 Now we describe the operation in detail.
 
-For each node $n_i$ in the tree $T$, <u>there exists one node among its children whose id matches that of the given node</u> $n_i$. Because a tree may have many layers (generations of descendants), we recognize that a recurrence/iteration must exist as long as the break condition is not met.
+For each node $n_i$ in the tree $T$, <u>there exists one node among its children whose id matches that of the given node</u> $n_i$. Because a tree might have many layers (many generations of descendants), we recognize that a recurrence/iteration must exist for such a tree and as long as the break condition is not met.
 
 Now, two cases might happen for each recurrence/iteration. Either the node matches or it doesn't.
 
 - Matched: we immediate break the recurrence/iteration and <u>move to the next operation</u>:
-    - return the child's id (from which we can get its children) to the parent's scope, and
+    - return the child's id to the parent's scope, and
     - iterate and bind each of its chidren to the new parent.
-- Matched **NOT**: we recur *depth-first* through the tree.
+- Matched **NOT**: we iterate (or *recur depth-first*) through the remainder of the tree.
 
