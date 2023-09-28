@@ -2,10 +2,10 @@
 
 - Given:
   - a tree $T$ (*not necessarily binary*), and
-  - some node id `id`
+  - some node id `id_num`
 
 - Do:
-  - delete the node $n_i$ whose id matches `id` by sending all of its children to its parent.
+  - delete the node $n_i$ whose id matches `id_num` by sending all of its children to its parent.
 
 At a glance, we see that we have two scopes to work with: the parent and the child. We never need to enter the scopes of the grandchildren. In order to relocate them to their new parent/guardian, we only need their references/ids, which can be retrieved from their previous parent.
 
@@ -31,9 +31,9 @@ old -.->|<p style='padding:1em'>after n is deleted</p>| new
 
 Now we describe the operation in detail.
 
-For each node $n_i$ in the tree $T$, <u>there exists one node among its children whose id matches that of the given node</u> $n_i$. Because a tree might have many layers (many generations of descendants), we recognize that a recurrence/iteration must exist for such a tree and as long as the break condition is not met.
+In the tree $T$, <u>there exists one node whose id matches</u> `id_num`. Because a tree might have many layers (many generations of descendants), we recognize that a recurrence/iteration must exist for such a tree and as long as the break condition is not met.
 
-Now, two cases might happen for each recurrence/iteration. Either the node matches or it doesn't.
+Now, two cases might happen for each recurrence/iteration. Either the node matches `id_num` or it doesn't.
 
 - Matched: we immediate break the recurrence/iteration and <u>move to the next operation</u>:
     - return the child's id to the parent's scope, and
