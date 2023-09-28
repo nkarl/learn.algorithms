@@ -11,9 +11,9 @@
 
 #### We first observe that
 
-> We have two lexical scopes to work with: the scope of some parent node $n_d$ and that of its child $n_{d+1}$. Our goal is to delete $n_{d+1}$ and sends its chidren to the new guardian $n_d$.
+> We never need to enter the scopes of the orphaned descendants $[c_1..c_n]$. In order to relocate them to their new guardian (namely $n_d$), we only need their id's, which can be retrieved from the former guardian $n_{d+1}$.
 >
-> We further notice that we never need to enter the scopes of the orphaned children $[c_1..c_n]$. In order to relocate them to their new guardian (namely $n_d$), we only need their id's, which can be retrieved from the former guardian $n_{d+1}$.
+> Thus, we have two lexical scopes to work with: the scope of some parent node $n_d$ and that of its child $n_{d+1}$. Our goal is to delete $n_{d+1}$ and sends its chidren to the new guardian $n_d$.
 
 ```mermaid
 flowchart LR
@@ -50,7 +50,7 @@ old -.->|<p style='padding:1em'>after deletion</p>| new
 > In the tree $T$ there exists some node $n_d$, and among its children there exists some node $n_{d+1}$ whose id matches `id`.
 
 
-#### Our induction is that
+#### We induce our reasoning as follows
 
 > First, we assume that $n_{d+1}$ has matching id with `id`.
 >
@@ -58,8 +58,8 @@ old -.->|<p style='padding:1em'>after deletion</p>| new
 > 
 > Now, two cases might happen for each recurrence. Either the node matches `id` or it doesn't.
 > 
-> - Matched: we immediately break the recurrence and <u>proceed achieving the goal</u>:
->     - return the child's id to the parent's scope, and
+> - Matched: we immediately break the recurrence and <u>proceed to achieving the goal</u>:
+>     - return the child's id to the parent's scope, and then
 >     - collect and bind its chidren to the new parent.
 > - Matched **NOT**: we *recur depth-first* through the remainder of the tree until hiting the leaf nodes.
 
@@ -68,7 +68,7 @@ old -.->|<p style='padding:1em'>after deletion</p>| new
 
 ```py
 # recursive
-def deleteRe(node, id):
+def deleteRecur(node, id):
     if not node.children:
         return None
     for n in node.children:
@@ -76,17 +76,18 @@ def deleteRe(node, id):
             node.remove(n)
             node.insert(n.children)
             return n
-        deleteRe(n, id)
+        return deleteRecur(n, id)
 
+# delete interface
 def delete(root, id):
     if root is None or root.children is None:
         return None
     if root.id == id:
-        return n
-    return deleteIt(root, id)
+        return None
+    return deleteRecur(root, id)
 ```
 
 #### Final thoughts
 
-It is useful to notice that the delete operation is a side effect of the recurence to find the matching id.
+It is useful to notice that the delete operation is a side effect of the recurence in which we find the matching id.
 
