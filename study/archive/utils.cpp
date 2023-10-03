@@ -31,7 +31,7 @@ void myPrintHelp(T x) {
 /* array/vector */
 template<typename T>
 void myPrint(vector<T> &vec) {
-    printf("input vector: [ ");
+    printf("[ ");
     for (auto x : vec) {
         // printf("%d ", x);
         myPrintHelp(x);
