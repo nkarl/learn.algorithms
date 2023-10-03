@@ -11,10 +11,11 @@ def getMaxSum(arr, k):
     for i in range(len(arr)):
         windowSum += arr[i]
 
-    if (i - p + 1) == k:
-        maxSum = max(maxSum, windowSum)
-        windowSum -= arr[p]
-        p += 1
+        # sliding window; starting at i==2
+        if (i + 1 - p) == k:
+            maxSum = max(maxSum, windowSum)
+            windowSum -= arr[p]
+            p += 1
 
     return maxSum
 
