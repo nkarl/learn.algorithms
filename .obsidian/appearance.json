@@ -2,5 +2,10 @@
   "accentColor": "",
   "cssTheme": "Blue Topaz",
   "theme": "moonstone",
-  "baseFontSize": 16
+  "baseFontSize": 16,
+  "enabledCssSnippets": [
+    "obsidian",
+    "wider-note",
+    "styleSettings"
+  ]
 }

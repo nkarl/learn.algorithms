@@ -383,10 +383,10 @@ settings:
   --title-gradient-bottom: var(--link-color);
 }
 
+.ss-title-gradient h1,
 .ss-title-gradient .inline-title,
 .ss-title-gradient h1.embedded-note-title.embedded-note-title.embedded-note-title,
-.ss-title-gradient .cm-header-1,
-.ss-title-gradient .markdown-preview-view h1 {
+.ss-title-gradient .cm-header-1 {
   background-image: -webkit-linear-gradient(-90deg, var(--title-gradient-top) 0%, var(--title-gradient-bottom) 100%);
   -webkit-text-fill-color: transparent;
   -webkit-background-clip: text;
@@ -464,12 +464,54 @@ body:not(.align-title-left) .markdown-preview-section.markdown-preview-section h
   font-size: var(--h2-size);
 }
 
-body:not(.no-image-alttext-caption) .image-embed[alt]:not([alt$=".png"], [alt$=".jpg"], [alt$=".jpeg"], [alt$=".tiff"])::after {
+/* @settings
+
+name: Typomagical Images
+id: typomagical-images
+settings:
+	-
+		id: ss-image-caption
+		title: Image captions
+		description: Show captions underneath images using ![filename.jpg|caption]. Does not work for ![](url.jpg).
+		type: class-toggle
+	-
+		id: ss-zoom-off
+		title: Disable image zoom
+		description: Disable click+hold to zoom on images
+		type: class-toggle
+*/
+.ss-image-caption .image-embed[alt]:not([alt$=".png"], [alt$=".jpg"], [alt$=".jpeg"], [alt$=".tiff"])::after,
+body:not(.no-image-alttext-caption) .published-container .image-embed[alt]:not([alt$=".png"], [alt$=".jpg"], [alt$=".jpeg"], [alt$=".tiff"])::after {
   display: block;
   content: attr(alt);
   color: var(--text-muted);
   margin-bottom: 1em;
   text-align: center;
+}
+
+body:not(.ss-zoom-off) .view-content .image-embed:not(.canvas-node-content):active,
+body:not(.ss-zoom-off) .view-content .markdown-preview-view img[referrerpolicy=no-referrer]:active {
+  aspect-ratio: unset;
+  background-color: var(--background-primary);
+  cursor: zoom-out;
+  display: block;
+  z-index: 200;
+  position: fixed;
+  max-height: calc(100% + 1px);
+  max-width: 100%;
+  height: calc(100% + 1px);
+  width: 100%;
+  object-fit: contain;
+  margin: -0.5px auto 0 !important;
+  text-align: center;
+  padding: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+body:not(.ss-zoom-off) .view-content div:not(.canvas-node-content) img {
+  max-width: 100%;
+  cursor: zoom-in;
 }
 
 /*
@@ -526,6 +568,26 @@ a,
   font-family: var(--font-links);
   font-variant-ligatures: none;
 }
+a:hover,
+.cm-url:hover,
+.cm-hmd-internal-link:hover,
+.cm-s-obsidian span.cm-hmd-internal-link:hover,
+.cm-link:hover,
+.markdown-rendered .internal-link:hover,
+.markdown-preview-view .internal-link:hover {
+  filter: brightness(1.15);
+}
+
+.theme-light a:hover,
+.theme-light .cm-url:hover,
+.theme-light .cm-hmd-internal-link:hover,
+.theme-light .cm-s-obsidian span.cm-hmd-internal-link:hover,
+.theme-light .cm-link:hover,
+.theme-light .markdown-rendered .internal-link:hover,
+.theme-light .markdown-preview-view .internal-link:hover {
+  filter: saturate(30%);
+  filter: brightness(0.6);
+}
 
 .markdown-rendered .internal-link:hover {
   text-decoration: underline;
@@ -562,6 +624,17 @@ body.ss-links-sans {
 .cm-hashtag {
   font-size: 0.8em;
   font-family: var(--font-monospace);
+}
+
+.markdown-rendered .external-link,
+.is-live-preview .external-link {
+  background-position-y: 0;
+}
+
+.ss-hide-external-link-icon .markdown-rendered .external-link,
+.ss-hide-external-link-icon .is-live-preview .external-link {
+  background-image: none;
+  padding-right: 0;
 }
 
 /* Lists START */
@@ -610,6 +683,11 @@ body {
   --table-row-last-border-width: 0;
 }
 
+.markdown-rendered thead tr > th {
+  vertical-align: bottom;
+}
+
+.markdown-rendered thead tr > th,
 .markdown-preview-view td,
 .markdown-preview-view th {
   border-right-color: transparent;
@@ -707,10 +785,56 @@ body {
   transform: rotate(180deg) scale(1.25);
 }
 
+.callout-quote-style [data-callout=quote].callout.callout {
+  background-color: transparent;
+  border: none;
+  display: flex;
+  flex-direction: column-reverse;
+  padding: 0;
+}
+.callout-quote-style [data-callout=quote].callout.callout .callout-icon {
+  display: none;
+}
+.callout-quote-style [data-callout=quote]::after {
+  font-family: "Times New Roman", "Playfair Display";
+  font-size: 3em;
+  text-align: center;
+  line-height: 1;
+  content: "“";
+  font-weight: 900;
+}
+.callout-quote-style [data-callout=quote] .callout-content.callout-content {
+  padding: 0;
+  font-size: 1.35em;
+  text-align: center;
+  font-weight: 300;
+  font-variant-ligatures: discretionary-ligatures;
+  font-feature-settings: "liga";
+}
+.callout-quote-style [data-callout=quote] .callout-title.callout-title {
+  padding-top: 0;
+  justify-content: center;
+  color: var(--text-normal);
+}
+.callout-quote-style [data-callout=quote] .callout-title.callout-title .callout-title-inner {
+  font-weight: 400;
+}
+.callout-quote-style [data-callout=quote] .callout-title.callout-title::before {
+  content: "―";
+}
+.callout-quote-style [data-callout=quote].is-collapsible .callout-title:hover {
+  cursor: pointer;
+}
+.callout-quote-style [data-callout=quote] .callout-fold {
+  margin-top: 0;
+  transform: scale(0.75);
+}
+.callout-quote-style [data-callout=quote] .callout-fold svg {
+  stroke: var(--text-accent);
+}
+
 sup.footnote-ref {
-  position: relative;
-  bottom: 0.2em;
-  padding-left: 0.1em;
+  line-height: 1;
 }
 
 .footnote-link {
@@ -720,6 +844,17 @@ sup.footnote-ref {
 }
 .footnote-link:hover {
   text-decoration: none;
+}
+
+.footnote-backref {
+  margin-left: 0.5em;
+}
+
+.circled-ol .footnotes ol {
+  padding-inline-start: 18px;
+}
+.circled-ol .footnotes ol li::before {
+  margin-left: -1.3rem;
 }
 
 body.theme-light .modal-bg {
@@ -756,348 +891,16 @@ body.theme-dark .modal-bg {
   padding: 0.5em;
 }
 
-/* Calendar by liamcain START */
-#calendar-container {
-  --color-background-today: var(--link-color);
+body.ficus-ruby {
+  --link-external-color: #fa858f;
 }
-#calendar-container .active .dot-container svg {
-  fill: white;
-}
-
-#calendar-container h3.title {
-  font-family: var(--font-title);
+body.ficus-ruby.theme-dark {
+  --graph-line: #fa858f;
 }
 
-#calendar-container .year {
-  color: var(--text);
-  letter-spacing: -0.05em;
-}
-
-#calendar-container .month {
-  font-weight: 700;
-}
-
-#calendar-container .today {
-  font-style: italic;
-}
-
-#calendar-container .today:not(.active) {
-  color: var(--color-text-day);
-  box-shadow: inset 0 0 1px var(--link-color);
-}
-
-#calendar-container .reset-button {
-  color: var(--link-color);
-}
-
-/* Calendar END */
-ul.dataview-ul {
-  list-style: none;
-  padding-inline-start: 0;
-  margin-block-start: 0.5em;
-  margin-block-end: 0.5em;
-}
-
-body {
-  --font-default: "Spectral", -apple-system, BlinkMacSystemFont, "Segoe UI",
-  	"Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", serif;
-  --font-text: var(--font-default);
-  --link-unresolved-color: #d5aecf;
-  --link-unresolved-opacity: 1;
-  --link-external-decoration: none;
-  --link-external-decoration-hover: underline;
-  --tag-color: #eeb662;
-  --tag-color-hover: #f7d865;
-  --code-normal: #62d770;
-  --link-decoration: none;
-  --modal-height: 75vh;
-  --line-height-body: 1.45;
-}
-
-.theme-light {
-  --code-normal: #4db95a;
-  --link-color-hover: #8177eb;
-  --link-external-color: #2f9bb7;
-  --link-external-color-hover: rgb(72, 191, 224);
-  --tag-color: var(--text-normal);
-  --tag-color-hover: var(--text-normal);
-  --tag-background: #eeb662;
-  --tag-background-hover: #f7d865;
-}
-
-.theme-dark {
-  --link-color: hsl(248, 75%, 79%);
-  --link-color-hover: #8177eb;
-  --link-external-color: #7fcae6;
-  --link-external-color-hover: #89ebe5;
-}
-
-body {
-  font-weight: var(--body-weight);
-}
-
-b,
-.cm-s-obsidian .cm-strong {
-  font-weight: 600;
-  font-weight: var(--bold-weight);
-}
-
-.markdown-preview-view hr {
-  border-width: 1px 0 0;
-  border-style: dotted;
-}
-
-/* GRAPH */
-.theme-light .graph-view.color-fill-tag {
-  color: #e07d1a;
-}
-
-.theme-dark .graph-view.color-fill-tag {
-  color: #df964e;
-}
-
-.theme-light .graph-view.color-fill-attachment {
-  color: #2f9bb7;
-}
-
-.theme-dark .graph-view.color-fill-attachment {
-  color: #7fcae6;
-}
-
-.markdown-preview-section iframe {
-  width: 100%;
-}
-
-/* Wrap long nav text*/
-.nav-file-title,
-.nav-folder-title,
-.nav-file-title-content,
-.nav-folder-title-content {
-  white-space: normal;
-  width: auto;
-}
-
-/* @settings
-
-name: Typomagical Text
-id: typomagical-text
-settings:
-	-
-		id: body-ligatures
-		title: Text Ligatures
-		description: Decorative conjoined characters, such as the "ffi" in "office" and "ft" in "often".
-		type: class-toggle
-	-
-		id: mjx-font
-		title: MathJax font
-		description: Font for MathJax e.g. $inline equation$ and $$centered equation$$
-		type: class-select
-		default: mathjax-font-default
-		options:
-			-
-				label: MJXZERO, MJXTEX (Obsidian Default)
-				value: mathjax-font-default
-			-
-				label: Spectral
-				value: mathjax-font-typomagical
-	-
-		id: ordered-lists
-		title: List numbers
-		description: Whether numerical lists should have circled, or ordinary numbers
-		type: class-select
-		default: circled-ol
-		options:
-			-
-				label: Circled
-				value: circled-ol
-			-
-				label: Ordinary
-				value: ordinary-ol
-	-
-		id: font-default
-		title: Body font
-		description: The font for body
-		type: variable-select
-		default: Spectral
-		options:
-			-
-				label: Spectral
-				value: Spectral
-			-
-				label: Source Sans Pro
-				value: Source Sans Pro
-	-
-		id: body-weight
-		title: Body text weight
-		description: The boldness of body text. For high resolution displays I recommend 300 or 400.
-		type: variable-number-slider
-		default: 400
-		min: 200
-		max: 800
-		step: 100
-	-
-		id: bold-weight
-		title: Bold text weight
-		description: The boldness of **bold** text. I recommend 600 or 700.
-		type: variable-number-slider
-		default: 600
-		min: 200
-		max: 800
-		step: 100
-	-
-		id: line-height-body
-		title: Body line height
-		description: Height of each line in a multi-line passage. Obsidian default is 1.5.
-		type: variable-number-slider
-		default: 1.45
-		min: 1.00
-		max: 2.00
-		step: 0.05
-	-
-		id: link-font
-		title: Link font
-		description: The font for links
-		type: class-select
-		default: ss-links-sc
-		options:
-			-
-				label: Alegreya SC
-				value: ss-links-sc
-			-
-				label: Spectral (Serif)
-				value: ss-links-spectral
-			-
-				label: Source Sans Pro
-				value: ss-links-sans
-	-
-		id: blockquote
-		title: Blockquotes
-		description: How all blockquotes should look
-		type: class-select
-		default: blockquote-plain
-		options:
-			-
-				label: Plain box
-				value: blockquote-plain
-			-
-				label: Big with top border
-				value: blockquote-bustle
-			-
-				label: Neuomorphic soft shadows
-				value: blockquote-neuomorphic
-	-
-		id: callout-style
-		title: Callout style
-		type: class-select
-		default: callout-border-gradient
-		options:
-			-
-				label: Obsidian default
-				value: callout-default
-			-
-				label: Icon only
-				value: callout-icon-only
-			-
-				label: Icon and gradient border
-				value: callout-border-gradient
-	-
-		id: alignment
-		title: Alignment
-		description: How all text is aligned
-		type: class-select
-		default: align-left
-		options:
-			-
-				label: Left
-				value: align-left
-			-
-				label: Justified
-				value: align-justified
-	*/
-/* Change inline mhchem equations font to better blend with the text */
-.mathjax-font-typomagical mjx-container mjx-math mjx-texatom {
-  font-family: var(--default-font);
-}
-
-/*
-	Ligatures
-	No class is needed for all-ligatures, because ligatures are enabled by default.
-*/
-body {
-  font-variant-ligatures: none;
-}
-
-body.css-settings-manager.body-ligatures {
-  font-variant-ligatures: common-ligatures;
-  font-feature-settings: "liga";
-}
-
-.ordinary-ol .markdown-source-view.mod-cm6 .cm-formatting-list-ol,
-.ordinary-ol ol li::marker {
-  font-family: var(--default-font);
-}
-
-.cm-content .cm-line,
-.ͼ1 .cm-scroller,
-.markdown-preview-view {
-  line-height: var(--line-height-body);
-}
-
-.align-justified p {
-  text-align: justify;
-}
-
-.is-mobile .markdown-rendered .heading-collapse-indicator {
-  margin-left: -30px;
-  transform: translateX(6px);
-}
-
-/* @settings
-
-name: Typomagical Colour
-id: typomagical-colour
-settings:
-	-
-		id: theme-variant
-		title: Theme variant
-		description: Palette swaps. Don't see one you like? Let me know on forum.obsidian.md/u/hungsu!
-		type: class-select
-		allowEmpty: false
-		default: obsidian
-		options:
-			-
-				label: Obsidian
-				value: obsidian
-			-
-				label: Ficus Ruby
-				value: ficus-ruby
-			-
-				label: Vileplume
-				value: vileplume
-			-
-				label: Obsidian High Contrast
-				value: obsidian-high-contrast
-	-
-		id: background-color-enable
-		title: Allow Background color override
-		description: The next setting will work when this is on
-		type: class-toggle
-	-
-		id: background-color
-		title: Background color
-		description: Overwrite background color with one of your choice
-		type: variable-color
-		opacity: false
-		format: hex
-		default: '#000000'
-	*/
 /* Same as Obsidian's default triangle but with #C94458 as fill colour. https://yoksel.github.io/url-encoder/ */
 .ficus-ruby .dropdown {
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='292.4' height='292.4'%3E%3Cpath fill='%23C94458' d='M287 69.4a17.6 17.6 0 0 0-13-5.4H18.4c-5 0-9.3 1.8-12.9 5.4A17.6 17.6 0 0 0 0 82.2c0 5 1.8 9.3 5.4 12.9l128 127.9c3.6 3.6 7.8 5.4 12.8 5.4s9.2-1.8 12.8-5.4L287 95c3.5-3.5 5.4-7.8 5.4-12.8 0-5-1.9-9.2-5.5-12.8z'/%3E%3C/svg%3E%0A");
-}
-
-.background-color-enable.background-color-enable.background-color-enable {
-  --background-primary: var(--background-color) ;
 }
 
 body.ficus-ruby.theme-light {
@@ -1245,6 +1048,372 @@ body.ficus-ruby.theme-dark .status-bar {
   border-top: 2px solid var(--background-secondary-alt);
 }
 
+/* Calendar by liamcain START */
+#calendar-container {
+  --color-background-today: var(--link-color);
+}
+#calendar-container .active .dot-container svg {
+  fill: white;
+}
+
+#calendar-container h3.title {
+  font-family: var(--font-title);
+}
+
+#calendar-container .year {
+  color: var(--text);
+  letter-spacing: -0.05em;
+}
+
+#calendar-container .month {
+  font-weight: 700;
+}
+
+#calendar-container .today {
+  font-style: italic;
+}
+
+#calendar-container .today:not(.active) {
+  color: var(--color-text-day);
+  box-shadow: inset 0 0 1px var(--link-color);
+}
+
+#calendar-container .reset-button {
+  color: var(--link-color);
+  text-transform: initial;
+  font-family: "Alegreya SC";
+  font-size: 0.9em;
+  font-weight: 500;
+}
+
+/* Calendar END */
+ul.dataview-ul {
+  list-style: none;
+  padding-inline-start: 0;
+  margin-block-start: 0.5em;
+  margin-block-end: 0.5em;
+}
+
+.dataview.inline-field-value,
+.dataview.inline-field-key {
+  font-family: var(--font-text);
+  padding: 0;
+  background-color: transparent;
+}
+
+.dataview.inline-field-value::before {
+  content: "·";
+  color: var(--text-muted);
+  padding: 0 var(--size-4-1);
+}
+
+body {
+  --font-default: "Spectral", -apple-system, BlinkMacSystemFont, "Segoe UI",
+  	"Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", serif;
+  --font-text-theme: var(--font-default);
+  --link-unresolved-color: #d5aecf;
+  --link-unresolved-opacity: 1;
+  --link-external-decoration: none;
+  --link-external-decoration-hover: underline;
+  --tag-color: #eeb662;
+  --tag-color-hover: #f7d865;
+  --code-normal: #62d770;
+  --link-decoration: none;
+  --modal-height: 75vh;
+  --line-height-body: 1.45;
+}
+
+.theme-light {
+  --code-normal: #4db95a;
+  --link-external-color: #2f9bb7;
+  --link-external-color-hover: rgb(72, 191, 224);
+  --tag-color: var(--text-normal);
+  --tag-color-hover: var(--text-normal);
+  --tag-background: #eeb662;
+  --tag-background-hover: #f7d865;
+}
+
+.theme-dark {
+  --accent-l: 79%;
+  --link-external-color: #7fcae6;
+  --link-external-color-hover: #89ebe5;
+}
+
+body {
+  font-weight: var(--body-weight);
+}
+
+b,
+.cm-s-obsidian .cm-strong {
+  font-weight: 600;
+  font-weight: var(--bold-weight);
+}
+
+.markdown-preview-view hr {
+  border-width: 1px 0 0;
+  border-style: dotted;
+}
+
+/* GRAPH */
+.theme-light .graph-view.color-fill-tag {
+  color: #e07d1a;
+}
+
+.theme-dark .graph-view.color-fill-tag {
+  color: #df964e;
+}
+
+.theme-light .graph-view.color-fill-attachment {
+  color: #2f9bb7;
+}
+
+.theme-dark .graph-view.color-fill-attachment {
+  color: #7fcae6;
+}
+
+.markdown-preview-section iframe {
+  width: 100%;
+}
+
+/* Wrap long nav text*/
+.nav-file-title,
+.nav-folder-title,
+.nav-file-title-content:not(.mk-tree-text),
+.nav-folder-title-content {
+  white-space: normal;
+  width: auto;
+}
+
+/* @settings
+
+name: Typomagical Text
+id: typomagical-text
+settings:
+	-
+		id: body-ligatures
+		title: Text Ligatures
+		description: Decorative conjoined characters, such as the "ffi" in "office" and "ft" in "often".
+		type: class-toggle
+	-
+		id: mjx-font
+		title: MathJax font
+		description: Font for MathJax e.g. $inline equation$ and $$centered equation$$
+		type: class-select
+		default: mathjax-font-default
+		options:
+			-
+				label: MJXZERO, MJXTEX (Obsidian Default)
+				value: mathjax-font-default
+			-
+				label: Spectral
+				value: mathjax-font-typomagical
+	-
+		id: ordered-lists
+		title: List numbers
+		description: Whether numerical lists should have circled, or ordinary numbers
+		type: class-select
+		default: circled-ol
+		options:
+			-
+				label: Circled
+				value: circled-ol
+			-
+				label: Ordinary
+				value: ordinary-ol
+	-
+		id: font-default
+		title: Body font
+		description: The font for body
+		type: variable-select
+		default: Spectral
+		options:
+			-
+				label: Spectral
+				value: Spectral
+			-
+				label: Source Sans Pro
+				value: Source Sans Pro
+	-
+		id: body-weight
+		title: Body text weight
+		description: The boldness of body text. For high resolution displays I recommend 300 or 400.
+		type: variable-number-slider
+		default: 400
+		min: 200
+		max: 800
+		step: 100
+	-
+		id: bold-weight
+		title: Bold text weight
+		description: The boldness of **bold** text. I recommend 600 or 700.
+		type: variable-number-slider
+		default: 600
+		min: 200
+		max: 800
+		step: 100
+	-
+		id: line-height-body
+		title: Body line height
+		description: Height of each line in a multi-line passage. Obsidian default is 1.5.
+		type: variable-number-slider
+		default: 1.45
+		min: 1.00
+		max: 2.00
+		step: 0.05
+	-
+		id: link-font
+		title: Link font
+		description: The font for links
+		type: class-select
+		default: ss-links-sc
+		options:
+			-
+				label: Alegreya SC
+				value: ss-links-sc
+			-
+				label: Spectral (Serif)
+				value: ss-links-spectral
+			-
+				label: Source Sans Pro
+				value: ss-links-sans
+	-
+		id: blockquote
+		title: Blockquotes
+		description: How all blockquotes should look
+		type: class-select
+		default: blockquote-plain
+		options:
+			-
+				label: Plain box
+				value: blockquote-plain
+			-
+				label: Big with top border
+				value: blockquote-bustle
+			-
+				label: Neuomorphic soft shadows
+				value: blockquote-neuomorphic
+	-
+		id: callout-style
+		title: Callout style
+		type: class-select
+		default: callout-border-gradient
+		options:
+			-
+				label: Obsidian default
+				value: callout-default
+			-
+				label: Icon only
+				value: callout-icon-only
+			-
+				label: Icon and gradient border
+				value: callout-border-gradient
+	-
+		id: callout-quote-style
+		title: Quote Callout style
+		description: Change [!quote] callouts to magazine style
+		type: class-toggle
+	-
+		id: alignment
+		title: Alignment
+		description: How all text is aligned
+		type: class-select
+		default: align-left
+		options:
+			-
+				label: Left
+				value: align-left
+			-
+				label: Justified
+				value: align-justified
+	-
+		id: ss-hide-external-link-icon
+		title: Hide external link icons
+		type: class-toggle
+	*/
+/* Change inline mhchem equations font to better blend with the text */
+.mathjax-font-typomagical mjx-container mjx-math mjx-texatom {
+  font-family: var(--default-font);
+}
+
+/*
+	Ligatures
+	No class is needed for all-ligatures, because ligatures are enabled by default.
+*/
+body {
+  font-variant-ligatures: none;
+}
+
+body.css-settings-manager.body-ligatures {
+  font-variant-ligatures: common-ligatures;
+  font-feature-settings: "liga";
+}
+
+.ordinary-ol .markdown-source-view.mod-cm6 .cm-formatting-list-ol,
+.ordinary-ol ol li::marker {
+  font-family: var(--default-font);
+}
+
+.cm-content .cm-line,
+.markdown-preview-view {
+  line-height: var(--line-height-body);
+}
+
+.align-justified p {
+  text-align: justify;
+}
+
+.is-mobile .markdown-rendered .heading-collapse-indicator {
+  margin-left: -30px;
+  transform: translateX(6px);
+}
+
+/* @settings
+
+name: Typomagical Colour
+id: typomagical-colour
+settings:
+	-
+		id: theme-variant
+		title: Theme variant
+		description: Palette swaps. Don't see one you like? Let me know on forum.obsidian.md/u/hungsu!
+		type: class-select
+		allowEmpty: false
+		default: obsidian
+		options:
+			-
+				label: Obsidian
+				value: obsidian
+			-
+				label: Ficus Ruby
+				value: ficus-ruby
+			-
+				label: Vileplume
+				value: vileplume
+			-
+				label: Obsidian High Contrast
+				value: obsidian-high-contrast
+	-
+		id: background-color-enable
+		title: Allow Background color override
+		description: The next setting will work when this is on
+		type: class-toggle
+	-
+		id: ss-background-color
+		title: Background color
+		description: Overwrite background color with one of your choice
+		type: variable-color
+		opacity: false
+		format: hex
+		default: '#000000'
+	*/
+.background-color-enable {
+  --ss-background-color: #000000 ;
+}
+
+.background-color-enable.background-color-enable.background-color-enable {
+  --background-primary: var(--ss-background-color) ;
+}
+
 .markdown-source-view.mod-cm6 .cm-gutters {
   background-color: transparent !important;
 }
@@ -1289,9 +1458,7 @@ body.vileplume {
   --inline-code: var(--frost1);
   --code-block: var(--frost1);
   --vim-cursor: var(--orange);
-  --text-selection: var(
-  	--red53
-  );
+  --text-selection: var(--red53);
   /* Annoying - affects both Edit and Preview, but Preview has translucency */
 }
 
