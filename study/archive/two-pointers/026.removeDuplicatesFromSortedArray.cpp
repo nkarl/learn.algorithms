@@ -3,7 +3,6 @@
 /*
  * Remove all duplicates for all elements in a sorted array.
  */
-
 int removeDuplicates(vector<int> &nums) {
     int k= 1;
     for (int i=1; i < nums.size(); ++i) {

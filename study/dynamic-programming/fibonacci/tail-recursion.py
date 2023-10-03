@@ -1,16 +1,15 @@
-# tail recursion practice on the Fibonacci sequence
-
 def fib(n):
-    curr, next = 0, 1
+    ncurr, nnext = 0, 1
     for i in range(2, n+1):
-        curr, next = next, curr + next
-    return next
+        ncurr, nnext = nnext, ncurr + nnext
+    return nnext
 
 
-def fibo(i, n, curr, next):
+# tail recursion practice on the Fibonacci sequence
+def fibo(i, n, ncurr, nnext):
     if i == n:
-        return curr
-    return fibo(i+1, n, next, curr+next)
+        return ncurr
+    return fibo(i+1, n, nnext, ncurr + nnext)
 
 
 def fib2(n):
