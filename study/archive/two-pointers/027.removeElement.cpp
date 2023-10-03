@@ -1,24 +1,25 @@
 #include "../utils.cpp"
 
-using std::swap;
+//using std::swap;
 
 int removeElement(vector<int> &nums, int val) {
     int k= 0;
-    for (int l= 0, c= 0; c < nums.size(); ++c) {
-        printf("for=%d; l=%d\n", c, l);
-        printf("nums[%d]==%d; nums[%d]==%d", c, nums[c], l, nums[l]);
-        if (nums[c] != val) {
-            printf("\tswapping\n");
-            swap(nums[l], nums[c]);
-            printf("\t\t");
-            myPrint(nums);
+    for (int l= 0, i= 0; i < nums.size(); ++i) {
+        //printf("for i=%d; l=%d\n", i, l);
+        //printf("nums[%d]==%d; nums[%d]==%d", i, nums[i], l, nums[l]);
+        if (nums[i] != val) {
+            //printf("\tswapping\n");
+            //swap(nums[l], nums[i]);
+            nums[l]= nums[i];
+            //printf("\t\t");
+            //myPrint(nums);
             ++l;
         }
         else {
-            printf("\n\t\t");
-            myPrint(nums);
+            //printf("\n\t\t");
+            //myPrint(nums);
         }
-        printf("\n");
+        //printf("\n");
         k= l;
     }
     return nums.size() - (nums.size() - k);

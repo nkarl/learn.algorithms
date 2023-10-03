@@ -2,21 +2,21 @@
 
 int removeDuplicates(vector<int> &nums) {
     int k= 1;
-    for (int c= 1; c < nums.size(); ++c) {
-        printf("for=%d; k=%d\n", c, k);
-        printf("nums[%d]==%d; nums[%d]==%d", c, nums[c], k, nums[k]);
-        if (nums[c - 1] != nums[c]) {
-            printf("\tswapping\n");
-            nums[k]= nums[c];
-            printf("\t\t");
-            myPrint(nums);
+    for (int i=1; i < nums.size(); ++i) {
+        //printf("for=%d; k=%d\n", c, k);
+        //printf("nums[%d]==%d; nums[%d]==%d", c, nums[c], k, nums[k]);
+        if (nums[i-1] != nums[i]) {
+            //printf("\tswapping\n");
+            nums[k]= nums[i];
+            //printf("\t\t");
+            //myPrint(nums);
             ++k;
         }
         else {
-            printf("\n\t\t");
-            myPrint(nums);
+            //printf("\n\t\t");
+            //myPrint(nums);
         }
-        printf("\n");
+        //printf("\n");
     }
     return k;
 }
