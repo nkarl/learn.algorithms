@@ -5,8 +5,8 @@ using std::min; using std::string;
  * Check that every string in the vector contains a prefix of length m.
  */
 bool isCommonPrefix(vector<string> &strs, int m) {
-    string prefix = strs[0].substr(0, m);
-    for (auto s: strs) {
+    string prefix= strs[0].substr(0, m);
+    for (auto s : strs) {
         if (s.find(prefix) != 0) return false;
     }
     return true;
@@ -16,7 +16,7 @@ string findCommonPrefix(vector<string> &strs, int lo, int hi) {
     if (lo > hi) {
         return strs[0].substr(0, hi);
     }
-    int mid = lo +(hi -lo) /2;
+    int mid= lo + (hi - lo) / 2;
     if (isCommonPrefix(strs, mid))  return findCommonPrefix(strs, mid+1, hi);
     else                            return findCommonPrefix(strs, lo, mid-1);
 }
@@ -29,9 +29,9 @@ string longestCommonPrefix(vector<string> &strs) {
     /*
      * First, find the shortest string in vector.
      */
-    int shortest = strs[0].size();
-    for (auto s: strs) {
-        shortest = min(shortest, (int)s.size());
+    int shortest= strs[0].size();
+    for (auto s : strs) {
+        shortest= min(shortest, (int)s.size());
     }
 
     /*
@@ -41,23 +41,16 @@ string longestCommonPrefix(vector<string> &strs) {
      * of the shortest.
      */
     return findCommonPrefix(strs, 0, shortest);
-    //int lo = 0; int hi = shortest; int m;
-    //while (lo <= hi) {
-        //m = lo+(hi-lo)/2;
-        //if (isCommonPrefix(strs, m)) lo=m+1;
-        //else                         hi=m-1;
-    //}
-    //return strs[0].substr(0, hi);
 }
 
 /**
  * MAIN ENTRY.
  */
 int main(int argc, char *argv[]) {
-    vector<string> vec1 = {"flow", "flower", "flight"};
-    vector<string> vec2 = {"aaaa", "aaab", "aaac", "aabc"};
-    vector<string> strs = vec2;
-    string         prefix = longestCommonPrefix(strs);
+    vector<string> vec1  = {"flow", "flower", "flight"};
+    vector<string> vec2  = {"aaaa", "aaab", "aaac", "aabc"};
+    vector<string> strs  = vec2;
+    string         prefix= longestCommonPrefix(strs);
     printf("prefix = %s\n", prefix.c_str());
     return 0;
 }
