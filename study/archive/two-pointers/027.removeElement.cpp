@@ -1,10 +1,12 @@
 #include "../utils.cpp"
 
-//using std::swap;
+/*
+ * Remove all elements that match the given value.
+ */
 
 int removeElement(vector<int> &nums, int val) {
     int k= 0;
-    for (int l= 0, i= 0; i < nums.size(); ++i) {
+    for (int l=0, i=0; i < nums.size(); ++i) {
         //printf("for i=%d; l=%d\n", i, l);
         //printf("nums[%d]==%d; nums[%d]==%d", i, nums[i], l, nums[l]);
         if (nums[i] != val) {
