@@ -1,13 +1,11 @@
 #include "../utils.cpp"
 
 bool palindrome(int head, int tail) {
+    // printf("head=%d \ttail=%d\n", head, tail);
     if (head <= tail) {
         return head == tail || head == tail / 10;
     }
-    (tail*= 10)+= head % 10;
-    head/= 10;
-    // printf("head=%d tail=%d\n", head, tail);
-    return palindrome(head, tail);
+    return palindrome(head / 10, (tail * 10) + head % 10);
 }
 
 bool isPalindrome(int x) {
@@ -23,7 +21,7 @@ bool isPalindrome(int x) {
  * MAIN ENTRY.
  */
 int main(int argc, char *argv[]) {
-    vector<int> input= {-10, -121, 1, 121, 123, 124421, 15, 36063};
+    vector<int> input = {-10, -121, 1, 121, 1221, 123, 124421, 15, 36063};
     for (auto x : input) {
         printf("%d\t isPalindrome() -->%s\n", x, (isPalindrome(x) ? "True" : "False"));
     }
