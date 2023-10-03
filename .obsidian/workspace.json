@@ -136,6 +136,14 @@
                 "file": "study/graphs/notes/dfs-strategy.md"
               }
             }
+          },
+          {
+            "id": "30971c94ac8dcf7b",
+            "type": "leaf",
+            "state": {
+              "type": "calendar",
+              "state": {}
+            }
           }
         ]
       }
@@ -157,8 +165,9 @@
   },
   "active": "e438800783e25591",
   "lastOpenFiles": [
-    "study/graphs/Abstract.md",
+    "conflict-files-obsidian-git.md",
     "study/graphs/notes/dfs-strategy.md",
+    "study/graphs/Abstract.md",
     "README.md",
     "dynamic-programming/Abstract.md",
     "TO-DO.md"
