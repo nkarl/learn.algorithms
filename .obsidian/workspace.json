@@ -4,11 +4,11 @@
     "type": "split",
     "children": [
       {
-        "id": "74edc092df6a4f68",
+        "id": "ea4a2feb3e4c6f79",
         "type": "tabs",
         "children": [
           {
-            "id": "e438800783e25591",
+            "id": "d81d987d8ccad929",
             "type": "leaf",
             "state": {
               "type": "markdown",
@@ -163,10 +163,11 @@
       "table-editor-obsidian:Advanced Tables Toolbar": false
     }
   },
-  "active": "e438800783e25591",
+  "active": "d81d987d8ccad929",
   "lastOpenFiles": [
-    "conflict-files-obsidian-git.md",
+    "light.md",
     "study/graphs/notes/dfs-strategy.md",
+    "conflict-files-obsidian-git.md",
     "study/graphs/Abstract.md",
     "README.md",
     "dynamic-programming/Abstract.md",
