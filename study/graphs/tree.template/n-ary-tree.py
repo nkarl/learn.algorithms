@@ -1,11 +1,25 @@
+#############################################################################
+# class definition
+#############################################################################
 class Node:
-    value = None
-    children = []
-
-    def Node(self, value):
+    def __init__(self, value):
         self.value = value
+        self.children = []
+
+    def addOne(self, node):
+        self.children.append(node)
+
+    def addMany(self, nodes):
+        self.children += nodes
+
+    def __str__(self):
+        string = [c.value for c in self.children]
+        return f"value:'{root.value}' children:{string}"
 
 
+#############################################################################
+# tree operations
+#############################################################################
 def find_re(n, target):
     if n is None:
         return None
@@ -19,13 +33,17 @@ def find_re(n, target):
     return None
 
 
-root = None
-
-
-def find(self, target):
+def find(self, root, target):
     if root.value == target.value:
         return root
     return find_re(root, target)
 
 
-root = Node(0)
+#############################################################################
+# test
+#############################################################################
+root = Node('a')
+root.addOne(Node('b0'))
+root.addMany([Node('b1'), Node('b2'), Node('b3'),])
+
+print(root)
