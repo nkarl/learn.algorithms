@@ -3,7 +3,7 @@
 #### We have a problem statement
 
 - Given:
-  - a tree $T$ (*not necessarily binary*), and
+  - an *n-ary* tree $T$, and
   - some node id `id`
 
 - Do:
