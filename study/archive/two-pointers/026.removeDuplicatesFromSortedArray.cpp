@@ -1,7 +1,7 @@
 #include "../utils.cpp"
 
 /*
- * Remove all duplicates for all elements in the array.
+ * Remove all duplicates for all elements in a sorted array.
  */
 
 int removeDuplicates(vector<int> &nums) {
