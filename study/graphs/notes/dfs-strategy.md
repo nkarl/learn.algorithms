@@ -13,7 +13,7 @@
 
 > We never need to enter the scopes of the orphaned descendants $[c_1..c_n]$. In order to relocate them to their new guardian (namely $n_d$), we only need their id's, which can be retrieved from the former guardian $n_{d+1}$.
 >
-> Thus, we have two lexical scopes to work with: the scope of some parent node $n_d$ and that of its child $n_{d+1}$. Our goal is to delete $n_{d+1}$ and sends its chidren to the new guardian $n_d$.
+> Thus, we have two lexical scopes to work with: the scope of some parent node $n_d$ and that of its child $n_{d+1}$. Our goal is to delete $n_{d+1}$ and sends its children to the new guardian $n_d$.
 
 ```mermaid
 flowchart LR
@@ -60,13 +60,25 @@ old -.->|<p style='padding:1em'>after deletion</p>| new
 > 
 > - Matched: we immediately break the recurrence and <u>proceed to achieving the goal</u>:
 >     - return the child's id to the parent's scope, and then
->     - collect and bind its chidren to the new parent.
-> - Matched **NOT**: we *recur depth-first* through the remainder of the tree until hiting the leaf nodes.
+>     - collect and bind its children to the new parent.
+> - Matched **NOT**: we *recur depth-first* through the remainder of the tree until hitting the leaf nodes.
 
 
 #### Finally, we implement the algorithm in a language of choice
 
-```py
+```python
+# class Node
+class Node:
+	children = []
+	def Node(self)
+		pass
+	def remove(self, node)
+		pass
+	def insert(self, node)
+		pass
+	def insert(self, nodes)
+		pass
+
 # recursive
 def deleteRecur(node, id):
     if not node.children:
@@ -89,5 +101,4 @@ def delete(root, id):
 
 #### Final thoughts
 
-It is useful to notice that the delete operation is a side effect of the recurence of id matching.
-
+It is useful to notice that the delete operation is a side effect of the recurrence of id matching.

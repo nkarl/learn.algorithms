@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "dynamic-programming/Abstract.md",
+                "file": "study/graphs/notes/dfs-strategy.md",
                 "mode": "source",
                 "source": false
               }
@@ -93,7 +93,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "dynamic-programming/Abstract.md",
+                "file": "study/graphs/notes/dfs-strategy.md",
                 "collapseAll": true,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -110,7 +110,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "dynamic-programming/Abstract.md",
+                "file": "study/graphs/notes/dfs-strategy.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -133,7 +133,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "dynamic-programming/Abstract.md"
+                "file": "study/graphs/notes/dfs-strategy.md"
               }
             }
           }
@@ -141,7 +141,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300
+    "width": 300,
+    "collapsed": true
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -156,6 +157,8 @@
   },
   "active": "e438800783e25591",
   "lastOpenFiles": [
+    "study/graphs/Abstract.md",
+    "study/graphs/notes/dfs-strategy.md",
     "README.md",
     "dynamic-programming/Abstract.md",
     "TO-DO.md"
