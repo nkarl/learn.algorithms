@@ -32,7 +32,7 @@ int removeElement(vector<int> &nums, int val) {
  */
 int main(int argc, char *argv[]) {
     vector<int> nums= {1, 0, 2, 0, 3};
-    int         val = 3;
+    int         val = 0;
     myPrint(nums);  // before
     int c= removeElement(nums, val);
     myPrint(nums);  // after
