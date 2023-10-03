@@ -1,13 +1,13 @@
 #include "../utils.cpp"
 
-bool palindrome(int lo, int hi) {
-    if (lo <= hi) {
-        return lo == hi || lo == hi / 10;
+bool palindrome(int head, int tail) {
+    if (head <= tail) {
+        return head == tail || head == tail / 10;
     }
-    hi = hi * 10 + lo % 10;
-    lo /= 10;
-    printf("lo=%d hi=%d\n", lo, hi);
-    return palindrome(lo, hi);
+    (tail*= 10)+= head % 10;
+    head/= 10;
+    // printf("head=%d tail=%d\n", head, tail);
+    return palindrome(head, tail);
 }
 
 bool isPalindrome(int x) {
@@ -16,16 +16,7 @@ bool isPalindrome(int x) {
         return false;
     }
 
-    //return palindrome(x, 0);
-    int lo= x, hi= 0;
-    while (lo > hi) {
-        hi= hi * 10 + lo % 10;
-        lo/= 10;
-        printf("lo=%d hi=%d\n", lo, hi);
-    }
-    printf("\tlo=\t%d\thi=\t%d\t", lo, hi);
-
-    return lo == hi || lo == hi / 10;
+    return palindrome(x, 0);
 }
 
 /**
