@@ -45,8 +45,8 @@ void rotate(vector<int> &nums, int k) {
  * MAIN ENTRY.
  */
 int main(int argc, char *argv[]) {
-    vector<int> nums    = {1, 2, 3, 4, 5, 6};
-    int         k_steps = 2;
+    vector<int> nums    = {1, 2, 3, 4, 5, 6, 7};
+    int         k_steps = 3;
     myPrint(nums);  // before
     rotate(nums, k_steps);
     myPrint(nums);  // after
