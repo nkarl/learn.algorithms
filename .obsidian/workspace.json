@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "study/graphs/notes/dfs-strategy.md",
+                "file": "README.md",
                 "mode": "source",
                 "source": false
               }
@@ -93,7 +93,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "study/graphs/notes/dfs-strategy.md",
+                "file": "README.md",
                 "collapseAll": true,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -110,7 +110,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "study/graphs/notes/dfs-strategy.md",
+                "file": "README.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -133,7 +133,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "study/graphs/notes/dfs-strategy.md"
+                "file": "README.md"
               }
             }
           },
@@ -165,8 +165,8 @@
   },
   "active": "d81d987d8ccad929",
   "lastOpenFiles": [
-    "light.md",
     "study/graphs/notes/dfs-strategy.md",
+    "light.md",
     "conflict-files-obsidian-git.md",
     "study/graphs/Abstract.md",
     "README.md",
