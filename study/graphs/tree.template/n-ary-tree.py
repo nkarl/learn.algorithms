@@ -14,36 +14,31 @@ class Node:
 
     def __str__(self):
         string = [c.value for c in self.children]
-        return f"value:'{root.value}' children:{string}"
+        return f"value:'{self.value}'\tchildren:{string}"
 
 
 #############################################################################
 # tree operations
 #############################################################################
-def find_re(n, target):
-    if n is None:
-        return None
-    if n.value == target.value:
+def find(n, target):
+    if n.value == target:
         return n
     found = None
     for c in n.children:
-        found = find_re(c, target)
+        found = find(c, target)
         if found:
             return found
-    return None
-
-
-def find(self, root, target):
-    if root.value == target.value:
-        return root
-    return find_re(root, target)
+    return found
 
 
 #############################################################################
 # test
 #############################################################################
 root = Node('a')
-root.addOne(Node('b0'))
-root.addMany([Node('b1'), Node('b2'), Node('b3'),])
+b0, b1, b2, b3 = Node('b0'), Node('b1'), Node('b2'), Node('b3')
+root.addMany([b0, b1, b2, b3])
+c0, c1, c2, c3 = Node('c0'), Node('c1'), Node('c2'), Node('c3')
+root.children[1].addMany([c0, c1, c2, c3])
 
 print(root)
+print(root.children[1])
