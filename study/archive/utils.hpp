@@ -8,6 +8,7 @@ using std::cout;
 using std::endl;
 using std::string;
 using std::vector;
+using std::swap;
 
 template<typename T>
 void myPrintHelp(T x);

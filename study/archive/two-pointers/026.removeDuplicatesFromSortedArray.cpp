@@ -10,8 +10,8 @@ int removeDuplicates(vector<int> &nums) {
         // printf("nums[%d]==%d; nums[%d]==%d", c, nums[c], k, nums[k]);
         if (nums[i - 1] != nums[i]) {
             // printf("\tswapping\n");
-            swap(nums[k], nums[i]);
-            //nums[k] = nums[i];
+            //swap(nums[k], nums[i]);
+            nums[k] = nums[i];
             // printf("\t\t");
             // myPrint(nums);
             ++k;
