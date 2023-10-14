@@ -33,14 +33,19 @@ def dfs(root: TreeNode):
 
 
 # Recursive DFS, NOTE: INTUITIVE
-def dfs_recursive(n: TreeNode, explored: set):
+def dfs_recursive(n: TreeNode, condition: bool):
     # if top match some condition -> break recurrence
     if n is None:
         return
 
     # additional condition to process here
-    explored.add(n)  # add root to explored
+    # explored.add(n)  # add root to explored
+    matched: bool = eval_condition(condition)
     for c in n.children:
-        if c not in explored:
-            dfs_recursive(c, explored)
+        if condition is not matched:
+            dfs_recursive(c, condition)
     pass
+
+
+def eval_condition(condition: bool) -> bool:
+    return condition

@@ -1,6 +1,6 @@
 ## Problem 1: Delete a node and send its children to its parent
 
-#### We have a problem statement
+### We have a problem statement
 
 - Given:
 	- an *n-ary* tree $T$, and
@@ -9,7 +9,7 @@
 - Do:
 	- delete some node whose id matches `id` and send all of its children to its parent.
 
-#### We first observe that
+### We first observe that
 
 We never need to enter the scopes of the orphaned descendants $[c_1..c_n]$. In order to relocate them to their new guardian (namely $n_d$), we only need their id's, which can be retrieved from the former guardian $n_{d+1}$.
 
@@ -45,11 +45,11 @@ end
 old -.->|<p style='padding:1em'>after deletion</p>| new
 ```
 
-#### Our hypothesis is that
+### Our hypothesis is that
 
 > In the tree $T$ there exists some node $n_d$, and among its children there exists some node $n_{d+1}$ whose id matches `id`.
 
-#### We induce our reasoning as follows
+### We induce our reasoning as follows
 
 First, we assume that $n_{d+1}$ has matching id with `id`.
 
@@ -61,7 +61,7 @@ Because a tree might have many layers of depth (many generations of descendants)
 		- collect and bind its children to the new parent.
 	- Matched **NOT**: we *recur depth-first* through the remainder of the tree until hitting the leaf nodes.
 
-#### Finally, we implement the algorithm in a language of choice
+### Finally, we implement the algorithm in a language of choice
 
 ```python
 # class Node
@@ -96,6 +96,12 @@ def delete(root, id):
     deleteRecur(root, id)
 ```
 
-#### Final thoughts
+### Final thoughts
 
 It is useful to notice that the delete operation is a side effect of the recurrence of id matching.
+
+#### Notes on a tree and a graph
+
+A tree is a constrained graph. It is important to keep in mind that this constraint makes all the difference. Because of the constraint, with a tree <u>we don't need keep an explicit set/list of explored nodes</u>. This is because of the nature of the tree where the leaf nodes are definite ends, i.e. a leaf node is a break condiion and it will never be visited again.
+
+For a graph, nodes might be cyclic. This means additional complexity we have to handle. A node might point to a series of nodes which might end up pointing at itself, i.e. a cycle. This is <u>why we need a set of explored nodes</u>, to keep track of which nodes have been visited.
