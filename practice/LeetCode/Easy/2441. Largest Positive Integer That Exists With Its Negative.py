@@ -8,10 +8,10 @@ def func(nums):
     s = {}
     maxi = -1
     for n in nums:
-        if -n not in s:
-            s[n] = 0
-        else:
+        if -n in s:
             maxi = max(maxi, abs(n))
+        else:
+            s[n] = 0
     return -1 if maxi == -1 else maxi
 
 
