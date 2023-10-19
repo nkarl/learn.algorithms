@@ -1,23 +1,23 @@
 
+# find the maximal sum with a window of size k from an array.
 # s = [3, 5, 2, 1, 7]
 # k = 2
-
-
+# max_sum_window = [3, 5], [1, 7]
 def getMaxSum(arr, k):
-    maxSum = 0
-    windowSum = 0
+    max_sum = 0
+    window_sum = 0
     p = 0
 
     for i in range(len(arr)):
-        windowSum += arr[i]
+        window_sum += arr[i]
 
-        # sliding window; starting at i==2
+        # sliding window; starting at i==k
         if (i + 1 - p) == k:
-            maxSum = max(maxSum, windowSum)
-            windowSum -= arr[p]
+            max_sum = max(max_sum, window_sum)
+            window_sum -= arr[p]
             p += 1
 
-    return maxSum
+    return max_sum
 
 
 # result = getMaxSum(s, k)
