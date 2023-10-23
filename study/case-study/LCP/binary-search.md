@@ -45,9 +45,7 @@ def binary_search(array: [str], lo: int, hi: int) -> str:
 def LCP(array: [str]) -> str:
 	if len(array) == 1:
 		return array[0]
-	shortest = array[0]
-	for s in array:
-		shortest = min(shortest, s)
+	shortest = min(array, key=len)
 	return binary_search(array, 0, shortest)
 
 ```
