@@ -13,9 +13,11 @@
 
 We notice that the array is a collection. We need to find a common point of all elements in this collection. We observe that this is a recurrent activity. This means that it can be broken down into sub-problems.
 
+We also observe that, given the varying lengths of the collection, there must be a string $s$ that is the shortest in length. Any LCP, if exists, must be a prefix of this string $s$. We already have information about this string, both its start and end indices. We can search for an index in this range such that it is the end of our LCP.
+
 ### Our hypothesis is that
 
-The smallest sub-problem is a group of two strings, in which case we compare them directly *to find the shorter string* out of the two. We replicate this process for the remaining sub-problems. Eventually, we will arrive at the shortest string in the entire collection.
+For every index within the length of the starting shortest string, there exists one that terminates the actual LCP.
 
 ### We induce our reasoning as follows
 
