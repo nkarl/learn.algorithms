@@ -22,39 +22,36 @@ For every index within the length of the starting shortest string, there exists 
 ### We induce our reasoning as follows
 
 - If there is *only one string* in the array, then it is the solution because it is the shortest string by itself (a singleton).
-- If there are *two strings* in the array (collection of size 2), then we *compare the two strings* and *find the shorter* of the two.
-- If there are *more than two* strings in the array, we do as follows. We select any two strings, compare them and find the shorter of the two. This is our sub-problem. We repeat this process for all base pairs in the array. Next, we combine the solutions of our sub-problems as pair and make them sub-problems again. We recur until there is only one string left. This is the final solution.
+- If there are *more than one string* in the array, then we check each string and find the minimum length. This is our entry point to the next step.
+- We do a binary search with the start index and end index of the shortest string with the condition that it is the LCP. The condition is abstracted into a separate function, in which we iterate and check that this index is true for all strings in the array.
 
 ### Finally, we implement the algorithm in a language of choice
 
 ```python
-# find the LCP of two strings; checks every character in the two strings, return only the LCP
-def findLCP(s1: str, s2: str):
-	shorter = min(len(s1), len(s2))
-	for i in range(len(shorter)):
-		if s1[i] != s2[i]:
-			return s1[:i]
-	return s1[:shorter]
+def isLCP(array: [str], end: int) -> bool:
+	for s in array:
+		if s.find(array[0][:end]) != 0:
+			return false
+	return true
 
-# divide and conquer the subproblems
-def divide_conquer(array: [str], lo: int, hi: int) -> str:
-	if lo == hi:
-		return array[lo]
+def binary_search(array: [str], lo: int, hi: int) -> str:
+	if lo > hi:
+		return array[0][:hi]
 	mid = lo + (hi - lo) / 2
-	a = divide_conquer(array, lo     , mid)
-	b = divide_conquer(array, mid + 1, hi )
-	return findLCP(a, b)
+	if (isLCP(array, mid)) return binary_search(array, mid + 1, hi)
+	else                   return binary_search(array, lo, mid - 1)
 
 # entry point
 def LCP(array: [str]) -> str:
 	if len(array) == 1:
 		return array[0]
-	return divide_conquer(array)
+	shortest = array[0]
+	for s in array:
+		shortest = min(shortest, s)
+	return binary_search(array, 0, shortest)
 
 ```
 
 ### Final thoughts
 
-There are two possible ways to use the two-pointer technique, each dependent on the implementation of recurrence. For example, many for/while loops use the descending/ascending pointers. Another way the two pointers can move in a for/while loop is they start at opposite end and meet in the middle.
-
-On the other hand, for a recursion, it is best to use the same form as a recursive binary search with low and high pointers.
+This approach puts less stress on the memory stack because only the integer values of indices saved on the stack. The iteration to check for valid string is done as a loop, which is memory efficient.
