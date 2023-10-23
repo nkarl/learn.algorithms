@@ -52,4 +52,4 @@ def LCP(array: [str]) -> str:
 
 ### Final thoughts
 
-This approach puts less stress on the memory stack because only the integer values of indices saved on the stack. The iteration to check for valid string is done as a loop, which is memory efficient.
+This approach puts less stress on the memory stack because only the integer values of indices are saved on the stack. The iteration to check for valid string is done as a loop, which is memory efficient.
