@@ -12,20 +12,20 @@ bool isCommonPrefix(vector<string> &strs, int m) {
     return true;
 }
 
-string findCommonPrefix(vector<string> &strs, int lo, int hi) {
+string findLCP(vector<string> &strs, int lo, int hi) {
     if (lo > hi) {
         return strs[0].substr(0, hi);
     }
     int mid= lo + (hi - lo) / 2;
-    if (isCommonPrefix(strs, mid))  return findCommonPrefix(strs, mid+1, hi);
-    else                            return findCommonPrefix(strs, lo, mid-1);
+    if (isCommonPrefix(strs, mid))  return findLCP(strs, mid+1, hi);
+    else                            return findLCP(strs, lo, mid-1);
 }
 
 /*
  * Longest Common Prefix.
  * Complexity: O(NlogN) Time. O(1) Space on loop, O(NlogN) Space on recursion.
  */
-string longestCommonPrefix(vector<string> &strs) {
+string LCP(vector<string> &strs) {
     /*
      * First, find the shortest string in vector.
      */
@@ -40,7 +40,7 @@ string longestCommonPrefix(vector<string> &strs) {
      * If the common prefix is shorter than mid, we can eliminate the right half
      * of the shortest.
      */
-    return findCommonPrefix(strs, 0, shortest);
+    return findLCP(strs, 0, shortest);
 }
 
 /**
@@ -50,7 +50,7 @@ int main(int argc, char *argv[]) {
     vector<string> vec1  = {"flow", "flower", "flight"};
     vector<string> vec2  = {"aaaa", "aaab", "aaac", "aabc"};
     vector<string> strs  = vec2;
-    string         prefix= longestCommonPrefix(strs);
+    string         prefix= LCP(strs);
     printf("prefix = %s\n", prefix.c_str());
     return 0;
 }

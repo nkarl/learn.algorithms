@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "study/case-study/LCP/divide-conquer.md",
+                "file": "study/case-study/LCP/binary-search.md",
                 "mode": "source",
                 "source": false
               }
@@ -93,7 +93,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "study/case-study/LCP/divide-conquer.md",
+                "file": "study/case-study/LCP/binary-search.md",
                 "collapseAll": true,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -110,7 +110,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "study/case-study/LCP/divide-conquer.md",
+                "file": "study/case-study/LCP/binary-search.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -133,7 +133,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "study/case-study/LCP/divide-conquer.md"
+                "file": "study/case-study/LCP/binary-search.md"
               }
             }
           },
@@ -165,12 +165,13 @@
   },
   "active": "d81d987d8ccad929",
   "lastOpenFiles": [
-    "study/graphs/notes/dfs-strategy.md",
     "study/case-study/LCP/divide-conquer.md",
+    "study/case-study/LCP/binary-search.md",
+    "study/case-study/LCP/Untitled.md",
+    "study/graphs/notes/dfs-strategy.md",
     "templates/case-study.md",
     "templates",
     "Untitled",
-    "study/case-study/LCP/Untitled.md",
     "README.md",
     "study/case-study/LCP",
     "study/case-study",
