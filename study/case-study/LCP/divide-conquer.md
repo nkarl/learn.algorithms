@@ -25,22 +25,24 @@ The smallest sub-problem is a group of two strings, in which case we compare the
 ### Finally, we implement the algorithm in a language of choice
 
 ```python
-# find the LCP of two strings
-def compare(s1: str, s2: str):
+# find the LCP of two strings; checks every character in the two strings, return only the LCP
+def findLCP(s1: str, s2: str):
 	shorter = min(len(s1), len(s2))
 	for i in range(len(shorter)):
 		if s1[i] != s2[i]:
 			return s1[:i]
 	return s1[:shorter]
 
+# divide and conquer the subproblems
 def divide_conquer(array: [str], lo: int, hi: int) -> str:
 	if lo == hi:
 		return array[lo]
 	mid = lo + (hi - lo) / 2
 	a = divide_conquer(array, lo     , mid)
 	b = divide_conquer(array, mid + 1, hi )
-	return compare(a, b)
+	return findLCP(a, b)
 
+# entry point
 def LCP(array: [str]) -> str:
 	if len(array) == 1:
 		return array[0]
@@ -52,4 +54,4 @@ def LCP(array: [str]) -> str:
 
 There are two possible ways to use the two-pointer technique, each dependent on the implementation of recurrence. For example, many for/while loops use the descending/ascending pointers. Another way the two pointers can move in a for/while loop is they start at opposite end and meet in the middle.
 
-On the other hand, for a recursion, the pointers are best used in the same way as a recursive binary search.
+On the other hand, for a recursion, it is best to use the same form as a recursive binary search with low and high pointers.
