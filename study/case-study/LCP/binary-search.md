@@ -14,7 +14,7 @@
 We notice that the array is a collection. We need to find a common prefix substring of all elements in this collection. We observe that this is a recurrent activity. This means that it can be broken down into sub-problems.
 
 We also observe that, given the different lengths of the collection, there must be a string $s$ that is the shortest in length. Any LCP, if exists, must be a prefix of this string $s$. We already have information about this string: the start index and end index. We can search for an index in this range such that it terminates the LCP.
-
+	
 ### Our hypothesis is that
 
 For every index within the length of the starting shortest string, there exists one that terminates the actual LCP.
