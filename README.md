@@ -5,6 +5,7 @@ Have reviewed:
 - Recursion
 	- DFS
 	- Dynamic Programming/Cache Optimization
-- Two-pointers
+- Two Pointers
+- Divide-N-Conquer
 
 Let's do another round of review and then move to the next set of patterns. Remember, the goal is the pattern/the form.
