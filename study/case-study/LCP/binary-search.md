@@ -3,17 +3,17 @@
 ### We have a problem statement
 
 - Given:
-	- some collection of strings of varying lengths.
-	- the collection is in the form of an array.
+	- some collection of strings of different lengths.
+	- the collection is an array.
 
 - Do:
 	- Find the Longest Common Prefix (LCP) of these strings.
 
 ### We first observe that
 
-We notice that the array is a collection. We need to find a common point of all elements in this collection. We observe that this is a recurrent activity. This means that it can be broken down into sub-problems.
+We notice that the array is a collection. We need to find a common prefix substring of all elements in this collection. We observe that this is a recurrent activity. This means that it can be broken down into sub-problems.
 
-We also observe that, given the varying lengths of the collection, there must be a string $s$ that is the shortest in length. Any LCP, if exists, must be a prefix of this string $s$. We already have information about this string, both its start and end indices. We can search for an index in this range such that it is the end of our LCP.
+We also observe that, given the different lengths of the collection, there must be a string $s$ that is the shortest in length. Any LCP, if exists, must be a prefix of this string $s$. We already have information about this string: the start index and end index. We can search for an index in this range such that it terminates the LCP.
 
 ### Our hypothesis is that
 
@@ -24,6 +24,9 @@ For every index within the length of the starting shortest string, there exists 
 - If there is *only one string* in the array, then it is the solution because it is the shortest string by itself (a singleton).
 - If there are *more than one string* in the array, then we check each string and find the minimum length. This is our entry point to the next step.
 - We do a binary search with the start index and end index of the shortest string with the condition that it is the LCP. The condition is abstracted into a separate function, in which we iterate and check that this index is true for all strings in the array.
+	- *Now*, there are two cases for the target index:
+		- `target == 0`: no prefix is found
+		- `0 < target <= shortest`: some prefix exists
 
 ### Finally, we implement the algorithm in a language of choice
 
