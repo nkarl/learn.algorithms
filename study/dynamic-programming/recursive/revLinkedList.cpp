@@ -38,15 +38,15 @@ void postOrder(Node *head) {
 }
 
 void reverseList(Node *head) {
-  Node *n = head;
+  Node *newHead = head;
   Node *nprev = nullptr, *nnext = nullptr;
-  while (n) {
-    nnext = n->next;
-    n->next = nprev;
-    nprev = n;
-    n = nnext;
+  while (newHead) {
+    nnext = newHead->next;
+    newHead->next = nprev;
+    nprev = newHead;
+    newHead = nnext;
   }
-  printList(nprev);
+  //printList(nprev);
 }
 
 Node *reverse(Node *head) {
