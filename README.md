@@ -7,8 +7,8 @@
 - Learned Patterns:
     - Binary Search
     - Recursion
-        - Divide-N-Conquer
         - DFS
+        - Divide-N-Conquer
         - Dynamic Programming/Cache Optimization
     - Two Pointers
 
@@ -23,3 +23,4 @@ Have reviewed:
 	- Dynamic Programming/Cache Optimization
 - Two Pointers
 - Divide-N-Conquer
+
