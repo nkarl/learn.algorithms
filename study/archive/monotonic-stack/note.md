@@ -16,24 +16,33 @@ $$
 $$ $$
 3 < 5 < 4
 $$
-Now, **why** do we use a monotonic stack?
+First, we observe the requirements.
 
-- First, we observe the solution.
-	- $i$ is the lower-bound index. $k$ is the the upper-bound index.
-	- $s_i$ is the lower-bound value. $s_j$ is the upper-bound value.
+- $i$ is the lower-bound index. $k$ is the the upper-bound index.
+- $s_i$ is the lower-bound value. $s_j$ is the upper-bound value.
 - This means that as long as we find $s_k$ we only need to find:
-	- the $s_j$ that is larger than it, and
-	- the $s_i$ that is smaller than it.
-
-First, we need to understand the <u>nature</u> of a monotonic stack. A monotonic stack is either non-*de*creasing or non-*in*creasing. In other words, it is *a sorted stack*.
+	- $s_j$ such that $s_j > s_k$, and
+	- $s_i$ such that $s_i < s_k$.
 
 For the solution, we just need to find the first instance where the condition is met. We don't care about if other solution sets exist. If we use a monotonic stack, condition (1) is automatically checked, which simplifies our solution. We only need to check for (2).
 
-For every element $n$ counting from the end of the array, we push it on the stack. Before we push, we check the stack. If it is not empty, and the top of the stack is less than the element $n$, we <u>keep popping</u> until this is not true. Then, we have our first set of candidates:
+Now, **why** do we use a monotonic stack?
+
+First, we need to understand the <u>nature</u> of a monotonic stack. A monotonic stack is simply *a sorted stack*. Next, we need to figure out which we we want to keep it sorted. *Non-increasing* or *non-decreasing*?
+
+For every element $n$ counting from the end of the array, we push it on the stack. Before we push, we check the stack.
+
+- If the stack:
+	- is not empty, and
+	- its top $< n$, then
+- we <u>keep popping</u> until this is no longer true
+	- In other words, we **maintain the stack to be non-decreasing according to** $\textbf{n}$. <span style='background-color:yellow'>This is our monotonicity</span>.
+ 
+Then, we have our first set of candidates:
 
 1. candidate pair:
-	- *the top of the stack* is our candidate for $s_k$
-	- *this round's* $n$ is our candidate for $s_j$
+	- *the last popped top* is our candidate for $s_k$
+	- we push $n$ to stack, and *as the current top of the stack*, this round's $n$ is our candidate for $s_j$
 	- where $s_k \leq s_j$
 ```python
 for n in nums[::-1]:
@@ -44,7 +53,7 @@ for n in nums[::-1]:
 
 2. In the following rounds of iteration, we just need to find $s_i$.
 	1. if $n < s_k$ we return immediately, because $n$ is our $s_i$.
-	2. otherwise, we continue until we exhaust the iteration. Then, we conclude that no such triplet exist.
+	2. otherwise, we continue until we exhaust the iteration. Then, we conclude that no such triplet exists.
 ```python
 for n in nums[::-1]:
 	if n < sk: # we check for candidate si here
