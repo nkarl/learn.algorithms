@@ -1,4 +1,4 @@
-## 2023-10-29 11:30am
+## 2023-10-29
 ---
 ### New
 
@@ -28,7 +28,7 @@
 		- to check for cycles in a linked list
 
 
-## 2023-10-04 08:00am
+## 2023-10-04
 ---
 
 - Have reviewed:
