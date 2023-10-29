@@ -27,14 +27,14 @@
 	- can move at different speeds (Tortoise and Hare)
 		- to check for cycles in a linked list
 
+
 ## 2023-10-04 08:00am
 ---
 
-Have reviewed:
-
-- Binary Search
-- Recursion
-	- DFS
-	- Dynamic Programming/Cache Optimization
-- Two Pointers
-- Divide-N-Conquer
+- Have reviewed:
+	- Binary Search
+	- Recursion
+		- DFS
+		- Dynamic Programming/Cache Optimization
+	- Two Pointers
+	- Divide-N-Conquer
