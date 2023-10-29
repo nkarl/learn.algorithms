@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "README.md",
+                "file": "study/archive/monotonic-stack/note.md",
                 "mode": "source",
                 "source": false
               }
@@ -93,7 +93,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "README.md",
+                "file": "study/archive/monotonic-stack/note.md",
                 "collapseAll": true,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -110,7 +110,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "README.md",
+                "file": "study/archive/monotonic-stack/note.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -133,7 +133,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "README.md"
+                "file": "study/archive/monotonic-stack/note.md"
               }
             }
           },
@@ -165,6 +165,7 @@
   },
   "active": "b8debe04fd3065f6",
   "lastOpenFiles": [
+    "README.md",
     "study/case-study/LCP/binary-search.md",
     "practice/LeetCode/Medium/0012. Integer to Roman.py",
     "practice/LeetCode/Medium",
@@ -177,7 +178,6 @@
     "study/case-study/LCP/divide-conquer.md",
     "study/graphs/notes/dfs-strategy.md",
     "study/graphs/Abstract.md",
-    "README.md",
     "study/case-study/LCP/Untitled.md",
     "templates/case-study.md",
     "templates",
