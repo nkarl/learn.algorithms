@@ -4,19 +4,15 @@
     "type": "split",
     "children": [
       {
-        "id": "9b28d73c56b12751",
+        "id": "51125940465bb507",
         "type": "tabs",
         "children": [
           {
-            "id": "b8debe04fd3065f6",
+            "id": "c5889a0dd76764b6",
             "type": "leaf",
             "state": {
-              "type": "markdown",
-              "state": {
-                "file": "README.md",
-                "mode": "source",
-                "source": false
-              }
+              "type": "empty",
+              "state": {}
             }
           }
         ]
@@ -93,7 +89,6 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "README.md",
                 "collapseAll": true,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -110,7 +105,6 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "README.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -132,9 +126,7 @@
             "type": "leaf",
             "state": {
               "type": "outline",
-              "state": {
-                "file": "README.md"
-              }
+              "state": {}
             }
           },
           {
@@ -163,10 +155,10 @@
       "table-editor-obsidian:Advanced Tables Toolbar": false
     }
   },
-  "active": "b8debe04fd3065f6",
+  "active": "c5889a0dd76764b6",
   "lastOpenFiles": [
-    "study/archive/monotonic-stack/note.md",
     "README.md",
+    "study/archive/monotonic-stack/note.md",
     "study/case-study/LCP/binary-search.md",
     "practice/LeetCode/Medium/0012. Integer to Roman.py",
     "practice/LeetCode/Medium",

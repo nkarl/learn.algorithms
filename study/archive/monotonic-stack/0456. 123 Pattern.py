@@ -65,5 +65,6 @@ def solution(nums: [int]) -> bool:
 
 ex4 = [3, 5, 0, 3, 4]
 ex5 = [3, 4, 3, 4]
+ex6 = [3, 5, 0, 4, 3]
 # solution(ex4)
-solution(ex5)
+solution(ex6)
