@@ -32,9 +32,9 @@ For every such collections of strings, there is one shortest string among them. 
 
 ```python
 # the check if the terminating index is true for all strings in the collection
-def isLCP(array: [str], end: int) -> bool:
+def isLCP(array: [str], terminating: int) -> bool:
 	for s in array:
-		if s.find(array[0][:end]) != 0:
+		if s.find(array[0][:terminating]) != 0:
 			return false
 	return true
 
