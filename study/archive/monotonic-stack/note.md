@@ -1,4 +1,10 @@
-I have been working on the monotonic stack pattern, and I am struggling to purify the information and reach a pure form of the pattern. I understand the result and requirement. However, the order switching of $j$ and $k$ is a *source of entropy*, which has interfered with the purification process:
+- **The problem**
+	- I have been working on the monotonic stack pattern, and I am struggling to purify the information and abstract out a pure form of the pattern.
+ - The observations
+	 - not seen enough problem variety; so far has only seen one single problem
+		 - problem \#0456, check if the 132 pattern exits in an array.
+
+I understand the result and requirement. However, the order switching of $j$ and $k$ is a *source of entropy*, which has interfered with the purification process. So, let's decompose it and go through it piece-wise to understand it.
 
 $$
 i < \boldsymbol{\color{red}{j}} < k \quad (1)
@@ -24,11 +30,11 @@ First, we observe the requirements.
 	- $s_j$ such that $s_j > s_k$, and
 	- $s_i$ such that $s_i < s_k$.
 
-For the solution, we just need to find the first instance where the condition is met. We don't care about if other solution sets exist. If we use a monotonic stack, condition (1) is automatically checked, which simplifies our solution. We only need to check for (2).
+For the solution, we just need to <u>find the first instance</u> where <u>the condition is met</u>. We don't care about if other solution sets exist. If we use a monotonic stack, condition (1) is automatically checked, which simplifies our solution. We only need to check for (2).
 
 Now, **why** do we use a monotonic stack?
 
-First, we need to understand the <u>nature</u> of a monotonic stack. A monotonic stack is simply *a sorted stack*. Next, we need to figure out which we we want to keep it sorted. *Non-increasing* or *non-decreasing*?
+First, we need to understand the <u>nature</u> of a monotonic stack. A monotonic stack is simply *a sorted stack*. Next, we need to figure out which we we want to keep it sorted. *Non-increasing* or *non-decreasing* or a strict version of either cases?
 
 For every element $n$ counting from the end of the array, we push it on the stack. Before we push, we check the stack.
 
@@ -53,7 +59,7 @@ for n in nums[::-1]:
 
 2. In the following rounds of iteration, we just need to find $s_i$.
 	1. if $n < s_k$ we return immediately, because $n$ is our $s_i$.
-	2. otherwise, we continue until we exhaust the iteration. Then, we conclude that no such triplet exists.
+	2. otherwise, we continue until we exhaust all iterations. Then, we conclude that no such triplet exists.
 ```python
 for n in nums[::-1]:
 	if n < sk: # we check for candidate si here

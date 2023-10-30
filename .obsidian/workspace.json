@@ -11,8 +11,12 @@
             "id": "c5889a0dd76764b6",
             "type": "leaf",
             "state": {
-              "type": "empty",
-              "state": {}
+              "type": "markdown",
+              "state": {
+                "file": "study/case-study/LCP/binary-search.md",
+                "mode": "source",
+                "source": false
+              }
             }
           }
         ]
@@ -89,6 +93,7 @@
             "state": {
               "type": "backlink",
               "state": {
+                "file": "study/case-study/LCP/binary-search.md",
                 "collapseAll": true,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -105,6 +110,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
+                "file": "study/case-study/LCP/binary-search.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -126,7 +132,9 @@
             "type": "leaf",
             "state": {
               "type": "outline",
-              "state": {}
+              "state": {
+                "file": "study/case-study/LCP/binary-search.md"
+              }
             }
           },
           {
@@ -157,9 +165,10 @@
   },
   "active": "c5889a0dd76764b6",
   "lastOpenFiles": [
-    "README.md",
-    "study/archive/monotonic-stack/note.md",
+    "study/case-study/LCP/divide-conquer.md",
     "study/case-study/LCP/binary-search.md",
+    "study/archive/monotonic-stack/note.md",
+    "README.md",
     "practice/LeetCode/Medium/0012. Integer to Roman.py",
     "practice/LeetCode/Medium",
     "0012. Integer to Roman.py",
@@ -168,7 +177,6 @@
     "study/archive/0",
     "study/archive/test.ps1",
     "study/archive/binary-search/014.longestCommonPrefix.py",
-    "study/case-study/LCP/divide-conquer.md",
     "study/graphs/notes/dfs-strategy.md",
     "study/graphs/Abstract.md",
     "study/case-study/LCP/Untitled.md",
