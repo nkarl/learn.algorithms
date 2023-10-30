@@ -51,7 +51,7 @@ def LCP(array: [str]) -> str:
 	if len(array) == 1:
 		return array[0]
 	shortest = min(array, key=len)
-	return binary_search(array, 0, shortest)
+	return binary_search(array, 0, len(shortest))
 
 ```
 
