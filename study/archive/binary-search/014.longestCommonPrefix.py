@@ -27,8 +27,9 @@ def LCP(strs) -> str:
         return strs[0]
     shortest = len(strs[0])
     for s in strs:
-        shortest = min(shortest, len(s))
-    return search(strs, 0, shortest)
+        shortest = min(strs, key=len)
+    return search(strs, 0, len(shortest))
+    return 0
 
 
 LCP(strs)
