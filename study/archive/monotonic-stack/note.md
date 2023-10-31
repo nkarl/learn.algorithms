@@ -16,14 +16,20 @@ $$
 
 | index   | i=0   | <span style='background-color:yellow'>j=1</span>   | 2   | 3   | k=4   |
 | --- | --- | --- | --- | --- | --- |
-|     | $s_i=$ 3   | $s_j=$ 5   | 0   | 3   | $s_k=$ <span style='background-color:yellow'>4</span>   |
+|     | $s_i=$ 2   | $s_j=$ 5   | 0   | 2   | $s_k=$ <span style='background-color:yellow'>3</span>   |
 
 $$
-0 < 1< 4
+\begin{align}
+&i < j < k\\
+&0 < 1 < 4 \\
+\end{align}
 $$
 
 $$
-3 < 5 < 4
+\begin{align}
+& s_i < s_k < s_j \\
+2 \rightarrow 5 \rightarrow 3 \quad \text{where} \quad & 2 < 3 < 5
+\end{align}
 $$
 
 First, we observe the requirements.
@@ -34,7 +40,7 @@ First, we observe the requirements.
 	- $s_j$ such that $s_j > s_k$, and
 	- $s_i$ such that $s_i < s_k$.
 
-For the solution, we must find $s_k$ because both $s_i$ and $s_j$ are dependent on it. In turn, we just need to <u>find the first instance</u> of the solution where <u>the condition is met</u>. We don't care if other solution sets exist. If we use a monotonic stack, condition (1) is automatically checked, which simplifies our solution. We only need to check for (2).
+For the solution, *we must find $s_k$ because both $s_i$ and $s_j$ are dependent on it*. In turn, we just need to <u>find the first instance</u> where the condition is met. We don't care if other solution sets exist. If we use a monotonic stack and iterate in one direction, condition (1) is automatically checked, which simplifies our solution. We only need to check for (2).
 
 Now, **why** do we use a monotonic stack?
 
