@@ -38,7 +38,7 @@ For the solution, we just need to <u>find the first instance</u> where <u>the co
 
 Now, **why** do we use a monotonic stack?
 
-First, we need to understand the <u>nature</u> of a monotonic stack. A monotonic stack is simply *a sorted stack*. Next, we need to figure out which we we want to keep it sorted. *Non-increasing* or *non-decreasing* or a strict version of either cases?
+First, we need to understand the <u>nature</u> of a monotonic stack. A monotonic stack is simply *a sorted stack*. Next, we need to figure out in which way that we want to keep it sorted. *Non-increasing* or *non-decreasing* or a strict version of either cases?
 
 For every element $n$ counting from the end of the array, we push it on the stack. Before we push, we check the stack.
 
