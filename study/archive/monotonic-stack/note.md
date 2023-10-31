@@ -30,7 +30,7 @@ First, we observe the requirements.
 
 - $i$ is the lower-bound index. $k$ is the the upper-bound index.
 - $s_i$ is the lower-bound value. $s_j$ is the upper-bound value.
-- This means that as long as we find $s_k$ we only need to find:
+- This means that **as long as we find $s_k$** we only need to find:
 	- $s_j$ such that $s_j > s_k$, and
 	- $s_i$ such that $s_i < s_k$.
 
