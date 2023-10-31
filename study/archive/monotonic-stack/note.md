@@ -34,7 +34,7 @@ First, we observe the requirements.
 	- $s_j$ such that $s_j > s_k$, and
 	- $s_i$ such that $s_i < s_k$.
 
-For the solution, we just need to <u>find the first instance</u> where <u>the condition is met</u>. We don't care about if other solution sets exist. If we use a monotonic stack, condition (1) is automatically checked, which simplifies our solution. We only need to check for (2).
+For the solution, we must find $s_k$ because both $s_i$ and $s_j$ are dependent on it. In turn, we just need to <u>find the first instance</u> of the solution where <u>the condition is met</u>. We don't care if other solution sets exist. If we use a monotonic stack, condition (1) is automatically checked, which simplifies our solution. We only need to check for (2).
 
 Now, **why** do we use a monotonic stack?
 
@@ -52,11 +52,11 @@ Then, we have our first set of candidates:
 
 1. candidate pair:
 	- *the last popped top* is our candidate for $s_k$
-	- we push $n$ to stack, and *as the current top of the stack*, this round's $n$ is our candidate for $s_j$
+	- we push $n$ to stack, and *as the current top of the stack*, the $n$ *of this round* is our candidate for $s_j$
 	- where $s_k \leq s_j$
 ```python
 for n in nums[::-1]:
-	while stack and stack[-1] < n: # we keep the stack sorted in a non-increasing manner
+	while stack and stack[-1] < n: # we keep the stack ordered in a non-increasing manner
 		sk = stack.pop()
 	stack.append(n)
 ```
@@ -68,7 +68,7 @@ for n in nums[::-1]:
 for n in nums[::-1]:
 	if n < sk: # we check for candidate si here
 		return True
-	while stack and stack[-1] < n: # we keep the stack sorted in a non-increasing manner
+	while stack and stack[-1] < n: # we keep the stack ordered in a non-increasing manner
 		sk = stack.pop()
 	stack.append(n)
 return False
