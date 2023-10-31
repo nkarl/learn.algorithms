@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "study/case-study/LCP/binary-search.md",
+                "file": "study/archive/monotonic-stack/note.md",
                 "mode": "source",
                 "source": false
               }
@@ -93,7 +93,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "study/case-study/LCP/binary-search.md",
+                "file": "study/archive/monotonic-stack/note.md",
                 "collapseAll": true,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -110,7 +110,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "study/case-study/LCP/binary-search.md",
+                "file": "study/archive/monotonic-stack/note.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -133,7 +133,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "study/case-study/LCP/binary-search.md"
+                "file": "study/archive/monotonic-stack/note.md"
               }
             }
           },
@@ -165,10 +165,10 @@
   },
   "active": "c5889a0dd76764b6",
   "lastOpenFiles": [
+    "study/case-study/LCP/binary-search.md",
     "study/archive/monotonic-stack/note.md",
     "practice/LeetCode/Medium/1492. The kth Factor of n.py",
     "study/case-study/LCP/divide-conquer.md",
-    "study/case-study/LCP/binary-search.md",
     "README.md",
     "practice/LeetCode/Medium/0012. Integer to Roman.py",
     "practice/LeetCode/Medium",

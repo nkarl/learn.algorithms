@@ -9,6 +9,7 @@ I understand the result and requirement. However, the order switching of $j$ and
 $$
 i < \boldsymbol{\color{red}{j}} < k \quad (1)
 $$
+
 $$
 s_i < \boldsymbol{s_{\color{red}k}} < s_j \quad (2)
 $$
@@ -19,9 +20,12 @@ $$
 
 $$
 0 < 1< 4
-$$ $$
+$$
+
+$$
 3 < 5 < 4
 $$
+
 First, we observe the requirements.
 
 - $i$ is the lower-bound index. $k$ is the the upper-bound index.
