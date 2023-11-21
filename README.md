@@ -2,16 +2,19 @@ This document catalogues all patterns that I have learned so far. This also work
 
 - **Monotonic Stack**
 	- [[note|the 132 pattern]]
-- **Graphs**
+- **Graphs** (advanced recurrence)
+	- not including trees
 - **Recurrence**
 	- **Divide-N-Conquer**
+		- [[divide-conquer|Longest Common Prefix]]
 	- **Binary Search**
+		- [[binary-search|Longest Common Prefix]]
 	- **DFS**
 		- [[dfs-strategy|DFS strategy for tree]]
 	- BFS
 	- **Dynamic Programming**
 		- optimize for space-time complexity using cache
-- **[[Two-Pointers|Two Pointers]]**
+- **Two-Pointers|Two Pointers**
 	1. *same direction*
 		- **Sliding Window**
 			- to evaluate sub-arrays/sub-strings with *contiguous/consecutive elements*

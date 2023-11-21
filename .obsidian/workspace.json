@@ -25,7 +25,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "study/patterns/Two-Pointers.md",
+                "file": "README.md",
                 "mode": "source",
                 "source": false
               }
@@ -177,11 +177,11 @@
   },
   "active": "7006cef23c6ff7bc",
   "lastOpenFiles": [
-    "study/archive/monotonic-stack/note.md",
+    "study/patterns/Regular Recurrence/Binary Search.md",
     "README.md",
+    "study/archive/monotonic-stack/note.md",
     "study/patterns/Two-Pointers.md",
     "study/graphs/notes/dfs-strategy.md",
-    "study/patterns/Regular Recurrence/Binary Search.md",
     "study/patterns/Regular Recurrence",
     "study/case-study/LCP/binary-search.md",
     "study/case-study/LCP/divide-conquer.md",
