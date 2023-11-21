@@ -8,12 +8,24 @@
         "type": "tabs",
         "children": [
           {
+            "id": "7006cef23c6ff7bc",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "README.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          },
+          {
             "id": "c5889a0dd76764b6",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "study/archive/monotonic-stack/note.md",
+                "file": "study/patterns/Two-Pointers.md",
                 "mode": "source",
                 "source": false
               }
@@ -93,7 +105,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "study/archive/monotonic-stack/note.md",
+                "file": "README.md",
                 "collapseAll": true,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -110,7 +122,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "study/archive/monotonic-stack/note.md",
+                "file": "README.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -133,7 +145,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "study/archive/monotonic-stack/note.md"
+                "file": "README.md"
               }
             }
           },
@@ -163,15 +175,20 @@
       "table-editor-obsidian:Advanced Tables Toolbar": false
     }
   },
-  "active": "c5889a0dd76764b6",
+  "active": "7006cef23c6ff7bc",
   "lastOpenFiles": [
+    "study/patterns/Two-Pointers.md",
     "README.md",
+    "study/graphs/notes/dfs-strategy.md",
+    "study/patterns/Regular Recurrence/Binary Search.md",
+    "study/patterns/Regular Recurrence",
+    "study/case-study/LCP/binary-search.md",
+    "study/case-study/LCP/divide-conquer.md",
+    "study/dynamic-programming/mwis/README.md",
+    "study/archive/monotonic-stack/note.md",
+    "study/patterns",
     "templates/case-study.md",
     "study/graphs/Abstract.md",
-    "study/graphs/notes/dfs-strategy.md",
-    "study/case-study/LCP/divide-conquer.md",
-    "study/case-study/LCP/binary-search.md",
-    "study/archive/monotonic-stack/note.md",
     "practice/LeetCode/Medium/1492. The kth Factor of n.py",
     "practice/LeetCode/Medium/0012. Integer to Roman.py",
     "practice/LeetCode/Medium",
@@ -180,9 +197,7 @@
     "study/archive/test.py",
     "study/archive/0",
     "study/archive/test.ps1",
-    "study/archive/binary-search/014.longestCommonPrefix.py",
     "study/case-study/LCP/Untitled.md",
-    "templates",
     "light.md",
     "conflict-files-obsidian-git.md",
     "dynamic-programming/Abstract.md",
