@@ -4,11 +4,11 @@
     "type": "split",
     "children": [
       {
-        "id": "cddfe87bce2f4ab1",
+        "id": "8f8e6ff877988e72",
         "type": "tabs",
         "children": [
           {
-            "id": "4b1892928fab74dd",
+            "id": "d2779d08355cb174",
             "type": "leaf",
             "state": {
               "type": "empty",
@@ -155,7 +155,7 @@
       "table-editor-obsidian:Advanced Tables Toolbar": false
     }
   },
-  "active": "4b1892928fab74dd",
+  "active": "d2779d08355cb174",
   "lastOpenFiles": [
     "README.md",
     "study/patterns/Regular Recurrence/Binary Search.md",
