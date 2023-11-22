@@ -1,7 +1,7 @@
 This document catalogues all patterns that I have learned so far. This also works as a quick look up table for future references.
 
 > [!important] 
-> <u>Always</u> have *pen and paper* out when solving <u>any</u> problems.
+> <u>Always</u> **have pen and paper out** when solving <u>any</u> problems.
 
 - **Monotonic Stack**
 	- [[note|the 132 pattern]]
